@@ -1,0 +1,142 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ProjectArt from '../../../components/ProjectArt.astro';
+import RaftDemo from '../../../components/RaftDemo';
+import ProductDemo from '../../../components/ProductDemo';
+import { locales, dictionaries, type Locale } from '../../../i18n';
+import { projects } from '../../../data/projects';
+export function getStaticPaths() {
+  return locales.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang, slug: project.id },
+      props: { project },
+    })),
+  );
+}
+const { project } = Astro.props;
+const lang = Astro.params.lang as Locale;
+const t = dictionaries[lang];
+const copy = project.content[lang];
+---
+
+<SiteLayout
+  lang={lang}
+  title={`${project.displayName} — Smartscity`}
+  description={copy.description}
+>
+  <div style={`--project-accent:${project.accent}`}>
+    <section class="project-hero container">
+      <a class="back-link" href={`/${lang}/#projects`}>
+        ← {t.project.back}
+      </a>
+      <div class="project-hero-inner">
+        <div>
+          <p class="eyebrow" style={`color:${project.accent}`}>
+            {copy.category}
+          </p>
+          <h1>{project.displayName}</h1>
+          <p class="project-tagline">{copy.tagline}</p>
+          <div class="project-meta">
+            <span>{copy.status}</span>
+            {project.version && <span>{project.version}</span>}
+          </div>
+        </div>
+        <ProjectArt kind={project.id} lang={lang} />
+      </div>
+    </section>
+    <section class="project-overview container">
+      <div>
+        <p class="eyebrow">{t.project.overview}</p>
+        <h2>{copy.description}</h2>
+      </div>
+      <p>{copy.overview}</p>
+    </section>
+    <section class="detail-section container">
+      <h2>{t.project.capabilities}</h2>
+      <div class="capability-grid">
+        {copy.capabilities.map((cap, i) => (
+          <article class="capability">
+            <span>0{i + 1} /</span>
+            <h3>{cap.title}</h3>
+            <p>{cap.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="detail-section container">
+      <p class="eyebrow">{t.project.workflow}</p>
+      <div class="workflow-strip">
+        {copy.workflow.map((step, i) => (
+          <span>
+            {step}
+            {i < copy.workflow.length - 1 ? ' →' : ''}
+          </span>
+        ))}
+      </div>
+    </section>
+    <section class="detail-section container">
+      <p class="eyebrow">{t.project.demo}</p>
+      <h2>{t.project.illustration}</h2>
+      <div class="project-demo-wrap">
+        {project.id === 'hyperraft' ? (
+          <RaftDemo text={t.raft} client:visible />
+        ) : (
+          <ProductDemo kind={project.id} text={t.demos} client:visible />
+        )}
+      </div>
+    </section>
+    <section class="detail-section container">
+      <p class="eyebrow">{t.project.useCases}</p>
+      <div class="use-cases">
+        {copy.useCases.map((use) => (
+          <span>{use}</span>
+        ))}
+      </div>
+    </section>
+    <div class="container">
+      <section class="getting-started">
+        <h2>{project.repositoryUrl ? t.project.start : copy.status}</h2>
+        <p>{project.repositoryUrl ? t.project.startText : copy.overview}</p>
+        <div class="hero-actions">
+          {project.documentationUrl && (
+            <a class="button" href={project.documentationUrl}>
+              {t.project.docs} ↗
+            </a>
+          )}
+          {project.repositoryUrl && (
+            <a class="text-button" href={project.repositoryUrl}>
+              {t.ecosystem.repository} ↗
+            </a>
+          )}
+          {project.releaseUrl && (
+            <a class="text-button" href={project.releaseUrl}>
+              {t.project.releases} ↗
+            </a>
+          )}
+          {!project.repositoryUrl && (
+            <a class="button" href="https://github.com/smartscity">
+              Smartscity / GitHub ↗
+            </a>
+          )}
+        </div>
+        <p class="project-meta">
+          {t.project.license}: {project.license[lang]}
+        </p>
+        {project.repositoryUrl && <small>{t.project.contribute}</small>}
+      </section>
+    </div>
+    <section class="detail-section container">
+      <h2>{t.project.related}</h2>
+      <div class="related-grid">
+        {projects
+          .filter((p) => p.id !== project.id)
+          .map((p) => (
+            <a class="related-card" href={`/${lang}/projects/${p.id}/`}>
+              {p.displayName}
+              <span>↗</span>
+            </a>
+          ))}
+      </div>
+    </section>
+  </div>
+</SiteLayout>

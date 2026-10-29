@@ -1,0 +1,194 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import NetworkArt from '../../components/NetworkArt.astro';
+import ProjectArt from '../../components/ProjectArt.astro';
+import RaftDemo from '../../components/RaftDemo';
+import { locales, dictionaries, type Locale } from '../../i18n';
+import { projects, verifiedOn } from '../../data/projects';
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Locale;
+const t = dictionaries[lang];
+---
+
+<SiteLayout
+  lang={lang}
+  title={
+    lang === 'en'
+      ? 'Smartscity — Engineering the Foundations of Modern Software'
+      : 'Smartscity 必赢科技 — 筑造现代软件的基石'
+  }
+>
+  <section class="hero container">
+    <div class="hero-main">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          {t.hero.eyebrow}
+        </p>
+        <h1>
+          <span>{t.hero.line1}</span>
+          <span>{t.hero.line2}</span>
+          <span>{t.hero.line3}</span>
+        </h1>
+        <p class="hero-description">{t.hero.description}</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">
+            {t.hero.primary}
+            <span>↗</span>
+          </a>
+          <a class="text-button" href="#about">
+            {t.hero.secondary}
+            <span>→</span>
+          </a>
+        </div>
+        <p class="hero-footnote">{t.hero.footnote}</p>
+      </div>
+      <NetworkArt label={t.hero.diagram} lang={lang} />
+    </div>
+    <div class="hero-bottom">
+      <span>{t.hero.label}</span>
+      <span>
+        HYPERRAFT <i>·</i> POLARBEAR <i>·</i> QUALITYSPHERE <i>·</i> VOCAB
+      </span>
+      <span>{t.hero.signal} ↓</span>
+    </div>
+  </section>
+  <section class="section container" id="projects">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">{t.ecosystem.eyebrow}</p>
+        <h2>{t.ecosystem.title}</h2>
+      </div>
+      <p>{t.ecosystem.description}</p>
+    </div>
+    <div class="project-grid">
+      {projects.map((project, i) => {
+        const copy = project.content[lang];
+        return (
+          <article
+            class="project-card reveal"
+            style={`--project-accent:${project.accent}`}
+          >
+            <div class="card-heading">
+              <span class="card-category">{copy.category}</span>
+              <span class="card-number">0{i + 1}</span>
+            </div>
+            <ProjectArt kind={project.id} lang={lang} />
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3>
+                  <a href={`/${lang}/projects/${project.id}/`}>
+                    {project.displayName}
+                  </a>
+                </h3>
+                <a
+                  href={`/${lang}/projects/${project.id}/`}
+                  aria-label={`${t.ecosystem.details}: ${project.displayName}`}
+                >
+                  <span class="card-arrow">↗</span>
+                </a>
+              </div>
+              <p>{copy.description}</p>
+              <div class="card-footer">
+                <span class="card-tags">
+                  {project.version ||
+                    (lang === 'en' ? 'PROJECT INTRODUCTION' : '项目介绍')}
+                </span>
+                {project.repositoryUrl && (
+                  <a
+                    href={project.repositoryUrl}
+                    aria-label={`${t.ecosystem.repository}: ${project.displayName}`}
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+                <a href={`/${lang}/projects/${project.id}/`}>
+                  {t.ecosystem.details} <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+  <section class="engineering-section" id="engineering">
+    <div class="container engineering-layout">
+      <div class="engineering-copy">
+        <p class="eyebrow">{t.engineering.eyebrow}</p>
+        <h2>{t.engineering.title}</h2>
+        <p>{t.engineering.description}</p>
+        <a class="text-button" href={`/${lang}/projects/hyperraft/`}>
+          {t.ecosystem.details}: HyperRaft <span>↗</span>
+        </a>
+      </div>
+      <div>
+        <p class="eyebrow">{t.engineering.demoLabel}</p>
+        <RaftDemo text={t.raft} client:visible />
+      </div>
+    </div>
+  </section>
+  <section class="principles-section container">
+    <h2>{t.engineering.principlesTitle}</h2>
+    <div class="principles-grid">
+      {t.engineering.principles.map((p, i) => (
+        <article class="principle reveal">
+          <span class="principle-icon" aria-hidden="true">
+            {['↯', '⬡', '⌘', '✳'][i]}
+          </span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="about-section container" id="about">
+    <div>
+      <p class="eyebrow">{t.about.eyebrow}</p>
+      <h2>{t.about.title}</h2>
+    </div>
+    <div>
+      <p>{t.about.description}</p>
+      <p>{t.about.description2}</p>
+      <a class="text-button" href="https://github.com/smartscity">
+        {t.about.cta}
+        <span>↗</span>
+      </a>
+      <small>{t.about.note}</small>
+    </div>
+  </section>
+  <section class="activity-section container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">{t.activity.eyebrow}</p>
+        <h2>{t.activity.title}</h2>
+      </div>
+      <p>{t.activity.description}</p>
+    </div>
+    <div class="activity-table">
+      {projects
+        .filter((p) => p.repositoryUrl)
+        .map((project) => (
+          <div class="activity-row">
+            <h3>{project.displayName}</h3>
+            <span>
+              {project.version} · {project.content[lang].status}
+            </span>
+            <span>{project.license[lang]}</span>
+            <a href={project.repositoryUrl}>{t.activity.source} ↗</a>
+          </div>
+        ))}
+    </div>
+    <span class="activity-date">
+      {t.activity.snapshot}: {verifiedOn}
+    </span>
+    <div class="join-banner">
+      <h2>{t.about.cta}.</h2>
+      <a class="button" href="https://github.com/smartscity">
+        GitHub / Smartscity <span>↗</span>
+      </a>
+    </div>
+  </section>
+</SiteLayout>

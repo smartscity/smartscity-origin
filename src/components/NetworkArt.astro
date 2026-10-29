@@ -1,0 +1,101 @@
+---
+interface Props {
+  label: string;
+  lang?: string;
+}
+const { label, lang = 'en' } = Astro.props;
+const dots = [
+  [300, 220],
+  [130, 135],
+  [465, 120],
+  [500, 310],
+  [175, 375],
+  [330, 410],
+  [75, 275],
+  [375, 65],
+];
+---
+
+<div class="network-art" data-parallax role="img" aria-label={label}>
+  <div class="network-orbit orbit-one"></div>
+  <div class="network-orbit orbit-two"></div>
+  <svg viewBox="0 0 600 480" aria-hidden="true">
+    <defs>
+      <linearGradient id="wire" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#e6f29a" stop-opacity=".75" />
+        <stop offset="1" stop-color="#89a595" stop-opacity=".18" />
+      </linearGradient>
+      <radialGradient id="hub">
+        <stop stop-color="#dded9f" stop-opacity=".16" />
+        <stop offset="1" stop-color="#dded9f" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <circle cx="300" cy="220" r="190" fill="url(#hub)" />
+    <g class="network-wires" fill="none" stroke="url(#wire)">
+      {dots.slice(1).map(([x, y]) => (
+        <path d={`M300 220 L${x} ${y}`} />
+      ))}
+      <path d="M130 135 L375 65 L465 120 L500 310 L330 410 L175 375 L75 275 Z M130 135 L175 375 M465 120 L330 410 M75 275 L500 310" />
+    </g>
+    <g class="travel-wires" fill="none" stroke="#e6f29a" stroke-width="2">
+      <path d="M130 135 L300 220 L500 310" />
+      <path d="M175 375 L300 220 L465 120" />
+    </g>
+    {dots.map(([x, y], i) => (
+      <g class={`art-node art-node-${i}`}>
+        <circle
+          cx={x}
+          cy={y}
+          r={i === 0 ? 42 : 17}
+          fill="var(--bg)"
+          stroke={i === 0 ? '#dceba6' : '#637367'}
+          stroke-width="1"
+        />
+        <circle
+          cx={x}
+          cy={y}
+          r={i === 0 ? 32 : 10}
+          fill={i === 0 ? '#dceba6' : 'var(--surface)'}
+        />
+        <text
+          x={x}
+          y={y + (i === 0 ? 10 : 4)}
+          text-anchor="middle"
+          fill={i === 0 ? '#182018' : '#a8b9a4'}
+          font-size={i === 0 ? '30' : '11'}
+        >
+          {i === 0 ? '✳' : '+'}
+        </text>
+      </g>
+    ))}
+    <g
+      class="network-labels"
+      font-family="monospace"
+      font-size="10"
+      fill="var(--muted)"
+    >
+      <text x="80" y="100">
+        HYPERRAFT
+      </text>
+      <text x="433" y="82">
+        POLARBEAR
+      </text>
+      <text x="425" y="356">
+        QUALITYSPHERE
+      </text>
+      <text x="90" y="425">
+        POLARBEAR VOCAB
+      </text>
+      <text x="264" y="286" fill="var(--text)">
+        SMARTSCITY
+      </text>
+    </g>
+  </svg>
+  <div class="art-coordinate coordinate-top">
+    {lang === 'zh-CN' ? '系统 01 / 开放网络' : 'SYS. 01 / OPEN NETWORK'}
+  </div>
+  <div class="art-coordinate coordinate-bottom">
+    <span class="status-dot"></span>{' '}
+    {lang === 'zh-CN' ? '因设计而连接' : 'CONNECTED BY DESIGN'}
+  </div>
+</div>

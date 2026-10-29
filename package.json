@@ -1,0 +1,50 @@
+{
+  "name": "smartscity-origin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check:links": "node scripts/check-links.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "audit:lighthouse": "node scripts/lighthouse.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.4",
+    "@astrojs/react": "^7.1.2",
+    "@astrojs/sitemap": "*",
+    "@tailwindcss/vite": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "motion": "^12.0.0",
+    "lucide-react": "*"
+  },
+  "devDependencies": {
+    "@astrojs/check": "*",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@playwright/test": "*",
+    "@axe-core/playwright": "*",
+    "typescript": "^5.9.0",
+    "vitest": "*",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "eslint-plugin-astro": "*",
+    "prettier": "*",
+    "prettier-plugin-astro": "*",
+    "lighthouse": "*"
+  }
+}

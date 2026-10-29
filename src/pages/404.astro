@@ -1,0 +1,20 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { dictionaries } from '../i18n';
+const t = dictionaries.en;
+---
+
+<SiteLayout lang="en" title="Page not found — Smartscity" noindex>
+  <section class="prose-page container">
+    <p class="eyebrow">404 / NOT FOUND</p>
+    <h1>{t.notFound.title}</h1>
+    <p>{t.notFound.description}</p>
+    <a class="button" href="/en/">
+      {t.notFound.cta} →
+    </a>
+    <p lang="zh-CN" style="margin-top:40px">
+      {dictionaries['zh-CN'].notFound.description}{' '}
+      <a href="/zh-CN/">{dictionaries['zh-CN'].notFound.cta} →</a>
+    </p>
+  </section>
+</SiteLayout>

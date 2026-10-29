@@ -1,0 +1,84 @@
+---
+const { kind, lang = 'en' } = Astro.props;
+const zh = lang === 'zh-CN';
+---
+
+<div class={`project-art art-${kind}`} aria-hidden="true">
+  {kind === 'hyperraft' && (
+    <div class="mini-consensus">
+      <span class="mini-node">L</span>
+      <i class="mini-link" />
+      <div class="mini-followers">
+        <span class="mini-node">A</span>
+        <span class="mini-node">B</span>
+      </div>
+      <div class="mini-log">
+        {zh ? '追加 → 复制 → 提交' : 'APPEND → REPLICATE → COMMIT'}
+      </div>
+    </div>
+  )}
+  {kind === 'polarbear' && (
+    <div class="mini-editor">
+      <div class="mini-window">
+        <i />
+        <i />
+        <i />
+        <span>notes / a fresh page.md</span>
+      </div>
+      <div class="mini-editor-content">
+        <span class="mini-sidebar">
+          ◫<br />
+          <br />☰<br />
+          <br />⌕
+        </span>
+        <div>
+          <small>{zh ? '为新想法留出空间' : 'ROOM FOR A NEW IDEA'}</small>
+          <h4>
+            {zh ? '让思绪' : 'Make space'}
+            <br />
+            {zh ? '自在生长。' : 'for your mind.'}
+          </h4>
+          <i />
+          <i />
+          <i />
+        </div>
+      </div>
+    </div>
+  )}
+  {kind === 'qualitysphere' && (
+    <div class="mini-pipeline">
+      <div>
+        <span>01</span>
+        <i />
+        <span>02</span>
+        <i />
+        <span>03</span>
+      </div>
+      <p>
+        <b>✓</b>{' '}
+        {zh ? '每一份结果，都有据可依。' : 'Every result tells a story.'}
+      </p>
+      <div class="result-lines">
+        <i />
+        <i />
+        <i />
+      </div>
+    </div>
+  )}
+  {kind === 'polarbear-vocab' && (
+    <div class="mini-words">
+      <div class="word-back"></div>
+      <div class="word-front">
+        <small>{zh ? '发现新知的一刻' : 'A MOMENT OF DISCOVERY'}</small>
+        <span>
+          serendipity<span>✳</span>
+        </span>
+        <em>/ˌser.ənˈdɪp.ə.ti/</em>
+        <hr />
+        <p>
+          {zh ? '总有一些词，值得记住。' : 'Some words just stay with you.'}
+        </p>
+      </div>
+    </div>
+  )}
+</div>

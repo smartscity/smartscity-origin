@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "engineering": "Engineering",
+    "about": "About",
+    "github": "GitHub",
+    "menu": "Open navigation",
+    "theme": "Change color theme",
+    "language": "中文",
+    "skip": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "INDEPENDENT THINKING. OPEN SOURCE.",
+    "line1": "Engineering",
+    "line2": "the foundations",
+    "line3": "of what’s next.",
+    "description": "High-performance infrastructure. Reliable distributed systems. Thoughtfully crafted developer tools.",
+    "primary": "Explore the ecosystem",
+    "secondary": "Meet Smartscity",
+    "footnote": "Built with conviction. Shared with the world.",
+    "diagram": "A connected network representing the Smartscity ecosystem",
+    "signal": "IDEAS → SYSTEMS → IMPACT",
+    "label": "THE SMARTSCITY ECOSYSTEM"
+  },
+  "ecosystem": {
+    "eyebrow": "01 / THE ECOSYSTEM",
+    "title": "Different challenges.\nOne engineering mindset.",
+    "description": "From the systems beneath your software to the tools behind your thinking. Explore what we’re building in the open.",
+    "details": "Explore project",
+    "repository": "Source on GitHub",
+    "all": "Four projects. A shared foundation.",
+    "infrastructure": "DISTRIBUTED INFRASTRUCTURE",
+    "workspace": "A PLACE FOR YOUR WORDS",
+    "quality": "ENGINEERING CONFIDENCE",
+    "vocab": "WORDS THAT STAY WITH YOU"
+  },
+  "engineering": {
+    "eyebrow": "02 / ENGINEERING IN MOTION",
+    "title": "Trust is built.\nOne agreement at a time.",
+    "description": "A distributed system makes progress when its nodes agree. Step through a simplified Raft replication cycle and see when a log entry becomes committed.",
+    "demoLabel": "INTERACTIVE CONCEPT / RAFT",
+    "principlesTitle": "The details make the difference.",
+    "principles": [
+      {
+        "title": "Performance",
+        "text": "Efficiency designed into the critical path. Measure first, then make every operation count."
+      },
+      {
+        "title": "Reliability",
+        "text": "Design for interruptions, recovery, and the conditions that happy-path demos leave out."
+      },
+      {
+        "title": "Correctness",
+        "text": "Make guarantees explicit. Verify the boundaries, not just the expected outcomes."
+      },
+      {
+        "title": "Developer experience",
+        "text": "Powerful ideas deserve clear interfaces. Make the right path approachable."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "03 / BEHIND THE CODE",
+    "title": "Serious about systems.\nThoughtful about people.",
+    "description": "We’re Smartscity — 必赢科技. We build software with a belief that robust foundations and considered tools help people do their best work.",
+    "description2": "Our open-source projects connect two worlds: the infrastructure that keeps software moving, and the everyday tools that help ideas take shape.",
+    "cta": "Build alongside us",
+    "note": "Explore the code. Ask a question. Make a contribution."
+  },
+  "activity": {
+    "eyebrow": "FROM THE REPOSITORIES",
+    "title": "Open code. Open possibilities.",
+    "description": "Explore source, documentation, and releases directly on GitHub.",
+    "snapshot": "Repository information verified",
+    "license": "License",
+    "source": "Browse source",
+    "releases": "Releases",
+    "status": "Status"
+  },
+  "footer": {
+    "tagline": "Engineering the foundations of modern software.",
+    "company": "必赢科技 · Smartscity",
+    "privacy": "Privacy",
+    "copyright": "Built in the open. Made with intention.",
+    "back": "Back to top"
+  },
+  "project": {
+    "back": "All projects",
+    "overview": "THE IDEA",
+    "capabilities": "What’s inside",
+    "workflow": "HOW IT FITS TOGETHER",
+    "demo": "EXPLORE THE CONCEPT",
+    "illustration": "Illustrative demo · local sample data",
+    "start": "Start with the source.",
+    "startText": "Read the project documentation for supported environments, installation instructions, and current limitations.",
+    "docs": "Read documentation",
+    "releases": "View releases",
+    "related": "Keep exploring.",
+    "useCases": "MADE FOR",
+    "status": "Project status",
+    "license": "License",
+    "contribute": "Contributions begin with a conversation. Read the repository guidance and open an issue before proposing a large change."
+  },
+  "raft": {
+    "leader": "Leader",
+    "follower": "Follower",
+    "propose": "1. Propose entry",
+    "replicate": "2. Replicate & acknowledge",
+    "commit": "3. Advance commit index",
+    "reset": "Reset cycle",
+    "idle": "Ready to propose a new entry.",
+    "appended": "The leader has appended entry 1 in the current term. It is not committed yet.",
+    "acknowledged": "Follower A has acknowledged entry 1. With the leader, a majority of 2/3 has replicated it.",
+    "committed": "The leader advances commitIndex to 1, then notifies followers. Follower B catches up.",
+    "index": "Commit index",
+    "term": "TERM 1",
+    "ack": "ACK",
+    "pending": "PENDING",
+    "done": "COMMITTED",
+    "assumptions": "Conceptual model: fixed leader, one current-term entry, three healthy nodes. Elections, disk persistence, retries, and network failures are omitted. This is not a running HyperRaft cluster."
+  },
+  "demos": {
+    "preview": "Illustrative preview",
+    "notes": "Your workspace",
+    "noteTitle": "A little room to think.",
+    "noteText": "Good tools leave space for the work. Capture an idea, shape a thought, and keep your words close.",
+    "read": "Read",
+    "write": "Write",
+    "draft": "Draft a thought…",
+    "local": "This sample stays in this page and is not saved.",
+    "run": "Run sample flow",
+    "reset": "Reset",
+    "pipeline": ["Define", "Schedule", "Execute", "Results", "Review"],
+    "pipelineNote": "Illustration of an engineering workflow, not proof of implemented orchestration features.",
+    "complete": "Sample flow complete",
+    "ready": "Ready to explore",
+    "reveal": "Reveal meaning",
+    "next": "Next word",
+    "wordLabel": "A WORD WORTH KEEPING",
+    "word": "serendipity",
+    "phonetic": "/ˌser.ənˈdɪp.ə.ti/",
+    "definition": "The quiet joy of finding something good when you were looking for something else.",
+    "example": "An unexpected conversation sparked a new idea.",
+    "word2": "resilience",
+    "phonetic2": "/rɪˈzɪl.i.əns/",
+    "definition2": "The ability to recover and keep going after a difficult moment.",
+    "example2": "A thoughtful design makes room for recovery."
+  },
+  "privacy": {
+    "title": "A quieter corner of the internet.",
+    "description": "This portal does not use visitor analytics, advertising cookies, or a visitor-facing GitHub API. Your color-theme preference is stored locally in your browser. Demonstration inputs are not sent to a server. Hosting providers may process standard request logs. External GitHub links follow GitHub’s privacy policy."
+  },
+  "notFound": {
+    "title": "This path leads somewhere else.",
+    "description": "The page you’re looking for isn’t here. Let’s get you back to the ecosystem.",
+    "cta": "Back to the homepage"
+  }
+}

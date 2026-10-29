@@ -1,0 +1,260 @@
+---
+import '../styles/global.css';
+import { dictionaries, alternatePath, type Locale } from '../i18n';
+interface Props {
+  lang: Locale;
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const {
+  lang,
+  title = 'Smartscity — Engineering the Foundations of Modern Software',
+  description,
+  noindex = false,
+} = Astro.props;
+const t = dictionaries[lang];
+const path = Astro.url.pathname;
+const localePath = noindex ? '/' : path;
+const other = lang === 'en' ? 'zh-CN' : 'en';
+const canonical = new URL(path, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description || t.hero.description} />
+    <meta name="theme-color" content="#10120f" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={new URL(alternatePath(localePath, 'en'), Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href={new URL(alternatePath(localePath, 'zh-CN'), Astro.site)}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(alternatePath(localePath, 'en'), Astro.site)}
+    />
+    <link rel="icon" type="image/png" href="/images/smartscity.png" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content={description || t.hero.description}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL('/images/social.png', Astro.site)}
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_CN'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={description || t.hero.description}
+    />
+    <meta
+      name="twitter:image"
+      content={new URL('/images/social.png', Astro.site)}
+    />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('smartscity-theme');
+        document.documentElement.dataset.theme =
+          t === 'light' || t === 'dark'
+            ? t
+            : matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark';
+      } catch {
+        /* Storage may be unavailable. */
+      }
+    </script>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Smartscity',
+        alternateName: '必赢科技',
+        url: 'https://www.smartscity.com',
+        logo: 'https://www.smartscity.com/images/smartscity.png',
+        sameAs: ['https://github.com/smartscity'],
+      })}
+    />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">
+      {t.nav.skip}
+    </a>
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href={`/${lang}/`} aria-label="Smartscity">
+          <img src="/images/smartscity.png" width="32" height="32" alt="" />
+          <span>
+            smartscity<span class="brand-dot">®</span>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label={t.nav.menu}>
+          <a
+            href={`/${lang}/`}
+            aria-current={path === `/${lang}/` ? 'page' : undefined}
+          >
+            {t.nav.home}
+          </a>
+          <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
+          <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
+          <a href={`/${lang}/#about`}>{t.nav.about}</a>
+        </nav>
+        <div class="nav-actions">
+          <a
+            class="language-switch"
+            href={alternatePath(localePath, other)}
+            lang={other}
+          >
+            {t.nav.language}
+          </a>
+          <button
+            class="theme-toggle icon-button"
+            aria-label={t.nav.theme}
+            title={t.nav.theme}
+          >
+            ◐
+          </button>
+          <a class="github-nav" href="https://github.com/smartscity">
+            GitHub <span>↗</span>
+          </a>
+          <button
+            class="menu-toggle icon-button"
+            aria-label={t.nav.menu}
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" aria-label={t.nav.menu} hidden>
+        <a href={`/${lang}/`}>{t.nav.home}</a>
+        <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
+        <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
+        <a href={`/${lang}/#about`}>{t.nav.about}</a>
+        <a href="https://github.com/smartscity">GitHub ↗</a>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer container">
+      <div class="footer-top">
+        <a class="brand" href={`/${lang}/`}>
+          <img src="/images/smartscity.png" width="32" height="32" alt="" />
+          <span>smartscity</span>
+        </a>
+        <p>{t.footer.tagline}</p>
+        <a href="#top">{t.footer.back} ↑</a>
+      </div>
+      <div class="footer-bottom">
+        <span>
+          © {new Date().getUTCFullYear()} {t.footer.company}
+        </span>
+        <span>{t.footer.copyright}</span>
+        <div>
+          <a href="https://github.com/smartscity">GitHub ↗</a>
+          <a href={`/${lang}/privacy/`}>{t.footer.privacy}</a>
+          <a href={alternatePath(localePath, other)} lang={other}>
+            {t.nav.language}
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const root = document.documentElement;
+      const preference = matchMedia('(prefers-color-scheme: light)');
+      preference.addEventListener('change', () => {
+        try {
+          if (!localStorage.getItem('smartscity-theme'))
+            root.dataset.theme = preference.matches ? 'light' : 'dark';
+        } catch {
+          /* Storage can be unavailable. */
+        }
+      });
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('smartscity-theme', next);
+        } catch {
+          /* Keep the in-memory preference. */
+        }
+      });
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-nav');
+      const close = () => {
+        if (menu && toggle) {
+          menu.hidden = true;
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      };
+      toggle?.addEventListener('click', () => {
+        if (menu) {
+          menu.hidden = !menu.hidden;
+          toggle.setAttribute('aria-expanded', String(!menu.hidden));
+        }
+      });
+      menu
+        ?.querySelectorAll('a')
+        .forEach((a) => a.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && !menu.hidden) {
+          close();
+          toggle?.focus();
+        }
+      });
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const visibility = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            entry.target.classList.toggle('in-view', entry.isIntersecting);
+          }),
+        { threshold: 0.08 },
+      );
+      document
+        .querySelectorAll('.network-art, .project-art, .reveal')
+        .forEach((el) => visibility.observe(el));
+      document.addEventListener('visibilitychange', () =>
+        root.classList.toggle('tab-hidden', document.hidden),
+      );
+      const art = document.querySelector<HTMLElement>('[data-parallax]');
+      art?.addEventListener('pointermove', (event) => {
+        if (reduced.matches || event.pointerType !== 'mouse') return;
+        const rect = art.getBoundingClientRect();
+        art.style.setProperty(
+          '--pointer-x',
+          `${(event.clientX - rect.left - rect.width / 2) * 0.025}px`,
+        );
+        art.style.setProperty(
+          '--pointer-y',
+          `${(event.clientY - rect.top - rect.height / 2) * 0.025}px`,
+        );
+      });
+      art?.addEventListener('pointerleave', () => {
+        art.style.setProperty('--pointer-x', '0px');
+        art.style.setProperty('--pointer-y', '0px');
+      });
+    </script>
+  </body>
+</html>

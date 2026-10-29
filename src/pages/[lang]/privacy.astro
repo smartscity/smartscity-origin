@@ -1,0 +1,17 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { locales, dictionaries, type Locale } from '../../i18n';
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Locale;
+const t = dictionaries[lang];
+---
+
+<SiteLayout lang={lang} title={`${t.footer.privacy} — Smartscity`}>
+  <section class="prose-page container">
+    <p class="eyebrow">{t.footer.privacy}</p>
+    <h1>{t.privacy.title}</h1>
+    <p>{t.privacy.description}</p>
+  </section>
+</SiteLayout>

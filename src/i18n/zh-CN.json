@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "首页",
+    "projects": "开源项目",
+    "engineering": "工程理念",
+    "about": "关于我们",
+    "github": "GitHub",
+    "menu": "打开导航",
+    "theme": "切换配色主题",
+    "language": "English",
+    "skip": "跳至正文"
+  },
+  "hero": {
+    "eyebrow": "独立思考，开放共建。",
+    "line1": "以工程之力，",
+    "line2": "筑造软件基石，",
+    "line3": "创造下一种可能。",
+    "description": "高性能基础设施。可靠的分布式系统。用心打磨的开发者工具。",
+    "primary": "探索开源生态",
+    "secondary": "认识必赢科技",
+    "footnote": "源于热爱，向世界开放。",
+    "diagram": "展现 Smartscity 开源生态的互联节点网络",
+    "signal": "想法 → 系统 → 价值",
+    "label": "SMARTSCITY 开源生态"
+  },
+  "ecosystem": {
+    "eyebrow": "01 / 开源生态",
+    "title": "不同的挑战，\n同样的工程追求。",
+    "description": "从软件底层的基础设施，到启发思考的日常工具。探索我们正在开源世界构建的作品。",
+    "details": "探索项目",
+    "repository": "在 GitHub 查看源码",
+    "all": "四个项目，共同的工程底色。",
+    "infrastructure": "分布式基础设施",
+    "workspace": "让文字有处安放",
+    "quality": "让质量有据可依",
+    "vocab": "让新词留在记忆里"
+  },
+  "engineering": {
+    "eyebrow": "02 / 看得见的工程",
+    "title": "可靠，\n来自一次次共识。",
+    "description": "分布式系统在节点达成一致时向前推进。逐步体验简化的 Raft 日志复制，理解一条记录何时真正提交。",
+    "demoLabel": "交互原理演示 / RAFT",
+    "principlesTitle": "真正的差别，藏在细节里。",
+    "principles": [
+      {
+        "title": "性能",
+        "text": "把效率融入关键路径。先测量，再让每一次操作更有价值。"
+      },
+      {
+        "title": "可靠性",
+        "text": "为中断、恢复和理想路径之外的真实环境做好设计。"
+      },
+      {
+        "title": "正确性",
+        "text": "明确每一项保证。验证边界，而不只验证预期结果。"
+      },
+      {
+        "title": "开发体验",
+        "text": "强大的能力值得清晰的接口，让正确的使用方式更容易上手。"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "03 / 代码背后",
+    "title": "严谨对待系统，\n用心对待使用它的人。",
+    "description": "我们是 Smartscity，必赢科技。我们相信，坚实的技术基础与经过思考的工具，能帮助人们更好地完成工作。",
+    "description2": "我们的开源项目连接着两个世界：支撑软件运行的基础设施，和让想法逐渐成形的日常工具。",
+    "cta": "一起参与构建",
+    "note": "阅读代码，提出问题，贡献你的想法。"
+  },
+  "activity": {
+    "eyebrow": "来自代码仓库",
+    "title": "代码开放，可能无限。",
+    "description": "前往 GitHub，查看源码、文档和发布记录。",
+    "snapshot": "仓库信息核实日期",
+    "license": "许可证",
+    "source": "浏览源码",
+    "releases": "发布记录",
+    "status": "状态"
+  },
+  "footer": {
+    "tagline": "以工程之力，筑造现代软件的基石。",
+    "company": "必赢科技 · Smartscity",
+    "privacy": "隐私说明",
+    "copyright": "开放构建，用心创造。",
+    "back": "回到顶部"
+  },
+  "project": {
+    "back": "全部项目",
+    "overview": "项目理念",
+    "capabilities": "核心能力",
+    "workflow": "工作方式",
+    "demo": "亲手探索原理",
+    "illustration": "示意演示 · 本地示例数据",
+    "start": "从源码开始。",
+    "startText": "请阅读项目文档，了解支持的环境、安装方式及当前限制。",
+    "docs": "阅读文档",
+    "releases": "查看发布",
+    "related": "继续探索。",
+    "useCases": "适用场景",
+    "status": "项目状态",
+    "license": "许可证",
+    "contribute": "贡献从交流开始。请先阅读仓库指南，在提出较大改动前通过 Issue 讨论。"
+  },
+  "raft": {
+    "leader": "主节点",
+    "follower": "从节点",
+    "propose": "1. 提议新记录",
+    "replicate": "2. 复制并确认",
+    "commit": "3. 推进提交索引",
+    "reset": "重新演示",
+    "idle": "准备提议一条新记录。",
+    "appended": "主节点已追加当前任期的第 1 条记录，尚未提交。",
+    "acknowledged": "从节点 A 已确认第 1 条记录。加上主节点，2/3 多数节点已完成复制。",
+    "committed": "主节点将 commitIndex 推进至 1，并通知从节点。从节点 B 随后追上。",
+    "index": "提交索引",
+    "term": "任期 1",
+    "ack": "已确认",
+    "pending": "待提交",
+    "done": "已提交",
+    "assumptions": "简化模型：固定主节点、当前任期的一条记录、三个正常节点。省略选举、磁盘持久化、重试和网络故障。这不是正在运行的 HyperRaft 集群。"
+  },
+  "demos": {
+    "preview": "示意预览",
+    "notes": "你的工作空间",
+    "noteTitle": "留一点空间，给思考。",
+    "noteText": "好的工具，把空间留给工作本身。捕捉一个灵感，整理一段思绪，让文字安然落定。",
+    "read": "阅读",
+    "write": "写作",
+    "draft": "写下一点想法……",
+    "local": "示例内容仅存在于当前页面，不会保存。",
+    "run": "演示工作流程",
+    "reset": "重置",
+    "pipeline": ["定义", "调度", "执行", "结果", "复盘"],
+    "pipelineNote": "这是工程工作流程的示意，不代表所有编排能力已实现。",
+    "complete": "示例流程已完成",
+    "ready": "准备开始探索",
+    "reveal": "查看释义",
+    "next": "下一个词",
+    "wordLabel": "值得记住的词",
+    "word": "serendipity",
+    "phonetic": "/ˌser.ənˈdɪp.ə.ti/",
+    "definition": "不期而遇的美好；在寻找别的事物时，意外发现惊喜。",
+    "example": "一次意外的交谈，点燃了一个新想法。",
+    "word2": "resilience",
+    "phonetic2": "/rɪˈzɪl.i.əns/",
+    "definition2": "在困难之后恢复并继续前行的能力；韧性。",
+    "example2": "经过深思的设计，会为恢复留出空间。"
+  },
+  "privacy": {
+    "title": "互联网中安静的一隅。",
+    "description": "本门户不使用访客分析、广告 Cookie，也不在访客浏览器中调用 GitHub API。配色偏好仅保存在浏览器本地。演示输入不会发送到服务器。托管服务商可能处理常规请求日志。外部 GitHub 链接适用 GitHub 的隐私政策。"
+  },
+  "notFound": {
+    "title": "这条路通向别处。",
+    "description": "你访问的页面不存在，回到开源生态继续探索吧。",
+    "cta": "返回首页"
+  }
+}
