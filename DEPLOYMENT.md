@@ -1,5 +1,19 @@
 # Cloudflare Pages deployment
 
+## Connected project
+
+Configured on 2026-10-30:
+
+- Pages project: `smartscity-origin`
+- Source: `smartscity/smartscity-origin`, production branch `main`
+- Build: `npm run build`; output: `dist`; `NODE_VERSION=24`
+- Public site: https://smartscity-origin.pages.dev
+- Initial deployment `429a2798-0df6-4e64-8d14-2c8a4fadc3c3` succeeded for commit `7b0d4fb`.
+- English and Chinese pages were opened successfully in the browser.
+- Pages builds run independently of the GitHub quality workflow. The quality workflow currently reports browser accessibility failures; deployment success does not mean all quality gates passed.
+
+Custom-domain setup and DNS are separate from this GitHub-to-Pages pipeline. This task did not change DNS records.
+
 ## Source and build
 
 Repository: `https://github.com/smartscity/smartscity-origin`

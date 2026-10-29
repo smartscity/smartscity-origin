@@ -2,6 +2,8 @@
 
 The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. Dark and light themes, reduced motion, and mobile navigation are included.
 
+Live preview: [smartscity-origin.pages.dev](https://smartscity-origin.pages.dev/en/) · [简体中文](https://smartscity-origin.pages.dev/zh-CN/)
+
 ## Local development
 
 Use Node 24 LTS (see `.nvmrc`) and npm.
