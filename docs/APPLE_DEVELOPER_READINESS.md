@@ -13,7 +13,7 @@ Reviewed: 2026-10-30. This is a website readiness record, not Apple approval or 
 - Privacy text reflects the implementation: theme preference in local storage, transient local demos, local assets/system fonts, no application analytics/tracking cookies, no embedded external frames or forms, and external email/GitHub navigation. Hosting request processing is distinguished from application behavior.
 - The unsupported registered-trademark symbol was removed. Unknown address, telephone, registration number, ratings and certifications are not emitted.
 
-Validation results and current deployment evidence are maintained in [VALIDATION.md](./VALIDATION.md). Local implementation alone must not be treated as proof that the new routes are publicly deployed.
+The corporate update is deployed: source commit `e98bd48` passed GitHub quality checks and Cloudflare deployment. All four new corporate routes were opened on the official HTTPS domain, with matching rendered identity, email, canonical and structured data. See [VALIDATION.md](./VALIDATION.md) for exact deployment and CI evidence.
 
 ## 2. Implemented but awaiting real company data
 
