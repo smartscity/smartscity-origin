@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import ProjectArt from '../../../components/ProjectArt.astro';
+import ProjectMetrics from '../../../components/ProjectMetrics.astro';
 import RaftDemo from '../../../components/RaftDemo';
 import ProductDemo from '../../../components/ProductDemo';
 import { locales, dictionaries, type Locale } from '../../../i18n';
@@ -51,6 +52,14 @@ const copy = project.content[lang];
       </div>
       <p>{copy.overview}</p>
     </section>
+    {project.highlights?.length && (
+      <section class="detail-section container specifications">
+        <p class="eyebrow">{t.project.numbersEyebrow}</p>
+        <h2>{t.project.numbersTitle}</h2>
+        <ProjectMetrics project={project} lang={lang} />
+        <p class="specifications-note">{t.project.numbersNote}</p>
+      </section>
+    )}
     <section class="detail-section container">
       <h2>{t.project.capabilities}</h2>
       <div class="capability-grid">
@@ -98,6 +107,11 @@ const copy = project.content[lang];
         <h2>{project.repositoryUrl ? t.project.start : copy.status}</h2>
         <p>{project.repositoryUrl ? t.project.startText : copy.overview}</p>
         <div class="hero-actions">
+          {project.distributionUrl && (
+            <a class="button" href={project.distributionUrl}>
+              {t.project.distribution} ↗
+            </a>
+          )}
           {project.documentationUrl && (
             <a class="button" href={project.documentationUrl}>
               {t.project.docs} ↗

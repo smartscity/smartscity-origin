@@ -1,6 +1,6 @@
 # Smartscity / 必赢科技
 
-The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. Dark and light themes, reduced motion, and mobile navigation are included.
+The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. Neutral dark and white themes, reduced motion, and mobile navigation are included.
 
 Official website: [www.smartscity.com](https://www.smartscity.com/en/) · [简体中文](https://www.smartscity.com/zh-CN/). Cloudflare preview: [smartscity-origin.pages.dev](https://smartscity-origin.pages.dev/en/).
 
@@ -41,7 +41,7 @@ For a local Lighthouse audit, start `npm run preview -- --port 4321` in another 
 - `src/styles/global.css`: visual tokens, layout, responsive behavior, motion, and light theme.
 - `public/images/`: the requested GitHub organization avatar and original social artwork.
 
-Polarbear and Polarbear Vocab have verified public repositories. HyperRaft and QualitySphere are presented using the owner-provided positioning with public technical details pending. They are not described as publicly available source code. See [CONTENT_AUDIT.md](CONTENT_AUDIT.md).
+Polarbear and Polarbear Vocab have verified public repositories. HyperRaft has verified public Maven Central 0.1.0 package metadata; its private repository and benchmark reports are not linked as public evidence. QualitySphere retains owner-provided positioning with public technical details pending. See [CONTENT_AUDIT.md](CONTENT_AUDIT.md).
 
 ## Delivery
 

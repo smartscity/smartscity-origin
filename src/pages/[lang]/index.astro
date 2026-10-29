@@ -2,6 +2,7 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import NetworkArt from '../../components/NetworkArt.astro';
 import ProjectArt from '../../components/ProjectArt.astro';
+import ProjectMetrics from '../../components/ProjectMetrics.astro';
 import RaftDemo from '../../components/RaftDemo';
 import { locales, dictionaries, type Locale } from '../../i18n';
 import { projects, verifiedOn } from '../../data/projects';
@@ -91,6 +92,7 @@ const t = dictionaries[lang];
                 </a>
               </div>
               <p>{copy.description}</p>
+              <ProjectMetrics project={project} lang={lang} compact />
               <div class="card-footer">
                 <span class="card-tags">
                   {project.version ||

@@ -12,12 +12,12 @@
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "INDEPENDENT THINKING. OPEN SOURCE.",
-    "line1": "Engineering",
-    "line2": "the foundations",
-    "line3": "of what’s next.",
-    "description": "High-performance infrastructure. Reliable distributed systems. Thoughtfully crafted developer tools.",
-    "primary": "Explore the ecosystem",
+    "eyebrow": "SMARTSCITY / 必赢科技",
+    "line1": "Engineering.",
+    "line2": "For what’s ",
+    "line3": "next.",
+    "description": "Software foundations. Thoughtful tools. More room for your next idea.",
+    "primary": "Explore our projects",
     "secondary": "Meet Smartscity",
     "footnote": "Built with conviction. Shared with the world.",
     "diagram": "A connected network representing the Smartscity ecosystem",
@@ -102,7 +102,12 @@
     "useCases": "MADE FOR",
     "status": "Project status",
     "license": "License",
-    "contribute": "Contributions begin with a conversation. Read the repository guidance and open an issue before proposing a large change."
+    "contribute": "Contributions begin with a conversation. Read the repository guidance and open an issue before proposing a large change.",
+    "numbersTitle": "A closer look. By the numbers.",
+    "numbersEyebrow": "PROJECT SPECIFICATIONS",
+    "source": "Source & details",
+    "numbersNote": "Published specifications and documented features. Performance measurements, where available, are labeled separately with their test conditions.",
+    "distribution": "View Maven artifact"
   },
   "raft": {
     "leader": "Leader",

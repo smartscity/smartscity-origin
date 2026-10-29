@@ -35,3 +35,15 @@ Cloudflare `_headers` supplies MIME, framing, referrer, capability, and CSP rest
 ## Final review
 
 No state is shared across project demonstrations. Public claims are separated from pending project introductions. The registry does not leak private repository contents. Hosting, DNS, publication, and source push remain distinct operations. Automated checks cover the teaching invariant, locale routing, rendered pages, accessibility, navigation, and actual browser interactions; these tests do not validate the underlying products themselves.
+
+## Neutral visual system and documented specifications
+
+The presentation uses white/neutral gray or neutral black surfaces with a blue accent and system typography. The hero is an original SVG composition with layered software tiles, transform-only levitation and moving network strokes. It does not use Apple logos, product images, fonts or copied assets. The existing observer owns visibility: continuous graphic motion pauses offscreen and when the document is hidden; reveal movement runs once on entry. Reduced-motion preferences disable both ambient and scroll-linked effects. Core text never fades below accessible contrast.
+
+| Problem                                              | Pattern decision                                                          | Reason                                                                                      |
+| ---------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Consistent factual numbers on cards and detail pages | Reuse the typed project registry and a shared `ProjectMetrics` projection | Each number includes bilingual meaning and a public source URL; views cannot invent values. |
+| Motion visibility and lifecycle                      | Reuse the document-owned IntersectionObserver and CSS timelines           | No background timer, React animation loop, event bus or extra animation framework.          |
+| Benchmark disclosure                                 | Separate public specifications from unpublished experiment results        | Package availability and feature counts do not establish throughput, latency or capacity.   |
+
+Private HyperRaft experiment results are not included in the generated site or repository. They require explicit authorization and a report that states workload, source revision, machine, topology, measurement window and limitations. Existing product demos keep their original state owners and semantics.

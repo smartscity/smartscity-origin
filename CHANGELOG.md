@@ -1,5 +1,12 @@
 # Changelog
 
+## Neutral visual refresh — 2026-10-30
+
+- Replace olive/cream colors with neutral white/gray and black themes, blue accents, clearer typography and rounded project cards.
+- Add original layered SVG artwork with levitation, signal motion and pointer depth; preserve reduced-motion and offscreen pauses.
+- Add source-linked project specifications and feature counts, including verified HyperRaft Maven metadata, Polarbear layouts/platforms and Vocab practice/playback options.
+- Keep performance measurements unpublished at the owner’s request, pending a formal report.
+
 ## Corporate identity update — 2026-10-30
 
 - Add bilingual About and Contact pages, company identity configuration, consistent footer and Organization metadata, and route-preserving navigation.

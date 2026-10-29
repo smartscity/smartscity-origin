@@ -4,98 +4,192 @@ interface Props {
   lang?: string;
 }
 const { label, lang = 'en' } = Astro.props;
-const dots = [
-  [300, 220],
-  [130, 135],
-  [465, 120],
-  [500, 310],
-  [175, 375],
-  [330, 410],
-  [75, 275],
-  [375, 65],
+const modules = [
+  {
+    x: 150,
+    y: 115,
+    name: 'HyperRaft',
+    mark: '↗',
+    subtitle: lang === 'en' ? 'CONSENSUS' : '共识与复制',
+  },
+  {
+    x: 790,
+    y: 100,
+    name: 'Polarbear',
+    mark: 'Aa',
+    subtitle: lang === 'en' ? 'WORKSPACE' : '写作空间',
+  },
+  {
+    x: 215,
+    y: 315,
+    name: 'QualitySphere',
+    mark: '✓',
+    subtitle: lang === 'en' ? 'ENGINEERING QUALITY' : '工程质量',
+  },
+  {
+    x: 760,
+    y: 310,
+    name: 'Polarbear Vocab',
+    mark: 'a',
+    subtitle: lang === 'en' ? 'VOCABULARY' : '词汇学习',
+  },
 ];
 ---
 
 <div class="network-art" data-parallax role="img" aria-label={label}>
-  <div class="network-orbit orbit-one"></div>
-  <div class="network-orbit orbit-two"></div>
-  <svg viewBox="0 0 600 480" aria-hidden="true">
+  <svg viewBox="0 0 1000 440" aria-hidden="true">
     <defs>
-      <linearGradient id="wire" x1="0" y1="0" x2="1" y2="1">
-        <stop stop-color="#e6f29a" stop-opacity=".75" />
-        <stop offset="1" stop-color="#89a595" stop-opacity=".18" />
+      <linearGradient id="chip-edge" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="var(--chip-edge)" />
+        <stop offset=".5" stop-color="var(--surface2)" />
+        <stop offset="1" stop-color="var(--chip-edge)" />
       </linearGradient>
-      <radialGradient id="hub">
-        <stop stop-color="#dded9f" stop-opacity=".16" />
-        <stop offset="1" stop-color="#dded9f" stop-opacity="0" />
+      <linearGradient id="chip-face" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#343438" />
+        <stop offset="1" stop-color="#101012" />
+      </linearGradient>
+      <radialGradient id="scene-glow">
+        <stop stop-color="var(--accent)" stop-opacity=".12" />
+        <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
       </radialGradient>
-    </defs>
-    <circle cx="300" cy="220" r="190" fill="url(#hub)" />
-    <g class="network-wires" fill="none" stroke="url(#wire)">
-      {dots.slice(1).map(([x, y]) => (
-        <path d={`M300 220 L${x} ${y}`} />
-      ))}
-      <path d="M130 135 L375 65 L465 120 L500 310 L330 410 L175 375 L75 275 Z M130 135 L175 375 M465 120 L330 410 M75 275 L500 310" />
-    </g>
-    <g class="travel-wires" fill="none" stroke="#e6f29a" stroke-width="2">
-      <path d="M130 135 L300 220 L500 310" />
-      <path d="M175 375 L300 220 L465 120" />
-    </g>
-    {dots.map(([x, y], i) => (
-      <g class={`art-node art-node-${i}`}>
-        <circle
-          cx={x}
-          cy={y}
-          r={i === 0 ? 42 : 17}
-          fill="var(--bg)"
-          stroke={i === 0 ? '#dceba6' : '#637367'}
-          stroke-width="1"
+      <filter id="chip-shadow" x="-60%" y="-60%" width="220%" height="240%">
+        <feDropShadow
+          dx="0"
+          dy="16"
+          stdDeviation="13"
+          flood-color="#000"
+          flood-opacity=".14"
         />
-        <circle
-          cx={x}
-          cy={y}
-          r={i === 0 ? 32 : 10}
-          fill={i === 0 ? '#dceba6' : 'var(--surface)'}
+      </filter>
+    </defs>
+    <ellipse cx="500" cy="250" rx="350" ry="185" fill="url(#scene-glow)" />
+    <g
+      class="network-wires"
+      fill="none"
+      stroke="var(--line)"
+      stroke-width="1.5"
+    >
+      <path d="M150 115 H310 Q345 115 365 150 L500 220 L680 100 H790 M215 315 H320 L500 220 L650 310 H760" />
+    </g>
+    <g
+      class="travel-wires"
+      fill="none"
+      stroke="var(--accent)"
+      stroke-width="2.5"
+    >
+      <path d="M150 115 H310 Q345 115 365 150 L500 220 L650 310 H760" />
+      <path d="M215 315 H320 L500 220 L680 100 H790" />
+    </g>
+    <g class="core-float">
+      <g
+        transform="translate(500 215) rotate(-22) skewX(25)"
+        filter="url(#chip-shadow)"
+      >
+        <rect
+          x="-115"
+          y="-66"
+          width="230"
+          height="160"
+          rx="28"
+          fill="url(#chip-edge)"
+          stroke="var(--line)"
+        />
+        <rect
+          x="-115"
+          y="-80"
+          width="230"
+          height="160"
+          rx="28"
+          fill="url(#chip-edge)"
+          stroke="var(--chip-edge)"
+        />
+        <rect
+          x="-115"
+          y="-96"
+          width="230"
+          height="160"
+          rx="28"
+          fill="url(#chip-face)"
+          stroke="#63636a"
+        />
+        <rect
+          x="-104"
+          y="-85"
+          width="208"
+          height="138"
+          rx="22"
+          fill="none"
+          stroke="#55555c"
         />
         <text
-          x={x}
-          y={y + (i === 0 ? 10 : 4)}
+          x="0"
+          y="-6"
           text-anchor="middle"
-          fill={i === 0 ? '#182018' : '#a8b9a4'}
-          font-size={i === 0 ? '30' : '11'}
+          font-size="47"
+          font-weight="650"
+          letter-spacing="-3"
+          fill="#fff"
         >
-          {i === 0 ? '✳' : '+'}
+          S.
+        </text>
+        <text
+          x="0"
+          y="28"
+          text-anchor="middle"
+          font-size="9"
+          letter-spacing="3"
+          fill="#dedee3"
+        >
+          SMARTSCITY
+        </text>
+      </g>
+    </g>
+    {modules.map((module, i) => (
+      <g
+        class={`ecosystem-module module-${i}`}
+        style={`--module-delay:${i * -0.8}s`}
+      >
+        <rect
+          x={module.x - 46}
+          y={module.y - 41}
+          width="92"
+          height="82"
+          rx="22"
+          fill="var(--surface)"
+          stroke="var(--chip-edge)"
+          filter="url(#chip-shadow)"
+        />
+        <text
+          x={module.x}
+          y={module.y + 9}
+          text-anchor="middle"
+          fill="var(--text)"
+          font-size="30"
+          font-weight="550"
+        >
+          {module.mark}
+        </text>
+        <text
+          x={module.x}
+          y={module.y + 68}
+          text-anchor="middle"
+          fill="var(--text)"
+          font-size="15"
+          font-weight="600"
+        >
+          {module.name}
+        </text>
+        <text
+          x={module.x}
+          y={module.y + 88}
+          text-anchor="middle"
+          fill="var(--muted)"
+          font-size="8"
+          letter-spacing="1.4"
+        >
+          {module.subtitle}
         </text>
       </g>
     ))}
-    <g
-      class="network-labels"
-      font-family="monospace"
-      font-size="10"
-      fill="var(--muted)"
-    >
-      <text x="80" y="100">
-        HYPERRAFT
-      </text>
-      <text x="433" y="82">
-        POLARBEAR
-      </text>
-      <text x="425" y="356">
-        QUALITYSPHERE
-      </text>
-      <text x="90" y="425">
-        POLARBEAR VOCAB
-      </text>
-      <text x="264" y="286" fill="var(--text)">
-        SMARTSCITY
-      </text>
-    </g>
   </svg>
-  <div class="art-coordinate coordinate-top">
-    {lang === 'zh-CN' ? '系统 01 / 开放网络' : 'SYS. 01 / OPEN NETWORK'}
-  </div>
-  <div class="art-coordinate coordinate-bottom">
-    <span class="status-dot"></span>{' '}
-    {lang === 'zh-CN' ? '因设计而连接' : 'CONNECTED BY DESIGN'}
-  </div>
 </div>

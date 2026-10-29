@@ -29,7 +29,7 @@ const canonical = new URL(path, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description || t.hero.description} />
-    <meta name="theme-color" content="#10120f" />
+    <meta name="theme-color" content="#ffffff" />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link
@@ -246,7 +246,11 @@ const canonical = new URL(path, Astro.site);
       const visibility = new IntersectionObserver(
         (entries) =>
           entries.forEach((entry) => {
-            entry.target.classList.toggle('in-view', entry.isIntersecting);
+            if (entry.target.classList.contains('reveal')) {
+              if (entry.isIntersecting) entry.target.classList.add('in-view');
+            } else {
+              entry.target.classList.toggle('in-view', entry.isIntersecting);
+            }
           }),
         { threshold: 0.08 },
       );

@@ -1,0 +1,30 @@
+---
+import type { Project } from '../data/projects';
+import { dictionaries, type Locale } from '../i18n';
+interface Props {
+  project: Project;
+  lang: Locale;
+  compact?: boolean;
+}
+const { project, lang, compact = false } = Astro.props;
+const t = dictionaries[lang].project;
+const highlights = compact
+  ? project.highlights?.slice(0, 2)
+  : project.highlights;
+---
+
+{highlights?.length && (
+  <dl class:list={['project-metrics', { 'metrics-compact': compact }]}>
+    {highlights.map((metric) => (
+      <div class="metric">
+        <dt>{metric.label[lang]}</dt>
+        <dd class="metric-value">{metric.value}</dd>
+        {!compact && (
+          <dd class="metric-detail">
+            {metric.detail[lang]} <a href={metric.sourceUrl}>{t.source} ↗</a>
+          </dd>
+        )}
+      </div>
+    ))}
+  </dl>
+)}

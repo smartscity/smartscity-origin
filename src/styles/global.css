@@ -1,37 +1,41 @@
 @import 'tailwindcss';
 :root {
   color-scheme: dark;
-  --bg: #10120f;
-  --surface: #191c17;
-  --surface2: #20251d;
-  --text: #eff0e8;
-  --muted: #a6ac9e;
-  --line: #343b2f;
-  --accent: #deeda6;
-  --ink: #19200e;
-  --blue: #aacde3;
-  --warm: #e6c7a8;
-  --mint: #b9d5c2;
-  --violet: #c6c0ed;
-  font-family: Arial, Helvetica, sans-serif;
+  --bg: #000;
+  --surface: #161617;
+  --surface2: #232325;
+  --text: #f5f5f7;
+  --muted: #a1a1a6;
+  --line: #38383d;
+  --accent: #6cb6ff;
+  --ink: #051729;
+  --blue: #85bfff;
+  --warm: #c5bddc;
+  --mint: #b4c7c5;
+  --violet: #beb8f4;
+  --chip-edge: #59595f;
+  --shadow: 0 20px 60px #0003;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   font-synthesis: none;
 }
 :root[data-theme='light'] {
   color-scheme: light;
-  --bg: #f5f5ee;
-  --surface: #eceee3;
-  --surface2: #e2e6d8;
-  --text: #20281c;
-  --muted: #59634f;
-  --line: #c9cfbe;
-  --accent: #4e641c;
+  --bg: #fff;
+  --surface: #f5f5f7;
+  --surface2: #e8e8ed;
+  --text: #1d1d1f;
+  --muted: #626267;
+  --line: #d2d2d7;
+  --accent: #0066cc;
   --ink: #fff;
-  --blue: #285f83;
-  --warm: #82542c;
-  --mint: #2c6146;
-  --violet: #65569b;
+  --blue: #0066cc;
+  --warm: #62557b;
+  --mint: #426b66;
+  --violet: #6953a0;
+  --chip-edge: #c6c6ce;
+  --shadow: 0 20px 60px #0000000d;
 }
 * {
   box-sizing: border-box;
@@ -95,8 +99,8 @@ p {
 h1,
 h2,
 h3 {
-  font-weight: 500;
-  letter-spacing: -0.055em;
+  font-weight: 600;
+  letter-spacing: -0.045em;
 }
 h2 {
   font-size: clamp(2.3rem, 4.5vw, 4rem);
@@ -139,10 +143,10 @@ h2 {
   gap: 24px;
   background: var(--accent);
   color: var(--ink);
-  padding: 16px 22px;
+  padding: 14px 24px;
   border: 1px solid transparent;
-  border-radius: 5px;
-  font-weight: 600;
+  border-radius: 999px;
+  font-weight: 500;
   font-size: 13px;
   transition:
     transform 0.2s,
@@ -162,7 +166,7 @@ h2 {
   gap: 12px;
   font-size: 13px;
   padding: 12px 0;
-  border-bottom: 1px solid var(--line);
+  color: var(--accent);
 }
 .icon-button {
   display: grid;
@@ -199,12 +203,14 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
 }
 .nav-shell {
   width: min(1360px, calc(100% - 64px));
-  height: 82px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,7 +221,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 650;
   letter-spacing: -1.2px;
 }
@@ -254,8 +260,8 @@ h2 {
   gap: 20px;
   align-items: center;
   border: 1px solid var(--line);
-  border-radius: 5px;
-  padding: 10px 14px;
+  border-radius: 999px;
+  padding: 9px 16px;
 }
 .menu-toggle {
   display: none;
@@ -273,55 +279,71 @@ h2 {
 }
 .hero {
   position: relative;
-  padding-top: 86px;
+  padding-top: 75px;
   overflow: hidden;
 }
 .hero-main {
-  display: grid;
-  grid-template-columns: 1.13fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 525px;
-  gap: 4px;
+  gap: 0;
 }
 .hero-copy {
   position: relative;
   z-index: 1;
-  padding-bottom: 35px;
+  text-align: center;
+  padding: 0;
+  max-width: 900px;
+}
+.hero .eyebrow {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.hero .status-dot {
+  display: none;
 }
 .hero h1 {
-  font-size: clamp(3.2rem, 5.5vw, 5rem);
-  line-height: 1.045;
-  letter-spacing: -0.065em;
+  font-size: clamp(3.6rem, 7.2vw, 6.5rem);
+  font-weight: 650;
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  word-spacing: 0.04em;
   margin-bottom: 28px;
 }
-.hero h1 span {
+.hero h1 span:first-child {
   display: block;
+}
+.hero h1 span:nth-child(2),
+.hero h1 span:last-child {
+  display: inline;
 }
 .hero h1 span:last-child {
   color: var(--accent);
 }
 .hero-description {
-  font-size: 16px;
-  max-width: 420px;
+  font-size: 20px;
+  max-width: 610px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.5;
+  margin-inline: auto;
 }
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-top: 34px;
+  margin-top: 30px;
+}
+.hero-copy .hero-actions {
+  justify-content: center;
 }
 .hero-footnote {
-  margin-top: 36px;
-  font-size: 11px;
-  letter-spacing: 0.02em;
+  margin-top: 24px;
+  font-size: 12px;
   color: var(--muted);
-}
-.hero-footnote:before {
-  content: '✳';
-  color: var(--accent);
-  margin-right: 10px;
 }
 .hero-bottom {
   display: flex;
@@ -331,77 +353,50 @@ h2 {
   padding-block: 24px;
   color: var(--muted);
   font-size: 10px;
-  letter-spacing: 0.13em;
-  font-family: monospace;
+  letter-spacing: 0.08em;
+  gap: 20px;
 }
 .hero-bottom span:last-child {
   display: flex;
   gap: 14px;
 }
 .network-art {
-  height: 490px;
+  height: auto;
+  width: min(100%, 1000px);
+  aspect-ratio: 1000/440;
   position: relative;
-  background-image: radial-gradient(var(--line) 1px, transparent 1px);
-  background-size: 24px 24px;
   isolation: isolate;
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 12%,
-    #000 90%,
-    transparent
-  );
+  margin: 8px auto 25px;
 }
 .network-art svg {
   width: 100%;
   height: 100%;
-  position: relative;
-  z-index: 1;
   transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px));
-  transition: transform 0.5s ease-out;
-}
-.network-orbit {
-  position: absolute;
-  inset: 16% 12%;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  transform: rotate(-30deg) scaleY(0.65);
-  opacity: 0.5;
-}
-.orbit-two {
-  inset: 4%;
-  transform: rotate(30deg) scaleY(0.7);
-}
-.art-coordinate {
-  position: absolute;
-  z-index: 2;
-  color: var(--muted);
-  font-size: 8px;
-  letter-spacing: 0.15em;
-}
-.coordinate-top {
-  top: 25px;
-  left: 25px;
-}
-.coordinate-bottom {
-  bottom: 22px;
-  right: 30px;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: visible;
 }
 .travel-wires {
-  stroke-dasharray: 4 300;
-  animation: travel 9s linear infinite;
+  stroke-dasharray: 20 350;
+  animation: travel 5s linear infinite;
   animation-play-state: paused;
 }
 .network-art.in-view .travel-wires {
   animation-play-state: running;
 }
-.art-node-0 {
-  transform-origin: 300px 220px;
-  animation: breathe 5s ease-in-out infinite;
+.core-float,
+.ecosystem-module {
+  animation: levitate 6s ease-in-out infinite;
+  animation-delay: var(--module-delay, 0s);
   animation-play-state: paused;
 }
-.network-art.in-view .art-node-0 {
+.network-art.in-view .core-float,
+.network-art.in-view .ecosystem-module {
   animation-play-state: running;
+}
+@keyframes levitate {
+  50% {
+    transform: translateY(-10px);
+  }
 }
 .section {
   padding-top: 115px;
@@ -425,13 +420,13 @@ h2 {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 .project-card {
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   background: var(--surface);
-  border-radius: 10px;
+  border-radius: 28px;
   overflow: hidden;
   position: relative;
   transition:
@@ -439,8 +434,9 @@ h2 {
     transform 0.25s;
 }
 .project-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--muted);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--line);
 }
 .card-heading {
   display: flex;
@@ -745,7 +741,7 @@ h2 {
 }
 .engineering-section {
   margin-top: 90px;
-  border-block: 1px solid var(--line);
+  border-block: 0;
   background: var(--surface);
   padding: 85px 0;
 }
@@ -819,7 +815,7 @@ h2 {
   place-items: center;
   font-size: 26px;
   border: 1px solid var(--line);
-  border-radius: 9px;
+  border-radius: 24px;
   color: var(--accent);
 }
 .raft-node > span {
@@ -1202,7 +1198,7 @@ h2 {
 .editor-demo {
   border: 1px solid var(--line);
   background: var(--surface);
-  border-radius: 9px;
+  border-radius: 24px;
   overflow: hidden;
 }
 .window-bar {
@@ -1441,10 +1437,10 @@ h2 {
 }
 @media (min-width: 1600px) {
   .hero h1 {
-    font-size: 5.5rem;
+    font-size: 6.5rem;
   }
   .hero-main {
-    min-height: 575px;
+    min-height: 0;
   }
 }
 @media (max-width: 1100px) {
@@ -1470,7 +1466,7 @@ h2 {
     gap: 16px;
   }
   .network-art {
-    height: 440px;
+    height: auto;
   }
   .engineering-layout {
     gap: 40px;
@@ -1517,8 +1513,8 @@ h2 {
     max-width: 490px;
   }
   .network-art {
-    height: 400px;
-    max-width: 600px;
+    height: auto;
+    max-width: 800px;
     width: 100%;
     margin: 5px auto 0;
   }
@@ -1684,7 +1680,7 @@ h2 {
     margin-bottom: 22px;
   }
   .hero h1 {
-    font-size: 3.25rem;
+    font-size: clamp(2.6rem, 11vw, 3.25rem);
     line-height: 1.07;
   }
   .hero-description {
@@ -1708,8 +1704,11 @@ h2 {
     margin-top: 28px;
   }
   .network-art {
-    height: 315px;
-    margin-top: 15px;
+    height: auto;
+    width: 125%;
+    max-width: none;
+    flex-shrink: 0;
+    margin: 25px -12.5% 15px;
   }
   .coordinate-top {
     font-size: 6px;
@@ -1996,7 +1995,7 @@ h2 {
 .identity-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 9px;
+  border-radius: 24px;
   padding: 30px;
   min-width: 0;
 }
@@ -2224,5 +2223,139 @@ h2 {
   .footer-links {
     gap: 12px 18px;
     line-height: 1.8;
+  }
+}
+
+/* Documented specifications share one data projection across cards and detail pages. */
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin: 50px 0 0;
+}
+.metric {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.metric dt {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+.metric dd {
+  margin: 0;
+}
+.metric .metric-value {
+  order: -1;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  font-weight: 650;
+  letter-spacing: -0.065em;
+  line-height: 1;
+  color: var(--accent);
+}
+.metric .metric-detail {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 320px;
+}
+.metric-detail a {
+  display: block;
+  color: var(--accent);
+  margin-top: 12px;
+}
+.specifications-note {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 12px;
+  max-width: 760px;
+  line-height: 1.7;
+}
+.metrics-compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.metrics-compact .metric-value {
+  font-size: 36px;
+  color: var(--text);
+}
+.metrics-compact dt {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 7px;
+}
+.project-card {
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.55s,
+    border-color 0.55s;
+}
+.project-art > div {
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.project-card:hover .mini-consensus {
+  transform: rotate(-3deg) translateY(-6px);
+}
+.project-card:hover .mini-pipeline {
+  transform: perspective(500px) rotateY(0) rotateZ(0) translateY(-5px);
+}
+.project-card:hover .mini-words {
+  transform: rotate(0deg) translateY(-5px);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 801px) {
+    .project-hero .project-art {
+      animation: product-depth linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+@keyframes product-depth {
+  from {
+    transform: perspective(1000px) rotateY(-6deg) translateY(15px);
+  }
+  to {
+    transform: perspective(1000px) rotateY(6deg) translateY(-15px);
+  }
+}
+@media (max-width: 800px) {
+  .project-metrics {
+    gap: 20px;
+  }
+  .metric .metric-value {
+    font-size: 3.3rem;
+  }
+  .metrics-compact .metric-value {
+    font-size: 32px;
+  }
+}
+@media (max-width: 500px) {
+  .project-metrics:not(.metrics-compact) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .project-metrics:not(.metrics-compact) .metric {
+    border-top: 1px solid var(--line);
+    padding-top: 25px;
+  }
+  .hero .eyebrow {
+    font-size: 11px;
+  }
+  .hero-description {
+    font-size: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .core-float,
+  .ecosystem-module,
+  .project-hero .project-art {
+    animation: none !important;
+    transform: none !important;
   }
 }

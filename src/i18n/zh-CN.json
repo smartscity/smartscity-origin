@@ -12,12 +12,12 @@
     "contact": "联系"
   },
   "hero": {
-    "eyebrow": "独立思考，开放共建。",
-    "line1": "以工程之力，",
-    "line2": "筑造软件基石，",
-    "line3": "创造下一种可能。",
-    "description": "高性能基础设施。可靠的分布式系统。用心打磨的开发者工具。",
-    "primary": "探索开源生态",
+    "eyebrow": "SMARTSCITY / 必赢科技",
+    "line1": "构筑基石。",
+    "line2": "成就每一个",
+    "line3": "新想法。",
+    "description": "可靠的软件基础，专注的开发工具。为下一个想法，留出更多空间。",
+    "primary": "探索我们的项目",
     "secondary": "认识必赢科技",
     "footnote": "源于热爱，向世界开放。",
     "diagram": "展现 Smartscity 开源生态的互联节点网络",
@@ -102,7 +102,12 @@
     "useCases": "适用场景",
     "status": "项目状态",
     "license": "许可证",
-    "contribute": "贡献从交流开始。请先阅读仓库指南，在提出较大改动前通过 Issue 讨论。"
+    "contribute": "贡献从交流开始。请先阅读仓库指南，在提出较大改动前通过 Issue 讨论。",
+    "numbersTitle": "让特性，具体到数字。",
+    "numbersEyebrow": "项目规格",
+    "source": "来源与详情",
+    "numbersNote": "这里展示公开规格与文档中的功能。性能实测会单独标注，并附上对应测试条件。",
+    "distribution": "查看 Maven 构件"
   },
   "raft": {
     "leader": "主节点",
