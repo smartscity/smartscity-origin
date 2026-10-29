@@ -3,12 +3,13 @@
     "home": "Home",
     "projects": "Projects",
     "engineering": "Engineering",
-    "about": "About",
+    "about": "About Us",
     "github": "GitHub",
     "menu": "Open navigation",
     "theme": "Change color theme",
     "language": "中文",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "contact": "Contact"
   },
   "hero": {
     "eyebrow": "INDEPENDENT THINKING. OPEN SOURCE.",
@@ -66,7 +67,8 @@
     "description": "We’re Smartscity — 必赢科技. We build software with a belief that robust foundations and considered tools help people do their best work.",
     "description2": "Our open-source projects connect two worlds: the infrastructure that keeps software moving, and the everyday tools that help ideas take shape.",
     "cta": "Build alongside us",
-    "note": "Explore the code. Ask a question. Make a contribution."
+    "note": "Explore the code. Ask a question. Make a contribution.",
+    "fullPage": "More about Smartscity"
   },
   "activity": {
     "eyebrow": "FROM THE REPOSITORIES",
@@ -81,7 +83,7 @@
   "footer": {
     "tagline": "Engineering the foundations of modern software.",
     "company": "必赢科技 · Smartscity",
-    "privacy": "Privacy",
+    "privacy": "Privacy Policy",
     "copyright": "Built in the open. Made with intention.",
     "back": "Back to top"
   },
@@ -155,5 +157,79 @@
     "title": "This path leads somewhere else.",
     "description": "The page you’re looking for isn’t here. Let’s get you back to the ecosystem.",
     "cta": "Back to the homepage"
+  },
+  "company": {
+    "identityTitle": "Company & official channels",
+    "brand": "Technology brand",
+    "legalName": "Legal entity",
+    "registeredEnglishName": "Registered English name",
+    "registeredChineseName": "Registered Chinese name",
+    "translationLabel": "English translation · for reference",
+    "translationNote": "This translation is provided for readability. It is not a verified registered English name.",
+    "country": "Country / region of incorporation",
+    "website": "Official website",
+    "email": "Email",
+    "telephone": "Business telephone",
+    "address": "Public business address",
+    "registrationNumber": "Corporate registration number",
+    "github": "GitHub organization",
+    "operatorPrefix": "Smartscity is a technology brand operated by",
+    "operatorSuffix": ".",
+    "footerNav": "Company and project links"
+  },
+  "aboutPage": {
+    "eyebrow": "ABOUT SMARTSCITY",
+    "title": "The people behind\nthe foundations.",
+    "metaDescription": "Learn about Smartscity, its company identity, software engineering focus, projects, and official contact channels.",
+    "intro": "Smartscity — 必赢科技 — is a technology brand focused on software engineering, distributed infrastructure, engineering quality, and developer productivity.",
+    "whoTitle": "Engineering, with purpose.",
+    "whoText": "We develop software around two connected needs: dependable foundations for applications, and useful tools for the people who build and use them. Our work spans consensus and replication concepts, integration-testing quality, Markdown workflows, and vocabulary learning.",
+    "whoText2": "This website introduces our work and provides routes to project documentation, public source code, and releases where available. Each project page distinguishes published capabilities from concepts that do not yet have public implementation evidence.",
+    "projectsTitle": "What we build.",
+    "projectsIntro": "Explore the existing project introductions, technical concepts, and public repositories. Availability and capabilities are described on each project page.",
+    "philosophyTitle": "How we approach the work.",
+    "openSourceTitle": "Open source",
+    "openSourceText": "Share source and documentation where projects are public, welcome specific questions, and keep claims connected to evidence.",
+    "contactTitle": "Start a conversation.",
+    "contactText": "For company information, business inquiries, or questions about our work, use our official contact page.",
+    "contactCta": "Contact Smartscity"
+  },
+  "contactPage": {
+    "eyebrow": "CONTACT",
+    "title": "A good conversation\nstarts with a clear question.",
+    "metaDescription": "Contact Smartscity for company, business, open-source, and privacy inquiries through its official channels.",
+    "intro": "Get in touch about Smartscity, its software projects, or a potential collaboration. Choose the channel that fits your question.",
+    "businessTitle": "Company & business inquiries",
+    "businessText": "For questions about the company, its software work, or a possible collaboration, email us with a short description and the relevant project, if any.",
+    "businessFallback": "Explore our official GitHub organization to find the relevant project and its published contact routes.",
+    "emailCta": "Send an email",
+    "openSourceTitle": "Open-source questions",
+    "openSourceText": "For reproducible bugs, feature proposals, or contributions, start with the relevant public repository and its contribution guidance. Include the project version and a clear description, and keep private information out of public issues.",
+    "githubCta": "Explore our GitHub organization",
+    "privacyTitle": "Privacy inquiries",
+    "privacyText": "For questions about information handled through this website or a message you have sent us, use the official email below. Avoid sending passwords, identity documents, or other sensitive material in an initial inquiry.",
+    "privacyCta": "Read the Privacy Policy",
+    "deliveryNote": "Email links open your email application. This site has no contact form and does not send a message on your behalf.",
+    "projectsTitle": "Find the right project."
+  },
+  "privacyExtra": {
+    "metaDescription": "How the Smartscity website uses local storage, handles demonstrations and contact links, and relies on hosting providers.",
+    "sections": [
+      {
+        "title": "Website features and local storage",
+        "text": "The website application does not set advertising or analytics cookies and does not include visitor analytics. It stores only your selected color theme in browser local storage. You can remove that preference through your browser settings. Interactive examples keep sample inputs in page memory; they are not saved or sent to a server."
+      },
+      {
+        "title": "Hosting and external services",
+        "text": "The site is hosted on Cloudflare. Hosting and security services may process request information, such as IP addresses and browser information, to deliver and protect the site. The application does not embed external forms, videos, or third-party tracking scripts. Its images, scripts, styles, and fonts are served locally or supplied by your device."
+      },
+      {
+        "title": "Email and public project links",
+        "text": "There is no contact form on this website. A mailto link opens your email application; sending a message is your separate action. If you email us, your message and the contact information you choose to provide reach the receiving mailbox. GitHub links take you to GitHub, where its own privacy policy applies. Do not post confidential information in public issues."
+      }
+    ],
+    "contactTitle": "Questions about privacy",
+    "contactText": "Contact us through the official channel listed on our Contact page.",
+    "contactCta": "Privacy contact"
   }
 }

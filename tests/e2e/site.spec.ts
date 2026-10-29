@@ -26,6 +26,8 @@ for (const lang of ['en', 'zh-CN']) {
       `/${lang}/`,
       ...slugs.map((s) => `/${lang}/projects/${s}/`),
       `/${lang}/privacy/`,
+      `/${lang}/about/`,
+      `/${lang}/contact/`,
     ]) {
       const response = await page.goto(path);
       expect(response?.status()).toBe(200);
@@ -51,6 +53,9 @@ for (const lang of ['en', 'zh-CN']) {
       for (const path of [
         `/${lang}/`,
         ...slugs.map((s) => `/${lang}/projects/${s}/`),
+        `/${lang}/about/`,
+        `/${lang}/contact/`,
+        `/${lang}/privacy/`,
       ]) {
         await page.goto(path);
         const results = await new AxeBuilder({ page })

@@ -1,0 +1,83 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import CompanyDetails from '../../components/CompanyDetails.astro';
+import { company } from '../../data/company';
+import { projects } from '../../data/projects';
+import { locales, dictionaries, type Locale } from '../../i18n';
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Locale;
+const t = dictionaries[lang];
+---
+
+<SiteLayout
+  lang={lang}
+  title={`${t.nav.contact} — ${company.brandName}`}
+  description={t.contactPage.metaDescription}
+>
+  <section class="corporate-hero container">
+    <p class="eyebrow">{t.contactPage.eyebrow}</p>
+    <h1>{t.contactPage.title}</h1>
+    <p class="corporate-lead">{t.contactPage.intro}</p>
+  </section>
+  <section class="corporate-section container contact-grid">
+    <article class="contact-channel">
+      <span class="section-index">01 /</span>
+      <h2>{t.contactPage.businessTitle}</h2>
+      <p>
+        {company.email
+          ? t.contactPage.businessText
+          : t.contactPage.businessFallback}
+      </p>
+      {company.email && (
+        <a
+          class="contact-email"
+          data-company="email"
+          href={`mailto:${company.email.value}`}
+        >
+          {company.email.value}
+        </a>
+      )}
+      <p class="contact-note">{t.contactPage.deliveryNote}</p>
+    </article>
+    <article class="contact-channel">
+      <span class="section-index">02 /</span>
+      <h2>{t.contactPage.openSourceTitle}</h2>
+      <p>{t.contactPage.openSourceText}</p>
+      <a class="text-button" href={company.githubOrganization}>
+        {t.contactPage.githubCta} ↗
+      </a>
+    </article>
+    <article class="contact-channel">
+      <span class="section-index">03 /</span>
+      <h2>{t.contactPage.privacyTitle}</h2>
+      <p>{t.contactPage.privacyText}</p>
+      {company.email && (
+        <a class="contact-email" href={`mailto:${company.email.value}`}>
+          {company.email.value}
+        </a>
+      )}
+      <a class="text-button" href={`/${lang}/privacy/`}>
+        {t.contactPage.privacyCta} →
+      </a>
+    </article>
+  </section>
+  <section class="corporate-section container corporate-split">
+    <section class="identity-panel" aria-labelledby="contact-identity">
+      <h2 id="contact-identity">{t.company.identityTitle}</h2>
+      <CompanyDetails lang={lang} />
+    </section>
+    <div>
+      <h2>{t.contactPage.projectsTitle}</h2>
+      <div class="contact-projects">
+        {projects.map((project) => (
+          <a class="related-card" href={`/${lang}/projects/${project.id}/`}>
+            {project.displayName}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

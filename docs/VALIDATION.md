@@ -1,44 +1,40 @@
 # Validation record
 
-Date: **2026-10-30** (Asia/Singapore). Scope: local production build of the portal, not acceptance of the showcased products or a live Cloudflare deployment.
+Date: **2026-10-30** (Asia/Singapore). Scope: corporate identity enhancement to the static portal. This is not acceptance of the showcased products, registry verification, mailbox delivery verification or Apple enrollment approval.
 
 ## Environment
 
-- macOS 26.5.1, x86_64; Node 26.1.0; npm lockfile committed.
-- Astro 7.4.4, React 19.3.1, Playwright 1.64.1.
-- CI is configured for Node 24 LTS and matching Playwright Chromium.
-- Desktop viewport: 1440 × 1000. Mobile: Playwright iPhone 13 profile in Chromium; this is viewport/touch emulation, not a physical iPhone or Safari acceptance.
+- macOS 26.5.1, x86_64; Node 26.1.0; committed npm lockfile.
+- Astro 7.4.4, React 19.3.1, Playwright 1.64.1; matching Chromium installed under `/tmp/smartscity-playwright`.
+- CI and Cloudflare use Node 24. No dependency, pipeline, DNS, MX or mailbox configuration changes.
+- Desktop: 1440 × 1000. Mobile: iPhone 13 viewport/touch emulation in Chromium, not physical-device or Safari acceptance.
 
-## Completed checks
+## Current local checks
 
-| Check                         | Result                                                                                                     |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Astro / TypeScript            | PASS — 0 errors, 0 warnings; one non-blocking type hint in the Lighthouse runner                           |
-| ESLint                        | PASS                                                                                                       |
-| Translation completeness      | PASS — matching nested keys, array shapes, and nonempty values                                             |
-| Vitest                        | PASS — 5 tests covering Raft commit conditions, reset, and locale routing                                  |
-| Production build              | PASS — 14 HTML documents                                                                                   |
-| Internal page and asset links | PASS — all generated HTML checked                                                                          |
-| Repeat build                  | PASS — all 28 output files byte-identical across consecutive builds on this host                           |
-| Dependency install audit      | PASS — npm reported 0 vulnerabilities at installation time; not a comprehensive security audit             |
-| Secret-pattern review         | No matching private-key or common token patterns found in source, assets, scripts, tests, or configuration |
+| Check                    | Result                                                                                                            |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Astro / TypeScript       | PASS — 0 errors, 0 warnings; existing non-blocking Lighthouse type hint                                           |
+| ESLint                   | PASS                                                                                                              |
+| Prettier                 | PASS                                                                                                              |
+| Translation completeness | PASS — matching nested keys, array shapes and nonempty text                                                       |
+| Vitest                   | PASS — 8 tests: Raft invariants, locale routing, identity projection, absent facts and safe JSON-LD serialization |
+| Production build         | PASS — 18 static HTML documents, including four new localized corporate pages                                     |
+| Internal links/assets    | PASS — all 18 HTML documents                                                                                      |
+| Playwright               | PASS — 28 tests, desktop and mobile projects, 2.4 minutes                                                         |
+| Diff whitespace          | PASS                                                                                                              |
 
-## Browser checks
+Browser coverage includes About, Contact, Privacy, home and four project routes in both languages; light/dark WCAG A/AA automated checks; responsive overflow; visible legal name/email versus structured data; footer links; canonical/hreflang; route-preserving language switching; omitted unknown corporate facts; no fake contact form; content without JavaScript; keyboard/menu navigation; theme persistence; reduced motion; 404; and project demonstrations. Automated accessibility is not a complete human accessibility audit.
 
-**NOT_PASS — 20 tests passed and 2 desktop accessibility tests failed in the final matching-Chromium run.** The run finished before the requested pause took effect. The failures report color contrast on the animated hero during its entrance. Further page work and expanded acceptance were paused at the owner’s request to prioritize the publication pipeline. Tests cover both languages, all product routes, light/dark themes, WCAG A/AA automated checks, responsive layout, no-JavaScript primary content, language-preserving navigation, persistent theme, reduced motion, mobile keyboard/menu behavior, 404 status, and demonstration interactions.
+The earlier 20-pass/2-fail browser result is superseded. Hero/reveal entrance animations retain vertical movement without temporarily lowering text opacity, resolving the contrast failures. The separate menu entrance animation remains unchanged. Local browser visual inspection confirmed that the corporate page retains the portal design.
 
-A real first-click hydration issue was fixed by keeping controls disabled until the interactive island is ready. Tests explicitly scroll to lazily hydrated islands before interacting. Editing the local Markdown sample now updates its preview. A broken locale link from the 404 page was corrected to the language homepage.
+## Performance and historical evidence
 
-## Performance
+Lighthouse: **NOT_RUN** for this corporate-content change. Previous installation audit and repeat-build checks are historical and are not presented as new security or performance acceptance.
 
-**NOT_RUN — deferred at the owner’s request.** Lighthouse lab results must not be reported as real-user Core Web Vitals or an INP measurement.
+## Deployment evidence
 
-## Delivery boundary
+Before this change, Cloudflare deployments `429a2798-0df6-4e64-8d14-2c8a4fadc3c3` (commit `7b0d4fb`) and `9901d885-47b6-4ecf-80dd-a4235427df43` (commit `fbb01fb`) succeeded. The latter check was re-read on this review date. The old GitHub quality run failed before the animation fix; it is not evidence for the enhanced site.
 
-Cloudflare Pages: **DEPLOYED**. Initial deployment `429a2798-0df6-4e64-8d14-2c8a4fadc3c3` for `7b0d4fb` completed successfully; the GitHub `Cloudflare Pages` check also reports success. The browser opened the English homepage and switched to Chinese successfully at https://smartscity-origin.pages.dev. Command-line requests from this execution environment returned 403, so HTTP status/header smoke results from that path are not acceptance evidence.
+The browser opened the existing custom-domain homepage at https://www.smartscity.com/en/ over HTTPS. New corporate pages are locally verified; **this pre-push record does not yet assert their public deployment or a successful new CI run**. Inspect the exact pushed commit's GitHub quality and Cloudflare checks, then verify the new official-domain routes. Live verification will be reported separately after publication.
 
-GitHub quality workflow: **FAILED** at the browser-test step for the initial commit. Publication and quality acceptance remain distinct.
-
-Custom domain and Cloudflare header enforcement: **NOT_VERIFIED**. DNS and enterprise-email records were not modified by this task; owner-managed changes outside this task have not been audited.
-
-The portal includes honest introductions for HyperRaft and QualitySphere where public implementation evidence is unavailable. Those missing product facts remain documented in `CONTENT_AUDIT.md`.
+Command-line HTTP requests previously returned 403 in this execution environment; those responses are not browser accessibility evidence. Domain legal ownership, host-wide security configuration and email delivery remain outside this website acceptance.

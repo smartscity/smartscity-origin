@@ -152,9 +152,9 @@ const t = dictionaries[lang];
     <div>
       <p>{t.about.description}</p>
       <p>{t.about.description2}</p>
-      <a class="text-button" href="https://github.com/smartscity">
-        {t.about.cta}
-        <span>↗</span>
+      <a class="text-button" href={`/${lang}/about/`}>
+        {t.about.fullPage}
+        <span>→</span>
       </a>
       <small>{t.about.note}</small>
     </div>

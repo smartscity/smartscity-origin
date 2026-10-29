@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import CompanyDetails from '../components/CompanyDetails.astro';
+import { company, organizationJson } from '../data/company';
 import { dictionaries, alternatePath, type Locale } from '../i18n';
 interface Props {
   lang: Locale;
@@ -83,18 +85,7 @@ const canonical = new URL(path, Astro.site);
         /* Storage may be unavailable. */
       }
     </script>
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'Smartscity',
-        alternateName: '必赢科技',
-        url: 'https://www.smartscity.com',
-        logo: 'https://www.smartscity.com/images/smartscity.png',
-        sameAs: ['https://github.com/smartscity'],
-      })}
-    />
+    <script type="application/ld+json" set:html={organizationJson()} />
   </head>
   <body id="top">
     <a class="skip-link" href="#main">
@@ -104,9 +95,7 @@ const canonical = new URL(path, Astro.site);
       <div class="nav-shell">
         <a class="brand" href={`/${lang}/`} aria-label="Smartscity">
           <img src="/images/smartscity.png" width="32" height="32" alt="" />
-          <span>
-            smartscity<span class="brand-dot">®</span>
-          </span>
+          <span>{company.brandName.toLowerCase()}</span>
         </a>
         <nav class="desktop-nav" aria-label={t.nav.menu}>
           <a
@@ -117,7 +106,18 @@ const canonical = new URL(path, Astro.site);
           </a>
           <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
           <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
-          <a href={`/${lang}/#about`}>{t.nav.about}</a>
+          <a
+            href={`/${lang}/about/`}
+            aria-current={path === `/${lang}/about/` ? 'page' : undefined}
+          >
+            {t.nav.about}
+          </a>
+          <a
+            href={`/${lang}/contact/`}
+            aria-current={path === `/${lang}/contact/` ? 'page' : undefined}
+          >
+            {t.nav.contact}
+          </a>
         </nav>
         <div class="nav-actions">
           <a
@@ -134,7 +134,7 @@ const canonical = new URL(path, Astro.site);
           >
             ◐
           </button>
-          <a class="github-nav" href="https://github.com/smartscity">
+          <a class="github-nav" href={company.githubOrganization}>
             GitHub <span>↗</span>
           </a>
           <button
@@ -151,8 +151,19 @@ const canonical = new URL(path, Astro.site);
         <a href={`/${lang}/`}>{t.nav.home}</a>
         <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
         <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
-        <a href={`/${lang}/#about`}>{t.nav.about}</a>
-        <a href="https://github.com/smartscity">GitHub ↗</a>
+        <a
+          href={`/${lang}/about/`}
+          aria-current={path === `/${lang}/about/` ? 'page' : undefined}
+        >
+          {t.nav.about}
+        </a>
+        <a
+          href={`/${lang}/contact/`}
+          aria-current={path === `/${lang}/contact/` ? 'page' : undefined}
+        >
+          {t.nav.contact}
+        </a>
+        <a href={company.githubOrganization}>GitHub ↗</a>
       </nav>
     </header>
     <main id="main">
@@ -167,18 +178,25 @@ const canonical = new URL(path, Astro.site);
         <p>{t.footer.tagline}</p>
         <a href="#top">{t.footer.back} ↑</a>
       </div>
+      <div class="footer-identity">
+        <CompanyDetails lang={lang} compact />
+      </div>
       <div class="footer-bottom">
         <span>
-          © {new Date().getUTCFullYear()} {t.footer.company}
+          © {new Date().getUTCFullYear()} {company.chineseBrandName} ·{' '}
+          {company.brandName}
         </span>
         <span>{t.footer.copyright}</span>
-        <div>
-          <a href="https://github.com/smartscity">GitHub ↗</a>
+        <nav class="footer-links" aria-label={t.company.footerNav}>
+          <a href={`/${lang}/about/`}>{t.nav.about}</a>
+          <a href={`/${lang}/contact/`}>{t.nav.contact}</a>
+          <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
+          <a href={company.githubOrganization}>GitHub ↗</a>
           <a href={`/${lang}/privacy/`}>{t.footer.privacy}</a>
           <a href={alternatePath(localePath, other)} lang={other}>
             {t.nav.language}
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
     <script>

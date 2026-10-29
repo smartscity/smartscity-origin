@@ -8,7 +8,8 @@
     "menu": "打开导航",
     "theme": "切换配色主题",
     "language": "English",
-    "skip": "跳至正文"
+    "skip": "跳至正文",
+    "contact": "联系"
   },
   "hero": {
     "eyebrow": "独立思考，开放共建。",
@@ -66,7 +67,8 @@
     "description": "我们是 Smartscity，必赢科技。我们相信，坚实的技术基础与经过思考的工具，能帮助人们更好地完成工作。",
     "description2": "我们的开源项目连接着两个世界：支撑软件运行的基础设施，和让想法逐渐成形的日常工具。",
     "cta": "一起参与构建",
-    "note": "阅读代码，提出问题，贡献你的想法。"
+    "note": "阅读代码，提出问题，贡献你的想法。",
+    "fullPage": "深入了解 Smartscity"
   },
   "activity": {
     "eyebrow": "来自代码仓库",
@@ -155,5 +157,79 @@
     "title": "这条路通向别处。",
     "description": "你访问的页面不存在，回到开源生态继续探索吧。",
     "cta": "返回首页"
+  },
+  "company": {
+    "identityTitle": "公司与官方渠道",
+    "brand": "技术品牌",
+    "legalName": "法人主体",
+    "registeredEnglishName": "正式登记的英文名称",
+    "registeredChineseName": "正式登记的中文名称",
+    "translationLabel": "英文参考译名",
+    "translationNote": "此译名仅便于阅读，不作为已核实的正式英文登记名称。",
+    "country": "注册国家／地区",
+    "website": "官方网站",
+    "email": "联系邮箱",
+    "telephone": "业务电话",
+    "address": "公开营业地址",
+    "registrationNumber": "公司注册号码",
+    "github": "GitHub 组织",
+    "operatorPrefix": "Smartscity（必赢科技）是由",
+    "operatorSuffix": "运营的技术品牌。",
+    "footerNav": "公司与项目链接"
+  },
+  "aboutPage": {
+    "eyebrow": "关于 SMARTSCITY",
+    "title": "走近软件基石\n背后的构建者。",
+    "metaDescription": "了解 Smartscity 必赢科技的公司主体、软件工程方向、项目与官方联系渠道。",
+    "intro": "Smartscity（必赢科技）是聚焦软件工程、分布式基础设施、工程质量和开发者生产力的技术品牌。",
+    "whoTitle": "让工程服务于真实需求。",
+    "whoText": "我们的软件工作围绕两个相互关联的需求展开：为应用提供可靠的基础，以及为开发和使用软件的人提供实用工具。关注方向涵盖共识与复制原理、集成测试质量、Markdown 工作流与词汇学习。",
+    "whoText2": "本网站介绍我们的工作，并提供项目文档、公开源码和发布记录的入口。各项目页面会区分已公开的能力与尚无公开实现证据的概念介绍。",
+    "projectsTitle": "我们在构建什么。",
+    "projectsIntro": "查看现有项目介绍、技术原理与公开仓库。各项目的可用状态与具体能力，以对应项目页面的说明为准。",
+    "philosophyTitle": "我们如何对待工程。",
+    "openSourceTitle": "开源协作",
+    "openSourceText": "对已公开的项目分享源码与文档，欢迎具体问题，并让每项能力说明有据可依。",
+    "contactTitle": "从一次交流开始。",
+    "contactText": "如需了解公司信息、开展业务沟通，或讨论我们的软件工作，请使用官方联系页面。",
+    "contactCta": "联系 Smartscity"
+  },
+  "contactPage": {
+    "eyebrow": "联系我们",
+    "title": "清晰的问题，\n是良好交流的开始。",
+    "metaDescription": "通过官方渠道联系 Smartscity 必赢科技，咨询公司、业务、开源项目与隐私相关问题。",
+    "intro": "欢迎就 Smartscity、软件项目或潜在合作与我们交流。请根据问题选择合适的渠道。",
+    "businessTitle": "公司与业务咨询",
+    "businessText": "如需了解公司、软件工作或探讨合作，请通过邮箱联系，并简要说明需求及相关项目。",
+    "businessFallback": "可通过官方 GitHub 组织找到相关项目及项目公开的联系入口。",
+    "emailCta": "发送电子邮件",
+    "openSourceTitle": "开源项目交流",
+    "openSourceText": "如需报告可复现的问题、提出功能建议或参与贡献，请先阅读对应公开仓库的贡献指南。提供项目版本和清晰说明，避免在公开 Issue 中提交私人信息。",
+    "githubCta": "访问官方 GitHub 组织",
+    "privacyTitle": "隐私相关咨询",
+    "privacyText": "如对网站处理的信息或你已发送的邮件有疑问，请使用下方官方邮箱联系。首次咨询请勿附带密码、身份证件或其他敏感材料。",
+    "privacyCta": "阅读隐私说明",
+    "deliveryNote": "邮件链接会打开你的邮件应用。本网站没有联系表单，也不会代你发送消息。",
+    "projectsTitle": "找到相关项目。"
+  },
+  "privacyExtra": {
+    "metaDescription": "了解 Smartscity 网站的本地存储、演示数据、邮件联系与托管服务相关隐私行为。",
+    "sections": [
+      {
+        "title": "网站功能与本地存储",
+        "text": "网站应用不设置广告或分析 Cookie，也不包含访客分析功能。浏览器本地存储仅用于保存你选择的配色主题，可通过浏览器设置清除。交互示例中的输入仅保留在当前页面内存中，不会保存或发送至服务器。"
+      },
+      {
+        "title": "托管与外部服务",
+        "text": "网站由 Cloudflare 托管。托管和安全服务可能为提供与保护网站而处理请求信息，例如 IP 地址和浏览器信息。网站应用没有嵌入外部表单、视频或第三方跟踪脚本。图片、脚本和样式由本站提供，字体来自你的设备。"
+      },
+      {
+        "title": "邮件与公开项目链接",
+        "text": "本网站没有联系表单。mailto 链接会打开你的邮件应用，发送邮件是你另行执行的操作。如通过邮箱联系，你的邮件内容及主动提供的联系方式会到达收件邮箱。GitHub 链接会跳转到 GitHub，并适用其隐私政策。请勿在公开 Issue 中提交机密信息。"
+      }
+    ],
+    "contactTitle": "隐私问题",
+    "contactText": "请通过联系页面列出的官方渠道与我们沟通。",
+    "contactCta": "隐私联系渠道"
   }
 }

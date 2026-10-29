@@ -28,6 +28,12 @@ Polarbear provides [LICENSE-MIT](https://github.com/smartscity/polarbear/blob/ma
 - No third-party screenshots, fonts, or tracking scripts are fetched by visitors. System fonts are used.
 - All interactive demonstrations are labeled illustrative. Word examples are authored local sample text; no user data is sent to a server.
 
-## Remaining evidence
+## Corporate identity and privacy review — 2026-10-30
+
+The owner supplied 必赢科技（北京）有限公司 as the legal entity for this brand, confirmed registration region 中国大陆 and authorized public use of liyunlong@smartscity.com in response to the request for a receiving mailbox. These facts are recorded as owner attestations, not independent registry or mail-delivery verification. The requested English translation, Biying Technology (Beijing) Co., Ltd., is labeled as a reference translation; Organization `legalName` remains Chinese. No representative name, registration number, capital, founding date, business address, telephone, D-U-N-S number or registration document is published. The unsupported registered-trademark symbol has been removed.
+
+Source inspection and the live homepage DOM showed local assets, inline/bundled site scripts, no analytics integration, no contact form, and no external iframe. The application stores only the theme preference in local storage; demos retain transient state. Privacy text distinguishes these behaviors from hosting request processing and external email/GitHub destinations. This is not an audit of Cloudflare account-wide logging, cookie challenges or the user's email service. The task does not change DNS or mailbox settings. Remaining company checks are tracked in `COMPANY_IDENTITY_TODO.md` and `docs/APPLE_DEVELOPER_READINESS.md`.
+
+## Remaining project evidence
 
 Public HyperRaft and QualitySphere documentation, their licenses, the Vocab standalone license text, and installed-product acceptance evidence remain outside the portal's verified public facts. Never replace missing evidence with inferred capabilities from private files or similarly named repositories.

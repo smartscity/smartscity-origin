@@ -1,0 +1,118 @@
+---
+import { company, type CompanyIdentity } from '../data/company';
+import { dictionaries, type Locale } from '../i18n';
+interface Props {
+  lang: Locale;
+  compact?: boolean;
+  identity?: CompanyIdentity;
+}
+const { lang, compact = false, identity = company } = Astro.props;
+const t = dictionaries[lang].company;
+const operator = identity.operator?.value;
+const address = identity.businessAddress?.value;
+---
+
+<div class:list={['company-details', { 'company-details-compact': compact }]}>
+  {operator && (
+    <p class="operator-statement">
+      {t.operatorPrefix}{' '}
+      <strong data-company="legal-name">{operator.legalName}</strong>
+      {t.operatorSuffix}
+    </p>
+  )}
+  <dl class="company-facts">
+    {!compact && (
+      <>
+        <dt>{t.brand}</dt>
+        <dd>
+          {identity.brandName} / {identity.chineseBrandName}
+        </dd>
+      </>
+    )}
+    {!compact && operator?.registeredEnglishName && (
+      <>
+        <dt>{t.registeredEnglishName}</dt>
+        <dd lang="en">{operator.registeredEnglishName}</dd>
+      </>
+    )}
+    {!compact &&
+      operator?.registeredChineseName &&
+      operator.registeredChineseName !== operator.legalName && (
+        <>
+          <dt>{t.registeredChineseName}</dt>
+          <dd lang="zh-CN">{operator.registeredChineseName}</dd>
+        </>
+      )}
+    {!compact &&
+      operator?.referenceEnglishTranslation &&
+      !operator.registeredEnglishName && (
+        <>
+          <dt>{t.translationLabel}</dt>
+          <dd>
+            <span lang="en">{operator.referenceEnglishTranslation}</span>
+            <small>{t.translationNote}</small>
+          </dd>
+        </>
+      )}
+    {identity.countryOfIncorporation && (
+      <>
+        <dt>{t.country}</dt>
+        <dd data-company="country">
+          {identity.countryOfIncorporation.value[lang]}
+        </dd>
+      </>
+    )}
+    {identity.email && (
+      <>
+        <dt>{t.email}</dt>
+        <dd>
+          <a data-company="email" href={`mailto:${identity.email.value}`}>
+            {identity.email.value}
+          </a>
+        </dd>
+      </>
+    )}
+    {identity.telephone && (
+      <>
+        <dt>{t.telephone}</dt>
+        <dd>{identity.telephone.value}</dd>
+      </>
+    )}
+    {address && (
+      <>
+        <dt>{t.address}</dt>
+        <dd>
+          {[
+            address.streetAddress,
+            address.addressLocality,
+            address.addressRegion,
+            address.postalCode,
+            address.addressCountry,
+          ]
+            .filter(Boolean)
+            .join(', ')}
+        </dd>
+      </>
+    )}
+    {!compact && identity.registrationNumber && (
+      <>
+        <dt>{t.registrationNumber}</dt>
+        <dd>{identity.registrationNumber.value}</dd>
+      </>
+    )}
+    {!compact && (
+      <>
+        <dt>{t.website}</dt>
+        <dd>
+          <a href={identity.website}>{identity.website}</a>
+        </dd>
+        <dt>{t.github}</dt>
+        <dd>
+          <a href={identity.githubOrganization}>
+            {identity.githubOrganization}
+          </a>
+        </dd>
+      </>
+    )}
+  </dl>
+</div>

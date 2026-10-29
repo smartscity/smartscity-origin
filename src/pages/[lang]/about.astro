@@ -1,0 +1,87 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import CompanyDetails from '../../components/CompanyDetails.astro';
+import { company } from '../../data/company';
+import { projects } from '../../data/projects';
+import { locales, dictionaries, type Locale } from '../../i18n';
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Locale;
+const t = dictionaries[lang];
+---
+
+<SiteLayout
+  lang={lang}
+  title={`${t.nav.about} — ${company.brandName}`}
+  description={t.aboutPage.metaDescription}
+>
+  <section class="corporate-hero container">
+    <p class="eyebrow">{t.aboutPage.eyebrow}</p>
+    <h1>{t.aboutPage.title}</h1>
+    <p class="corporate-lead">{t.aboutPage.intro}</p>
+  </section>
+  <section class="corporate-section container corporate-split">
+    <div>
+      <h2>{t.aboutPage.whoTitle}</h2>
+      <p>{t.aboutPage.whoText}</p>
+      <p>{t.aboutPage.whoText2}</p>
+    </div>
+    <section class="identity-panel" aria-labelledby="identity-heading">
+      <h2 id="identity-heading">{t.company.identityTitle}</h2>
+      <CompanyDetails lang={lang} />
+    </section>
+  </section>
+  <section class="corporate-section container">
+    <div class="section-heading">
+      <h2>{t.aboutPage.projectsTitle}</h2>
+      <p>{t.aboutPage.projectsIntro}</p>
+    </div>
+    <div class="corporate-projects">
+      {projects.map((project) => (
+        <article
+          class="corporate-project"
+          style={`--project-accent:${project.accent}`}
+        >
+          <p class="eyebrow">{project.content[lang].category}</p>
+          <h3>
+            <a href={`/${lang}/projects/${project.id}/`}>
+              {project.displayName} <span aria-hidden="true">↗</span>
+            </a>
+          </h3>
+          <p>{project.content[lang].description}</p>
+          <small>{project.content[lang].status}</small>
+          <a class="text-button" href={`/${lang}/projects/${project.id}/`}>
+            {t.ecosystem.details} →
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="corporate-section container">
+    <h2>{t.aboutPage.philosophyTitle}</h2>
+    <div class="principles-grid corporate-principles">
+      {[
+        ...t.engineering.principles,
+        {
+          title: t.aboutPage.openSourceTitle,
+          text: t.aboutPage.openSourceText,
+        },
+      ].map((p) => (
+        <article class="principle">
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="container">
+    <div class="getting-started">
+      <h2>{t.aboutPage.contactTitle}</h2>
+      <p>{t.aboutPage.contactText}</p>
+      <a class="button" href={`/${lang}/contact/`}>
+        {t.aboutPage.contactCta} →
+      </a>
+    </div>
+  </section>
+</SiteLayout>

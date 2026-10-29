@@ -24,6 +24,10 @@ The quality flow is explicitly conceptual, not a claim that QualitySphere has im
 
 ## Security and lifecycle
 
+`src/data/company.ts` owns corporate identity and source/confirmation metadata. Optional facts are absent until publication-approved; no generic placeholder is rendered. `CompanyDetails.astro` projects the same values into About, Contact and the global footer, while `organizationData()` projects them into JSON-LD. The Chinese legal name remains canonical; a reference translation is a separate, explicitly labeled field. This small immutable data model and shared rendering component need no service, database, inheritance hierarchy or global client store. JSON-LD serialization escapes `<` to prevent script termination by content.
+
+Corporate routes reuse existing project data and locale dictionaries. Contact is an external `mailto:` action, with no submission state or backend. The source provenance remains in build-time code; only intended public values are rendered. Development checklists are not Astro routes and contain no private registration documents.
+
 Components create no timers, workers, sockets, queues, or background network requests. Browser event handlers belong to the document lifetime; the site uses normal document navigation, not a persistent SPA router. SVG text and project content are build-time trusted constants. User input is rendered as text through React, never as HTML.
 
 Cloudflare `_headers` supplies MIME, framing, referrer, capability, and CSP restrictions. CSP currently allows inline scripts and styles because Astro hydration and the initial theme script use them; it does not allow `unsafe-eval`, external scripts, frames, or objects. A future hash-based CSP must account for every generated route and Astro hydration script, rather than breaking interactive content silently.
