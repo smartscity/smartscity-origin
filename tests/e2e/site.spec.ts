@@ -33,6 +33,11 @@ for (const lang of ['en', 'zh-CN']) {
       expect(response?.status()).toBe(200);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       await expect(page.locator('h1')).toHaveCount(1);
+      if (lang === 'en') {
+        expect(await page.locator('body').innerText()).not.toMatch(
+          /\p{Script=Han}/u,
+        );
+      }
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth + 1,

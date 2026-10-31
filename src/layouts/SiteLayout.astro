@@ -183,7 +183,8 @@ const canonical = new URL(path, Astro.site);
       </div>
       <div class="footer-bottom">
         <span>
-          © {new Date().getUTCFullYear()} {company.chineseBrandName} ·{' '}
+          © {new Date().getUTCFullYear()}{' '}
+          {lang === 'en' ? 'Biying Technology' : company.chineseBrandName} ·{' '}
           {company.brandName}
         </span>
         <span>{t.footer.copyright}</span>

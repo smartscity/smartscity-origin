@@ -7,12 +7,12 @@
     "github": "GitHub",
     "menu": "Open navigation",
     "theme": "Change color theme",
-    "language": "中文",
+    "language": "Chinese",
     "skip": "Skip to content",
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "SMARTSCITY / 必赢科技",
+    "eyebrow": "SMARTSCITY / BIYING TECHNOLOGY",
     "line1": "Engineering.",
     "line2": "For what’s ",
     "line3": "next.",
@@ -64,7 +64,7 @@
   "about": {
     "eyebrow": "03 / BEHIND THE CODE",
     "title": "Serious about systems.\nThoughtful about people.",
-    "description": "We’re Smartscity — 必赢科技. We build software with a belief that robust foundations and considered tools help people do their best work.",
+    "description": "We’re Smartscity — Biying Technology. We build software with a belief that robust foundations and considered tools help people do their best work.",
     "description2": "Our open-source projects connect two worlds: the infrastructure that keeps software moving, and the everyday tools that help ideas take shape.",
     "cta": "Build alongside us",
     "note": "Explore the code. Ask a question. Make a contribution.",
@@ -82,7 +82,7 @@
   },
   "footer": {
     "tagline": "Engineering the foundations of modern software.",
-    "company": "必赢科技 · Smartscity",
+    "company": "Biying Technology · Smartscity",
     "privacy": "Privacy Policy",
     "copyright": "Built in the open. Made with intention.",
     "back": "Back to top"
@@ -186,7 +186,7 @@
     "eyebrow": "ABOUT SMARTSCITY",
     "title": "The people behind\nthe foundations.",
     "metaDescription": "Learn about Smartscity, its company identity, software engineering focus, projects, and official contact channels.",
-    "intro": "Smartscity — 必赢科技 — is a technology brand focused on software engineering, distributed infrastructure, engineering quality, and developer productivity.",
+    "intro": "Smartscity — Biying Technology — is a technology brand focused on software engineering, distributed infrastructure, engineering quality, and developer productivity.",
     "whoTitle": "Engineering, with purpose.",
     "whoText": "We develop software around two connected needs: dependable foundations for applications, and useful tools for the people who build and use them. Our work spans consensus and replication concepts, integration-testing quality, Markdown workflows, and vocabulary learning.",
     "whoText2": "This website introduces our work and provides routes to project documentation, public source code, and releases where available. Each project page distinguishes published capabilities from concepts that do not yet have public implementation evidence.",

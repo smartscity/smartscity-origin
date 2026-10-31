@@ -1,9 +1,9 @@
 export const districts = [
-  { id: 'polarbear', x: -5.2, z: 2.4, color: '#e9bc7b' },
-  { id: 'polarbear-vocab', x: 4.6, z: 3.5, color: '#a5c9c0' },
-  { id: 'hyperraft', x: 0, z: -3.6, color: '#9bcfff' },
-  { id: 'qualitysphere', x: 6, z: -3.4, color: '#b5b7eb' },
-  { id: 'polarbear-memory', x: -5.8, z: -3.7, color: '#b9b4d5' },
+  { id: 'polarbear', x: -5.2, z: 2.4, color: '#dbd4a0' },
+  { id: 'polarbear-vocab', x: 4.6, z: 3.5, color: '#a5d3a6' },
+  { id: 'hyperraft', x: 0, z: -3.6, color: '#9bdfb1' },
+  { id: 'qualitysphere', x: 6, z: -3.4, color: '#c0d6a0' },
+  { id: 'polarbear-memory', x: -5.8, z: -3.7, color: '#c1d2aa' },
 ] as const;
 export type CityState = {
   selected: number | null;

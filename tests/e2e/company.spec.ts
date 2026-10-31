@@ -25,7 +25,11 @@ for (const lang of ['en', 'zh-CN'] as const) {
       }
       await expect(
         page.locator('footer [data-company="legal-name"]'),
-      ).toHaveText(structured.legalName);
+      ).toHaveText(
+        lang === 'en'
+          ? company.operator!.value.referenceEnglishTranslation!
+          : structured.legalName,
+      );
       await expect(page.locator('footer [data-company="country"]')).toHaveText(
         company.countryOfIncorporation!.value[lang],
       );

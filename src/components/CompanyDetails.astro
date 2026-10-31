@@ -10,13 +10,19 @@ const { lang, compact = false, identity = company } = Astro.props;
 const t = dictionaries[lang].company;
 const operator = identity.operator?.value;
 const address = identity.businessAddress?.value;
+const displayName =
+  lang === 'en'
+    ? operator?.registeredEnglishName ||
+      operator?.referenceEnglishTranslation ||
+      identity.brandName
+    : operator?.legalName;
 ---
 
 <div class:list={['company-details', { 'company-details-compact': compact }]}>
   {operator && (
     <p class="operator-statement">
       {t.operatorPrefix}{' '}
-      <strong data-company="legal-name">{operator.legalName}</strong>
+      <strong data-company="legal-name">{displayName}</strong>
       {t.operatorSuffix}
     </p>
   )}
@@ -25,7 +31,9 @@ const address = identity.businessAddress?.value;
       <>
         <dt>{t.brand}</dt>
         <dd>
-          {identity.brandName} / {identity.chineseBrandName}
+          {lang === 'en'
+            ? identity.brandName
+            : `${identity.brandName} / ${identity.chineseBrandName}`}
         </dd>
       </>
     )}
@@ -36,6 +44,7 @@ const address = identity.businessAddress?.value;
       </>
     )}
     {!compact &&
+      lang !== 'en' &&
       operator?.registeredChineseName &&
       operator.registeredChineseName !== operator.legalName && (
         <>

@@ -5,9 +5,9 @@
   max-height: 1150px;
   isolation: isolate;
   overflow: hidden;
-  background: #101e25;
-  color: #f3f6f6;
-  --city-muted: #b4c3c9;
+  background: #0b2b22;
+  color: #f1f5eb;
+  --city-muted: #b9cdbd;
   --city-line: #ffffff26;
 }
 .city-stage {
@@ -39,10 +39,10 @@
   z-index: -1;
   background: linear-gradient(
     180deg,
-    #101e25 0%,
-    #101e2500 35%,
-    #101e2500 73%,
-    #101e25 98%
+    #0b2b22 0%,
+    #0b2b2200 35%,
+    #0b2b2200 73%,
+    #0b2b22 98%
   );
 }
 .city-copy {
@@ -66,15 +66,15 @@
   font-size: 10px !important;
   font-weight: 500;
   letter-spacing: 0.19em;
-  color: #c6d5da;
+  color: #c8dfcd;
   text-transform: uppercase;
 }
 .city-eyebrow > span {
   width: 5px;
   height: 5px;
-  background: #c2dedb;
+  background: #a8dcb9;
   border-radius: 50%;
-  box-shadow: 0 0 12px #a9d9dc;
+  box-shadow: 0 0 12px #a8dcb9;
 }
 .city-copy h1 {
   font-size: clamp(48px, 5.3vw, 80px);
@@ -85,7 +85,7 @@
   white-space: normal;
 }
 .city-copy h1 > span {
-  color: #b8cbd3;
+  color: #b4dcc6;
 }
 .city-intro {
   color: var(--city-muted);
@@ -108,13 +108,13 @@
   gap: 12px;
 }
 .city-primary {
-  background: #ecf2f2;
-  color: #182d35;
+  background: #cfecda;
+  color: #143c2b;
   padding: 12px 18px;
   border-radius: 100px;
 }
 .city-actions button {
-  color: #e2e9ec;
+  color: #e0eddf;
   padding: 10px 0;
 }
 .city-compass {
@@ -125,13 +125,13 @@
   justify-items: center;
   gap: 10px;
   font-size: 10px;
-  color: #a9bbc3;
+  color: #a6c3af;
 }
 .city-compass i {
   display: block;
   width: 32px;
   height: 32px;
-  border: 1px solid #b5c9d340;
+  border: 1px solid #b6d8bd40;
   border-radius: 50%;
   position: relative;
 }
@@ -142,7 +142,7 @@
   top: 4px;
   width: 1px;
   height: 23px;
-  background: #b7cbd1;
+  background: #b9d3bd;
   transform: rotate(35deg);
 }
 .city-compass small {
@@ -166,9 +166,9 @@
   border: 1px solid #ffffff36;
   padding: 10px;
   border-radius: 30px;
-  color: #dde6e8;
+  color: #e0eddf;
   font-size: 11px;
-  background: #162730;
+  background: #153d2d;
 }
 .city-dock {
   position: absolute;
@@ -184,12 +184,12 @@
   justify-content: space-between;
   margin-bottom: 17px;
   font-size: 10px;
-  color: #b0c2c9;
+  color: #b7cebc;
   letter-spacing: 0.025em;
 }
 .city-dock-heading p {
   font-size: 11px;
-  color: #d2dfe3;
+  color: #d9e8d7;
 }
 .city-dock nav {
   display: grid;
@@ -206,7 +206,7 @@
   border-right: 1px solid var(--city-line);
   transition: background 0.3s;
   min-width: 0;
-  color: #edf3f5;
+  color: #edf5e8;
 }
 .city-dock nav button:first-child {
   border-left: 1px solid var(--city-line);
@@ -217,12 +217,12 @@
 }
 .district-number {
   font-size: 10px;
-  color: #a6b9c2;
+  color: #aecab7;
 }
 .city-dock nav small {
   display: block;
   font-size: 8px;
-  color: #afc3cb;
+  color: #bbd3c1;
   letter-spacing: 0.14em;
   margin-bottom: 8px;
 }
@@ -235,13 +235,13 @@
 .city-dock nav svg {
   margin-left: auto;
   flex-shrink: 0;
-  color: #9fb5bf;
+  color: #aec9b6;
 }
 .city-dock nav button[aria-pressed='true'] .district-number {
   color: #fff;
 }
 .city-dock nav button[aria-pressed='true'] {
-  box-shadow: inset 0 -2px #d4e7ed;
+  box-shadow: inset 0 -2px #bce5c3;
 }
 .has-selection .city-copy {
   opacity: 0;
@@ -265,8 +265,8 @@
   max-height: calc(100% - 270px);
   overflow: auto;
   overscroll-behavior: contain;
-  background: #f2f3ef;
-  color: #233338;
+  background: #f4f5ed;
+  color: #1e3c2b;
   padding: 34px;
   border: 1px solid #ffffff30;
   border-radius: 3px;
@@ -276,7 +276,7 @@
 }
 .city-detail .city-eyebrow {
   justify-content: flex-start;
-  color: #52656c;
+  color: #4e6656;
   font-size: 9px !important;
   letter-spacing: 0.12em;
   padding-right: 20px;
@@ -286,12 +286,12 @@
   right: 15px;
   top: 15px;
   padding: 6px;
-  color: #40565f;
+  color: #365942;
 }
 .city-place {
   display: block;
   font-size: 12px;
-  color: #53686f;
+  color: #4d6756;
   margin: 26px 0 8px;
 }
 .city-detail h2 {
@@ -308,7 +308,7 @@
   margin-bottom: 10px;
 }
 .city-detail > p:not(.city-eyebrow) {
-  color: #536168;
+  color: #526253;
   font-size: 13px;
   line-height: 1.7;
 }
@@ -323,7 +323,7 @@
   border-radius: 30px;
   font-size: 9px;
   padding: 6px 9px;
-  color: #43595e;
+  color: #3d5847;
 }
 .city-open {
   display: flex;
@@ -334,7 +334,7 @@
   border-top: 1px solid #cbd1ce;
   border-bottom: 1px solid #cbd1ce;
   font-size: 12px;
-  color: #294a57;
+  color: #235438;
 }
 .city-open > span:last-child {
   margin-left: auto;
@@ -345,7 +345,7 @@
   gap: 10px;
   font-size: 12px;
   margin-top: 25px;
-  color: #285164;
+  color: #22633f;
 }
 .city-next {
   display: flex;
@@ -354,13 +354,13 @@
   align-items: center;
   margin-top: 25px;
   padding-top: 18px;
-  border-top: 1px solid #cad4d5;
+  border-top: 1px solid #cad8c7;
   font-size: 12px;
-  color: #405963;
+  color: #3d634c;
 }
 .city-editor {
   margin-top: 20px;
-  border: 1px solid #c7d1d3;
+  border: 1px solid #c7d5c6;
   background: #fff;
   border-radius: 6px;
   overflow: hidden;
@@ -369,29 +369,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #e9edee;
+  background: #e7edde;
   padding: 10px;
   font-size: 9px;
-  color: #526368;
+  color: #506655;
 }
 .city-editor-bar span:first-child {
   letter-spacing: 3px;
-  color: #69797c;
+  color: #647b68;
 }
 .city-editor-modes {
   display: flex;
   gap: 4px;
   padding: 8px;
-  background: #f6f8f8;
+  background: #f5f8ef;
 }
 .city-editor-modes button {
   padding: 6px 10px;
   border-radius: 4px;
   font-size: 10px;
-  color: #3e565f;
+  color: #3e5d49;
 }
 .city-editor-modes button[aria-pressed='true'] {
-  background: #243e4c;
+  background: #235239;
   color: #fff;
 }
 .city-editor-body {
@@ -407,10 +407,10 @@
   width: 100%;
   border: 0;
   border-radius: 0;
-  background: #fbfcfc;
+  background: #fbfdf8;
   resize: vertical;
   padding: 14px;
-  color: #405961;
+  color: #3f604b;
   font:
     11px/1.65 ui-monospace,
     monospace;
@@ -418,7 +418,7 @@
 }
 .city-editor-preview {
   padding: 14px;
-  border-left: 1px solid #e1e8e9;
+  border-left: 1px solid #dfe8d9;
   overflow-wrap: anywhere;
 }
 .city-editor-preview h4 {
@@ -429,19 +429,19 @@
 .city-editor-preview p {
   font-size: 11px;
   white-space: pre-wrap;
-  color: #51666e;
+  color: #4c6754;
 }
 .city-editor > small {
   display: block;
-  border-top: 1px solid #dde4e5;
+  border-top: 1px solid #dce7d8;
   padding: 8px;
   font-size: 8px;
-  color: #596c73;
+  color: #516a58;
 }
 .city-memory > small {
   display: block;
   font-size: 11px;
-  color: #54666d;
+  color: #4e6856;
   line-height: 1.6;
 }
 .memory-packet {
@@ -451,15 +451,15 @@
   transition: gap 0.5s;
 }
 .memory-packet > div {
-  border: 1px solid #d4d5dc;
-  border-left: 2px solid #8a829e;
+  border: 1px solid #d0dbc8;
+  border-left: 2px solid #7b9d70;
   padding: 10px;
   transition: background 0.4s;
 }
 .memory-packet span {
   font-size: 9px;
   letter-spacing: 0.08em;
-  color: #635774;
+  color: #4e6542;
 }
 .memory-packet p {
   font-size: 11px;
@@ -469,11 +469,11 @@
   gap: 0;
 }
 .memory-packet.assembled > div {
-  background: #e6e3ec;
+  background: #dfebda;
 }
 .packet-status {
   font-size: 10px;
-  color: #54666d;
+  color: #4e6856;
   margin-top: 12px;
 }
 .city-story {
@@ -500,12 +500,12 @@
 }
 .digital-city button:focus-visible,
 .digital-city a:focus-visible {
-  outline: 2px solid #9bd3f8;
+  outline: 2px solid #9fe0b1;
   outline-offset: 4px;
 }
 .city-detail button:focus-visible,
 .city-detail a:focus-visible {
-  outline-color: #245368;
+  outline-color: #24643f;
 }
 @keyframes city-panel-in {
   from {

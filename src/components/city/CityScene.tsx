@@ -11,9 +11,9 @@ type Part = {
   color: string;
   turn?: number;
 };
-const stone = '#d6d9dc',
-  trim = '#edf0ef',
-  glass = '#354951',
+const stone = '#dfe6d9',
+  trim = '#f2f3e9',
+  glass = '#24563f',
   wood = '#bba17d';
 const box = (
   size: Part['size'],
@@ -86,7 +86,7 @@ function Ring({
   at,
   radius,
   tube = 0.04,
-  color = '#bcd7e5',
+  color = '#b8e6bb',
   tilt = 0,
 }: {
   at: [number, number, number];
@@ -221,7 +221,7 @@ function Academy() {
       );
     p.push(
       box([2.4, 0.1, 0.5], [0, 1.65, 0.9], trim),
-      box([1.4, 0.07, 1.3], [0, 0.28, 0.2], '#819b8e'),
+      box([1.4, 0.07, 1.3], [0, 0.28, 0.2], '#91ab7d'),
     );
     return p;
   }, []);
@@ -237,13 +237,13 @@ function Observatory() {
       <mesh position={[0, 1.74, 0]}>
         <sphereGeometry args={[1.1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
         <meshStandardMaterial
-          color="#a9b7c9"
+          color="#b2c8a6"
           metalness={0.65}
           roughness={0.3}
         />
       </mesh>
-      <Ring at={[0, 2, 0]} radius={1.7} tilt={0.45} color="#c0badf" />
-      <Ring at={[0, 0.36, 0]} radius={2.15} color="#c0badf" />
+      <Ring at={[0, 2, 0]} radius={1.7} tilt={0.45} color="#bfd6a0" />
+      <Ring at={[0, 0.36, 0]} radius={2.15} color="#bfd6a0" />
     </>
   );
 }
@@ -258,7 +258,7 @@ function Archive() {
     }
     p.push(
       box([3.3, 0.14, 2.8], [0, 2.9, 0], trim),
-      box([0.6, 3, 0.6], [0, 1.7, 0], '#c5badb'),
+      box([0.6, 3, 0.6], [0, 1.7, 0], '#c7d9af'),
     );
     for (let i = 0; i < 9; i++)
       p.push(box([0.07, 2.4, 0.07], [-1.3 + i * 0.32, 1.5, 1.21], wood));
@@ -269,29 +269,29 @@ function Archive() {
 function Landscape() {
   const paths = useMemo(() => {
     const p: Part[] = [
-      box([23, 0.35, 17], [0, -0.25, 0], '#25383e'),
-      box([23.4, 0.14, 17.4], [0, -0.48, 0], '#34464d'),
+      box([23, 0.35, 17], [0, -0.25, 0], '#2a493b'),
+      box([23.4, 0.14, 17.4], [0, -0.48, 0], '#42634c'),
     ];
     for (const x of [-9, -2.4, 2.35, 9])
       p.push(
-        box([0.7, 0.015, 16], [x, -0.05, 0], '#51636a'),
-        box([0.025, 0.02, 16], [x + 0.4, -0.03, 0], '#9caeae'),
+        box([0.7, 0.015, 16], [x, -0.05, 0], '#62806a'),
+        box([0.025, 0.02, 16], [x + 0.4, -0.03, 0], '#adc5a2'),
       );
     for (const z of [-7, 0, 6.6])
       p.push(
-        box([22, 0.02, 0.65], [0, -0.035, z], '#51636a'),
-        box([22, 0.025, 0.025], [0, -0.02, z + 0.38], '#9caeae'),
+        box([22, 0.02, 0.65], [0, -0.035, z], '#62806a'),
+        box([22, 0.025, 0.025], [0, -0.02, z + 0.38], '#adc5a2'),
       );
     for (let i = 0; i < 7; i++)
       p.push(
         box(
           [2.4 - i * 0.13, 0.06, 1.1],
           [0, 0.02 + i * 0.04, 3.5 + i * 0.42],
-          '#758589',
+          '#9caa8d',
         ),
       );
     p.push(
-      box([3.2, 0.03, 2.6], [0, 0.0, 1.95], '#182e37'),
+      box([3.2, 0.03, 2.6], [0, 0.0, 1.95], '#163c2f'),
       box([3.4, 0.08, 0.15], [0, 0.03, 0.6], stone),
       box([3.4, 0.08, 0.15], [0, 0.03, 3.3], stone),
     );
@@ -308,7 +308,7 @@ function Landscape() {
         box(
           [0.5, 0.7, 0.5],
           [x, 0.9, z],
-          i % 3 ? '#527366' : '#6b8572',
+          i % 3 ? '#3a7149' : '#70935e',
           i * 0.4,
         ),
       );
@@ -317,17 +317,17 @@ function Landscape() {
       for (let i = 0; i < 5; i++)
         p.push(
           box([0.07, 0.4, 0.07], [x, 0.2, 2 + i * 0.8], wood),
-          box([0.4, 0.6, 0.4], [x, 0.7, 2 + i * 0.8], '#637f70', i * 0.3),
+          box([0.4, 0.6, 0.4], [x, 0.7, 2 + i * 0.8], '#4e8253', i * 0.3),
         );
     return p;
   }, []);
   const lightPaths = useMemo(
     () =>
       [-2.4, 2.35]
-        .map((x) => box([0.045, 0.025, 13], [x, 0.01, -0.3], '#8abecb'))
+        .map((x) => box([0.045, 0.025, 13], [x, 0.01, -0.3], '#94d5ab'))
         .concat(
           [-0.35, 6.2].map((z) =>
-            box([18, 0.025, 0.04], [0, 0.01, z], '#8abecb'),
+            box([18, 0.025, 0.04], [0, 0.01, z], '#94d5ab'),
           ),
         ),
     [],
@@ -337,7 +337,7 @@ function Landscape() {
       <Blocks parts={paths} />
       <Blocks parts={trees} />
       <Blocks parts={lightPaths} luminous />
-      <Ring at={[0, 0.025, 1.9]} radius={1.1} color="#91b8c1" />
+      <Ring at={[0, 0.025, 1.9]} radius={1.1} color="#a0d8aa" />
     </>
   );
 }
@@ -347,11 +347,11 @@ function Label({ index }: { index: number }) {
     canvas.width = 128;
     canvas.height = 128;
     const ctx = canvas.getContext('2d')!;
-    ctx.fillStyle = '#17282e';
+    ctx.fillStyle = '#123c2a';
     ctx.beginPath();
     ctx.arc(64, 64, 49, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#9aafb6';
+    ctx.strokeStyle = '#acc8ad';
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.fillStyle = '#f1f3f1';
@@ -462,7 +462,7 @@ function Signals({ moving, active }: { moving: boolean; active: boolean }) {
   return (
     <instancedMesh ref={ref} args={[undefined, undefined, 16]} visible={moving}>
       <sphereGeometry args={[0.065, 8, 6]} />
-      <meshBasicMaterial color="#c4f0ff" />
+      <meshBasicMaterial color="#b5ffd0" />
     </instancedMesh>
   );
 }
@@ -474,14 +474,14 @@ function World({ selected, expanded, moving, active, onSelect }: SceneProps) {
   }, [expanded, invalidate]);
   return (
     <>
-      <color attach="background" args={['#101e25']} />
-      <fog attach="fog" args={['#101e25', 38, 80]} />
+      <color attach="background" args={['#0b2b22']} />
+      <fog attach="fog" args={['#0b2b22', 38, 80]} />
       <ambientLight intensity={0.5} />
-      <hemisphereLight args={['#c7def5', '#5d645a', 1.2]} />
+      <hemisphereLight args={['#d7eee2', '#5d645a', 1.2]} />
       <directionalLight
         position={[-12, 20, 8]}
         intensity={2.5}
-        color="#ffe4c1"
+        color="#fff5e8"
         castShadow
         shadow-mapSize={[2048, 2048]}
         shadow-camera-left={-18}
@@ -493,11 +493,11 @@ function World({ selected, expanded, moving, active, onSelect }: SceneProps) {
       <directionalLight
         position={[12, 10, -12]}
         intensity={2}
-        color="#8cb3d4"
+        color="#b5dece"
       />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.65, 0]}>
         <planeGeometry args={[180, 180]} />
-        <meshStandardMaterial color="#14262e" roughness={0.65} />
+        <meshBasicMaterial color="#0b2b22" toneMapped={false} />
       </mesh>
       <Landscape />
       {districts.map((d, i) => (
@@ -517,7 +517,7 @@ function World({ selected, expanded, moving, active, onSelect }: SceneProps) {
           <mesh position={[0, 0.02, 0]}>
             <boxGeometry args={[i === 2 ? 5.2 : 4.8, 0.08, 3.9]} />
             <meshStandardMaterial
-              color={selected === i || hover === i ? '#62777d' : '#3c5158'}
+              color={selected === i || hover === i ? '#86a681' : '#476b52'}
               roughness={0.75}
             />
           </mesh>
