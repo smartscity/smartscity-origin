@@ -236,5 +236,93 @@
     "contactTitle": "隐私问题",
     "contactText": "请通过联系页面列出的官方渠道与我们沟通。",
     "contactCta": "隐私联系渠道"
+  },
+  "city": {
+    "eyebrow": "SMARTSCITY / 数字城市",
+    "title": "以代码构筑",
+    "titleAccent": "未来城市。",
+    "intro": "让知识有所归属，让信任拥有基石。\n走进一座由技术与想象共同构筑的城市。",
+    "explore": "探索城市",
+    "tour": "开启城市导览",
+    "overview": "城市总览",
+    "next": "下一座建筑",
+    "back": "返回城市",
+    "districts": "探索城市分区",
+    "select": "选择一座建筑，发现其中的故事",
+    "scene": "Smartscity 数字城市互动建筑模型",
+    "loading": "正在准备城市视图",
+    "fallback": "通过下方导航，仍可探索每个分区。",
+    "pause": "暂停动效",
+    "play": "开启动效",
+    "details": "了解项目",
+    "open": "走进建筑",
+    "close": "收起内部空间",
+    "concept": "建筑概念 · 示意体验",
+    "number": "城市分区",
+    "inside": "走进建筑内部",
+    "storyTitle": "一座城市，多种可能。",
+    "storyText": "知识让想法生根，学习打开新的可能，可靠的系统让它们成长。探索每座建筑背后的软件与工程理念。",
+    "memoryNote": "为智能体任务保留决策、约束与证据的构想。本展区用于说明概念，暂未在此公开具体集成规格。",
+    "memoryCta": "与我们交流 Memory",
+    "sample": "互动示例 · 内容仅保留在当前页面",
+    "write": "写作",
+    "split": "分栏",
+    "preview": "预览",
+    "draft": "编辑示例文档",
+    "noteTitle": "一座城市，始于一个想法。",
+    "noteText": "为它留一片生长的空间。连接知识，梳理思绪，构筑值得分享的事物。",
+    "modes": "3 种编辑布局",
+    "source": "查看公开规格与来源",
+    "packet": "组装上下文",
+    "packetReady": "上下文包已组装",
+    "packetReset": "重置档案",
+    "memoryItems": ["决策", "约束", "证据"],
+    "memoryValues": [
+      "让城市体验保持无障碍。",
+      "仅使用可公开的项目事实。",
+      "为每项说明提供来源。"
+    ],
+    "districtCopy": [
+      {
+        "name": "Polarbear",
+        "place": "知识图书馆",
+        "theme": "知识",
+        "headline": "为下一个想法留一片空间。",
+        "description": "温暖、开放的图书馆，容纳你的写作、连接与发现。走进建筑，体验本地优先的 Markdown 工作空间。",
+        "tags": ["Markdown", "Mermaid / PlantUML", "macOS / Windows"]
+      },
+      {
+        "name": "Polarbear Vocab",
+        "place": "语言学院",
+        "theme": "学习",
+        "headline": "用词汇，打开新的世界。",
+        "description": "充满光线的学院，让练习融入日常。建立词汇集合，重温发现，为另一种语言留出空间。",
+        "tags": ["4 选 1 练习", "30 天统计", "离线优先"]
+      },
+      {
+        "name": "HyperRaft",
+        "place": "数字交易中心",
+        "theme": "信任",
+        "headline": "每一次前进，源于共同确认。",
+        "description": "三座塔楼演绎共识的理念。探索 Leader 如何提出日志条目，以及多数派如何让提交成为可能。",
+        "tags": ["共识", "复制", "Java 21"]
+      },
+      {
+        "name": "QualitySphere",
+        "place": "工程观测站",
+        "theme": "质量",
+        "headline": "让工程信心，清晰可见。",
+        "description": "观察工程质量的实验空间。沿着概念流程，理解从测试定义到结果审阅的每一个环节。",
+        "tags": ["工程质量", "概念流程", "证据"]
+      },
+      {
+        "name": "Polarbear Memory",
+        "place": "城市记忆档案馆",
+        "theme": "延续",
+        "headline": "每个想法，都有来路。",
+        "description": "为决策、约束与证据留存空间，让下一次任务拥有必要的上下文。探索这座档案馆的建筑构想。",
+        "tags": ["决策", "约束", "上下文"]
+      }
+    ]
   }
 }

@@ -236,5 +236,93 @@
     "contactTitle": "Questions about privacy",
     "contactText": "Contact us through the official channel listed on our Contact page.",
     "contactCta": "Privacy contact"
+  },
+  "city": {
+    "eyebrow": "SMARTSCITY / DIGITAL CITY",
+    "title": "Engineering the",
+    "titleAccent": "city of tomorrow.",
+    "intro": "A place for knowledge. A foundation for trust.\nDiscover the ideas shaping our digital world.",
+    "explore": "Explore the city",
+    "tour": "Take a guided tour",
+    "overview": "City overview",
+    "next": "Next district",
+    "back": "Back to the city",
+    "districts": "Explore the districts",
+    "select": "Select a building to look inside",
+    "scene": "Interactive architectural model of the Smartscity digital city",
+    "loading": "Preparing the city view",
+    "fallback": "Explore every district using the navigation below.",
+    "pause": "Pause motion",
+    "play": "Enable motion",
+    "details": "Explore project",
+    "open": "Look inside",
+    "close": "Close the interior",
+    "concept": "Architectural concept · illustrative experience",
+    "number": "DISTRICT",
+    "inside": "INSIDE THE ARCHITECTURE",
+    "storyTitle": "One city. Many ways forward.",
+    "storyText": "Knowledge gives ideas a home. Learning opens new possibilities. Reliable systems help them grow. Explore the software behind each district.",
+    "memoryNote": "A vision for preserving decisions, constraints and evidence across agent tasks. This exhibit illustrates the concept; integration specifications are not yet published here.",
+    "memoryCta": "Talk to us about Memory",
+    "sample": "Interactive sample · stays on this page",
+    "write": "Write",
+    "split": "Split view",
+    "preview": "Preview",
+    "draft": "Edit the sample document",
+    "noteTitle": "A city begins with an idea.",
+    "noteText": "Give it a place to grow. Connect your knowledge, shape your thoughts, and build something worth sharing.",
+    "modes": "3 editing layouts",
+    "source": "View documented specifications",
+    "packet": "Assemble context",
+    "packetReady": "Context packet assembled",
+    "packetReset": "Reset archive",
+    "memoryItems": ["Decision", "Constraint", "Evidence"],
+    "memoryValues": [
+      "Keep the city accessible.",
+      "Use only public project facts.",
+      "Link claims to their sources."
+    ],
+    "districtCopy": [
+      {
+        "name": "Polarbear",
+        "place": "The Library of Knowledge",
+        "theme": "KNOWLEDGE",
+        "headline": "Room for your next idea.",
+        "description": "A warm, open library for the things you write, connect and discover. Step inside and explore a local-first Markdown workspace.",
+        "tags": ["Markdown", "Mermaid / PlantUML", "macOS / Windows"]
+      },
+      {
+        "name": "Polarbear Vocab",
+        "place": "The Academy of Language",
+        "theme": "LEARNING",
+        "headline": "Words open worlds.",
+        "description": "A light-filled academy for everyday practice. Build a vocabulary collection, revisit discoveries, and make space for another language.",
+        "tags": ["4-choice practice", "30-day statistics", "Offline-first"]
+      },
+      {
+        "name": "HyperRaft",
+        "place": "The Transaction Exchange",
+        "theme": "TRUST",
+        "headline": "Progress through agreement.",
+        "description": "Three towers illustrate the idea of consensus. Explore how a leader proposes an entry and a majority makes commitment possible.",
+        "tags": ["Consensus", "Replication", "Java 21"]
+      },
+      {
+        "name": "QualitySphere",
+        "place": "The Engineering Observatory",
+        "theme": "QUALITY",
+        "headline": "Confidence, made visible.",
+        "description": "An observatory for engineering quality. Follow a conceptual path from defining a test to reviewing its results.",
+        "tags": ["Engineering quality", "Conceptual workflow", "Evidence"]
+      },
+      {
+        "name": "Polarbear Memory",
+        "place": "The Memory Archive",
+        "theme": "CONTINUITY",
+        "headline": "Every idea has a history.",
+        "description": "An archive for the decisions, constraints and evidence that give the next task its context. Explore the architectural vision.",
+        "tags": ["Decisions", "Constraints", "Context"]
+      }
+    ]
   }
 }

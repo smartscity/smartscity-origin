@@ -50,3 +50,9 @@ The visual redesign references Apple's broad use of white/neutral surfaces, gene
 Each rendered specification links its source on the project detail page. No private benchmark figures, private artifact downloads, or comparisons with similarly named third-party HyperRAFT products are included. A green verification workflow alone never establishes measured performance.
 
 Owner decision on 2026-10-30: do not publish HyperRaft experimental performance figures; show public specifications first and wait for a formal performance report. No TPS, latency or codec-comparison values from private reports are checked into this portal.
+
+## Digital city narrative — 2026-10-31
+
+The owner-approved five-district narrative maps Polarbear to a library, Vocab to an academy, HyperRaft to an exchange, QualitySphere to an observatory and Polarbear Memory to an archive. Buildings, roads, sample notes and context packets are original illustrations, not screenshots, deployed smart-city infrastructure, live metrics or asserted product dependencies. Memory is presented as a concept pending public source verification. No claim of two shipping Agent integrations or a million-TPS target is published. Existing verified project specifications retain their sources and original review date.
+
+`CityScene.tsx` constructs the architectural models from original geometry; `digital-city.svg` is an original no-WebGL poster. No third-party 3D models or generated concept art are shipped. Three.js is MIT-licensed; React Three Fiber is MIT-licensed. GSAP is used under its distributed Standard License. Dependencies and their exact resolved versions are recorded in the lockfile.

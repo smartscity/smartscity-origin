@@ -46,9 +46,9 @@ for (const lang of ['en', 'zh-CN']) {
     }
     expect(errors).toEqual([]);
   });
-  test(`${lang} accessibility in dark and light themes`, async ({ page }) => {
-    test.setTimeout(90000);
-    for (const theme of ['dark', 'light']) {
+  for (const theme of ['dark', 'light']) {
+    test(`${lang} accessibility in ${theme} theme`, async ({ page }) => {
+      test.setTimeout(90000);
       await page.emulateMedia({ colorScheme: theme as 'dark' | 'light' });
       for (const path of [
         `/${lang}/`,
@@ -68,8 +68,8 @@ for (const lang of ['en', 'zh-CN']) {
           })),
         ).toEqual([]);
       }
-    }
-  });
+    });
+  }
 }
 test('language preserves project route and theme persists', async ({
   page,
@@ -132,11 +132,10 @@ test('reduced motion disables continuous animation and unknown routes return 404
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en/');
-  expect(
-    await page
-      .locator('.travel-wires')
-      .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe('none');
+  await expect(page.locator('#digital-city')).toHaveAttribute(
+    'data-motion',
+    'paused',
+  );
   const response = await page.goto('/does-not-exist/');
   expect(response?.status()).toBe(404);
   await expect(page.getByRole('heading', { level: 1 })).toContainText(

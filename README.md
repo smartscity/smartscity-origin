@@ -1,6 +1,6 @@
 # Smartscity / 必赢科技
 
-The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. Neutral dark and white themes, reduced motion, and mobile navigation are included.
+The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. The homepage adds a five-district WebGL city with building selection, guided camera transitions and an expandable library. Neutral dark and white themes, reduced motion, and mobile navigation are included.
 
 Official website: [www.smartscity.com](https://www.smartscity.com/en/) · [简体中文](https://www.smartscity.com/zh-CN/). Cloudflare preview: [smartscity-origin.pages.dev](https://smartscity-origin.pages.dev/en/).
 
@@ -38,8 +38,10 @@ For a local Lighthouse audit, start `npm run preview -- --port 4321` in another 
 - `src/data/projects.ts`: project identity, public links, verified release snapshot, and bilingual product copy.
 - `src/data/company.ts`: publication-approved company identity, source records, optional corporate facts and Organization JSON-LD projection. Reference translations never replace registered legal names.
 - `src/i18n/{en,zh-CN}.json`: shared interface and demonstration copy.
-- `src/styles/global.css`: visual tokens, layout, responsive behavior, motion, and light theme.
-- `public/images/`: the requested GitHub organization avatar and original social artwork.
+- `src/components/city/`: city navigation reducer, lazy-loaded procedural Three.js scene and local library sample.
+- `src/styles/city.css`: city composition, responsive district navigation and detail panels.
+- `src/styles/global.css`: shared visual tokens, layout, responsive behavior, motion, and light theme.
+- `public/images/`: the requested GitHub organization avatar, original social artwork and the no-WebGL city poster.
 
 Polarbear and Polarbear Vocab have verified public repositories. HyperRaft has verified public Maven Central 0.1.0 package metadata; its private repository and benchmark reports are not linked as public evidence. QualitySphere retains owner-provided positioning with public technical details pending. See [CONTENT_AUDIT.md](CONTENT_AUDIT.md).
 

@@ -29,40 +29,26 @@ for (const lang of ['en', 'zh-CN']) {
   });
 }
 
-test('new ambient motion stops when reduced motion is requested', async ({
+test('city motion respects reduced motion and offscreen visibility', async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en/');
-  for (const selector of [
-    '.travel-wires',
-    '.core-float',
-    '.ecosystem-module',
-  ]) {
-    expect(
-      await page
-        .locator(selector)
-        .first()
-        .evaluate((el) => getComputedStyle(el).animationName),
-    ).toBe('none');
-  }
-});
-
-test('ambient motion pauses when its illustration leaves the viewport', async ({
-  page,
-}) => {
+  await expect(page.locator('#digital-city')).toHaveAttribute(
+    'data-motion',
+    'paused',
+  );
+  await expect(
+    page.getByRole('button', { name: 'Pause motion' }),
+  ).toBeDisabled();
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  await page.goto('/en/');
-  await page.locator('.network-art').scrollIntoViewIfNeeded();
-  await expect(page.locator('.network-art')).toHaveClass(/in-view/);
-  await expect(page.locator('.core-float')).toHaveCSS(
-    'animation-play-state',
+  await expect(page.locator('#digital-city')).toHaveAttribute(
+    'data-motion',
     'running',
   );
   await page.locator('.site-footer').scrollIntoViewIfNeeded();
-  await expect(page.locator('.network-art')).not.toHaveClass(/in-view/);
-  await expect(page.locator('.core-float')).toHaveCSS(
-    'animation-play-state',
+  await expect(page.locator('#digital-city')).toHaveAttribute(
+    'data-motion',
     'paused',
   );
 });

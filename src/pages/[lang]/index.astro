@@ -1,6 +1,6 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import NetworkArt from '../../components/NetworkArt.astro';
+import CityExperience from '../../components/city/CityExperience';
 import ProjectArt from '../../components/ProjectArt.astro';
 import ProjectMetrics from '../../components/ProjectMetrics.astro';
 import RaftDemo from '../../components/RaftDemo';
@@ -17,44 +17,17 @@ const t = dictionaries[lang];
   lang={lang}
   title={
     lang === 'en'
-      ? 'Smartscity — Engineering the Foundations of Modern Software'
-      : 'Smartscity 必赢科技 — 筑造现代软件的基石'
+      ? 'Smartscity — Engineering the City of Tomorrow'
+      : 'Smartscity 必赢科技 — 以代码构筑未来城市'
   }
 >
-  <section class="hero container">
-    <div class="hero-main">
-      <div class="hero-copy">
-        <p class="eyebrow">
-          <span class="status-dot"></span>
-          {t.hero.eyebrow}
-        </p>
-        <h1>
-          <span>{t.hero.line1}</span>
-          <span>{t.hero.line2}</span>
-          <span>{t.hero.line3}</span>
-        </h1>
-        <p class="hero-description">{t.hero.description}</p>
-        <div class="hero-actions">
-          <a class="button" href="#projects">
-            {t.hero.primary}
-            <span>↗</span>
-          </a>
-          <a class="text-button" href="#about">
-            {t.hero.secondary}
-            <span>→</span>
-          </a>
-        </div>
-        <p class="hero-footnote">{t.hero.footnote}</p>
-      </div>
-      <NetworkArt label={t.hero.diagram} lang={lang} />
+  <CityExperience lang={lang} text={t.city} client:load />
+  <section class="city-story container">
+    <div>
+      <p class="eyebrow">SMARTSCITY / 01 — 05</p>
+      <h2>{t.city.storyTitle}</h2>
     </div>
-    <div class="hero-bottom">
-      <span>{t.hero.label}</span>
-      <span>
-        HYPERRAFT <i>·</i> POLARBEAR <i>·</i> QUALITYSPHERE <i>·</i> VOCAB
-      </span>
-      <span>{t.hero.signal} ↓</span>
-    </div>
+    <p>{t.city.storyText}</p>
   </section>
   <section class="section container" id="projects">
     <div class="section-heading">

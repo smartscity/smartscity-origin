@@ -6,7 +6,7 @@ Astro generates the English and Simplified Chinese route trees at build time. Th
 
 `projects.ts` is the source of truth for canonical project identity and reviewed metadata. Shared language strings live in structurally matched JSON dictionaries. Each product has its own bilingual positioning and capability copy; no text is derived from a live visitor request. New projects are generated from the registry.
 
-CSS owns presentation and ambient SVG animation. Motion is used only for vocabulary transitions. React hydrates demonstrations when visible. There is no GSAP or WebGL dependency and no animation-driven React state loop. The continuous hero animation pauses offscreen and when the document is hidden. Reduced-motion preferences disable ambient CSS animation and Motion transitions.
+CSS owns presentation and ambient SVG animation. Motion is used only for vocabulary transitions. React hydrates demonstrations when visible. The homepage additionally lazy-loads the WebGL city described below, with GSAP camera transitions and no animation-driven React state loop. The continuous hero animation pauses offscreen and when the document is hidden. Reduced-motion preferences disable ambient CSS animation and Motion transitions.
 
 ## State model and pattern decisions
 
@@ -28,7 +28,7 @@ The quality flow is explicitly conceptual, not a claim that QualitySphere has im
 
 Corporate routes reuse existing project data and locale dictionaries. Contact is an external `mailto:` action, with no submission state or backend. The source provenance remains in build-time code; only intended public values are rendered. Development checklists are not Astro routes and contain no private registration documents.
 
-Components create no timers, workers, sockets, queues, or background network requests. Browser event handlers belong to the document lifetime; the site uses normal document navigation, not a persistent SPA router. SVG text and project content are build-time trusted constants. User input is rendered as text through React, never as HTML.
+Components create no sockets, queues, or background network requests. The city owns a visibility-scoped render loop and bounded GSAP transitions. Browser event handlers belong to the document lifetime; the site uses normal document navigation, not a persistent SPA router. SVG text and project content are build-time trusted constants. User input is rendered as text through React, never as HTML.
 
 Cloudflare `_headers` supplies MIME, framing, referrer, capability, and CSP restrictions. CSP currently allows inline scripts and styles because Astro hydration and the initial theme script use them; it does not allow `unsafe-eval`, external scripts, frames, or objects. A future hash-based CSP must account for every generated route and Astro hydration script, rather than breaking interactive content silently.
 
@@ -38,12 +38,29 @@ No state is shared across project demonstrations. Public claims are separated fr
 
 ## Neutral visual system and documented specifications
 
-The presentation uses white/neutral gray or neutral black surfaces with a blue accent and system typography. The hero is an original SVG composition with layered software tiles, transform-only levitation and moving network strokes. It does not use Apple logos, product images, fonts or copied assets. The existing observer owns visibility: continuous graphic motion pauses offscreen and when the document is hidden; reveal movement runs once on entry. Reduced-motion preferences disable both ambient and scroll-linked effects. Core text never fades below accessible contrast.
+The presentation uses white/neutral gray or neutral black surfaces with a blue accent and system typography. The homepage hero is now the original procedural 3D city described below; the older software-tile SVG remains available as an unused component. It does not use Apple logos, product images, fonts or copied assets. The existing observer owns visibility: continuous graphic motion pauses offscreen and when the document is hidden; reveal movement runs once on entry. Reduced-motion preferences disable both ambient and scroll-linked effects. Core text never fades below accessible contrast.
 
-| Problem                                              | Pattern decision                                                          | Reason                                                                                      |
-| ---------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Consistent factual numbers on cards and detail pages | Reuse the typed project registry and a shared `ProjectMetrics` projection | Each number includes bilingual meaning and a public source URL; views cannot invent values. |
-| Motion visibility and lifecycle                      | Reuse the document-owned IntersectionObserver and CSS timelines           | No background timer, React animation loop, event bus or extra animation framework.          |
-| Benchmark disclosure                                 | Separate public specifications from unpublished experiment results        | Package availability and feature counts do not establish throughput, latency or capacity.   |
+| Problem                                              | Pattern decision                                                          | Reason                                                                                                 |
+| ---------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Consistent factual numbers on cards and detail pages | Reuse the typed project registry and a shared `ProjectMetrics` projection | Each number includes bilingual meaning and a public source URL; views cannot invent values.            |
+| Motion visibility and lifecycle                      | Reuse the document-owned IntersectionObserver and CSS timelines           | SVG motion retains its document observer; the city owns its separate render lifecycle described below. |
+| Benchmark disclosure                                 | Separate public specifications from unpublished experiment results        | Package availability and feature counts do not establish throughput, latency or capacity.              |
 
 Private HyperRaft experiment results are not included in the generated site or repository. They require explicit authorization and a report that states workload, source revision, machine, topology, measurement window and limitations. Existing product demos keep their original state owners and semantics.
+
+## Digital city — 2026-10-31
+
+The homepage now uses an isolated `CityExperience` React island. Its server-rendered title, poster and project links remain usable without JavaScript. `CityScene` is dynamically imported after hydration, so Three.js and GSAP are not dependencies of product or corporate routes. WebGL 2 failure or a lost context leaves the poster and HTML navigation available. There are no remote models, fonts, textures or runtime product APIs.
+
+| Problem                             | Pattern decision                           | Owner and invariant                                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Overview, focus, tour and expansion | Explicit reducer                           | `city/model.ts` resets expansion when changing buildings; a tour ends at overview.                                                                                        |
+| Camera and animation                | Single rendering adapter                   | `CameraRig` exclusively controls camera position, target and zoom; GSAP timelines are killed on replacement/unmount. No React state updates per frame.                    |
+| Model resources                     | Component composition                      | Procedural architecture merges box geometry by material, disposes generated geometry/textures on unmount, and uses instanced signal particles.                            |
+| Visibility and motion               | Scoped browser adapter                     | The island owns media, visibility and intersection listeners; reduced motion skips camera/roof transitions, user pause stops ambient movement, offscreen rendering stops. |
+| Product content                     | Existing registry plus bilingual narrative | Existing specifications and links remain in the project registry. City copy is a metaphor, not evidence of deployment or product dependencies.                            |
+| Editing sample                      | Independent local component                | The library sample owns its draft and three layout modes. It is plain text, never injected HTML, and is not saved or transmitted.                                         |
+
+The first implemented city includes five selectable buildings, a manually advanced guided tour, camera transitions, a library roof cutaway with three editor layouts, and an illustrative Memory context assembly. Existing Raft and other product demos keep their original scope. There is no free-flight camera, automatic scroll tour, new election simulator or live telemetry. The Memory district is an owner-supplied concept and links to Contact, without inventing a repository or verified integration count.
+
+The renderer uses WebGLRenderer and React Three Fiber 9 for React 19. The DPR cap is 1.5, with a decrease to 1 after sustained slow frames while moving. Continuous particles invalidate demand frames only when visible and motion is enabled. Shadow maps update once for the static scene and are refreshed for library expansion. Physical-device performance targets are not acceptance results; browser emulation does not establish real phone frame rate. Public performance figures remain deferred.
