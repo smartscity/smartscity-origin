@@ -1,0 +1,173 @@
+---
+import ProductCatalog from '../../../components/library/ProductCatalog.astro';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { locales, dictionaries, type Locale } from '../../../i18n';
+import {
+  publishedReadings,
+  productIds,
+  readingPath,
+} from '../../../lib/library';
+import '../../../styles/library.css';
+export function getStaticPaths() {
+  return locales.flatMap((lang) =>
+    ['docs', 'blog'].map((space) => ({ params: { lang, space } })),
+  );
+}
+const lang = Astro.params.lang as Locale;
+const space = Astro.params.space as 'docs' | 'blog';
+const t = dictionaries[lang].library;
+const entries = await publishedReadings(lang);
+const shown = entries.filter((e) => e.data.kind === space);
+const topicIds = [...new Set(entries.map((e) => e.data.topic))];
+---
+
+<SiteLayout
+  lang={lang}
+  title={`${t[space]} — Smartscity`}
+  description={space === 'docs' ? t.docsIntro : t.blogIntro}
+>
+  <div
+    class:list={[
+      'library-index container',
+      { 'library-blog': space === 'blog' },
+    ]}
+  >
+    <header class="library-hero">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <div class="library-tabs">
+        <a
+          href={`/${lang}/docs/`}
+          aria-current={space === 'docs' ? 'page' : undefined}
+        >
+          {t.docs}
+        </a>
+        <a
+          href={`/${lang}/blog/`}
+          aria-current={space === 'blog' ? 'page' : undefined}
+        >
+          {t.blog}
+        </a>
+      </div>
+      <h1>{space === 'docs' ? t.docsTitle : t.blogTitle}</h1>
+      <p class="library-lead">{space === 'docs' ? t.docsIntro : t.blogIntro}</p>
+    </header>
+    {space === 'docs' && <ProductCatalog lang={lang} />}
+    <section
+      class="library-browser"
+      aria-labelledby="search-title"
+      data-library-search
+      data-count={t.results}
+      data-default-kind={space}
+    >
+      <h2 id="search-title">{t.search}</h2>
+      <form class="library-filters" role="search" hidden>
+        <label class="library-query">
+          {t.search}
+          <input
+            type="search"
+            name="q"
+            placeholder={t.searchHint}
+            autocomplete="off"
+            maxlength="200"
+          />
+        </label>
+        <label>
+          {t.kind}
+          <select name="kind">
+            <option value="">{t.all}</option>
+            <option value="docs" selected={space === 'docs'}>
+              {t.docs}
+            </option>
+            <option value="blog" selected={space === 'blog'}>
+              {t.blog}
+            </option>
+          </select>
+        </label>
+        <label>
+          {t.product}
+          <select name="product">
+            <option value="">{t.all}</option>
+            {productIds.map((id) => (
+              <option value={id}>{t.products[id]}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          {t.topic}
+          <select name="topic">
+            <option value="">{t.all}</option>
+            {topicIds.map((id) => (
+              <option value={id}>{t.topics[id]}</option>
+            ))}
+          </select>
+        </label>
+        <button type="reset" class="library-reset">
+          {t.clear}
+        </button>
+      </form>
+      <noscript>
+        <p>{t.noJs}</p>
+      </noscript>
+      <p class="library-count" role="status" aria-live="polite">
+        {shown.length} {t.results}
+      </p>
+      <p data-empty hidden>
+        {t.empty}
+      </p>
+      <div class:list={['reading-list', { 'blog-list': space === 'blog' }]}>
+        {entries.map((entry) => {
+          const d = entry.data;
+          return (
+            <article
+              class="reading-card"
+              hidden={d.kind !== space}
+              data-reading
+              data-kind={d.kind}
+              data-product={d.product}
+              data-topic={d.topic}
+              data-search={`${d.title} ${d.summary} ${entry.body ?? ''}`
+                .normalize('NFKC')
+                .toLocaleLowerCase(lang)}
+            >
+              {d.cover && (
+                <a
+                  class="reading-cover"
+                  href={readingPath(entry)}
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    src={d.cover}
+                    alt=""
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              )}
+              <div class="reading-meta">
+                <span>{t[d.kind]}</span>
+                <span>{t.topics[d.topic]}</span>
+                <time datetime={d.updated}>{d.updated}</time>
+              </div>
+              <h3>
+                <a href={readingPath(entry)}>
+                  {d.title}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              </h3>
+              <p>{d.summary}</p>
+              <small>
+                {t.products[d.product]} · {d.version}
+              </small>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  </div>
+</SiteLayout>
+<script>
+  import '../../../lib/library-search';
+</script>

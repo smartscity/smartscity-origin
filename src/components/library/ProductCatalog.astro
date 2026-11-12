@@ -1,0 +1,54 @@
+---
+import { documentationProducts } from '../../data/projects';
+import { dictionaries, type Locale } from '../../i18n';
+import { publishedReadings, readingPath } from '../../lib/library';
+interface Props {
+  lang: Locale;
+  coreOnly?: boolean;
+}
+const { lang, coreOnly = false } = Astro.props;
+const t = dictionaries[lang].library;
+const entries = await publishedReadings(lang);
+const groups = coreOnly
+  ? (['core'] as const)
+  : (['core', 'service', 'other'] as const);
+const titles = {
+  core: t.coreProducts,
+  service: t.assessmentService,
+  other: t.otherComponents,
+};
+---
+
+{groups.map((group) => (
+  <section
+    class:list={['library-catalog', `catalog-${group}`]}
+    aria-label={titles[group]}
+  >
+    <h2>{titles[group]}</h2>
+    {group === 'core' && <p class="catalog-intro">{t.coreIntro}</p>}
+    <div class="library-products">
+      {documentationProducts
+        .filter((p) => p.group === group)
+        .map((product, i) => {
+          const entry = entries.find(
+            (e) => e.data.kind === 'docs' && e.data.product === product.id,
+          )!;
+          return (
+            <a class="library-product" href={readingPath(entry)}>
+              <span class="library-number">
+                {group === 'core' ? `0${i + 1}` : '↗'}
+              </span>
+              <h3>{t.products[product.id]}</h3>
+              <p>{t.productDescriptions[product.id]}</p>
+              <span class="library-start">{t.read} ↗</span>
+            </a>
+          );
+        })}
+    </div>
+    {coreOnly && (
+      <a class="reading-back" href={`/${lang}/docs/`}>
+        {t.allDocs} →
+      </a>
+    )}
+  </section>
+))}

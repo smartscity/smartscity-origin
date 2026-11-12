@@ -324,5 +324,81 @@
         "tags": ["Decisions", "Constraints", "Context"]
       }
     ]
+  },
+  "library": {
+    "docs": "Docs",
+    "blog": "Blog",
+    "eyebrow": "THE SMARTSCITY LIBRARY",
+    "docsTitle": "From understanding to implementation.",
+    "blogTitle": "Engineering, examined.",
+    "docsIntro": "Find the right starting point, follow a complete task, and understand what the evidence supports.",
+    "blogIntro": "Practical methods for reasoning about reliability, recovery, and the systems between teams.",
+    "search": "Search the library",
+    "searchHint": "Search titles and full text…",
+    "kind": "Content type",
+    "product": "Product",
+    "topic": "Topic",
+    "all": "All",
+    "clear": "Clear filters",
+    "results": "results",
+    "empty": "No matching readings. Try another term or clear the filters.",
+    "noJs": "Search needs JavaScript. All readings in this section remain available below.",
+    "catalog": "Explore the documentation",
+    "read": "Start reading",
+    "contents": "Reading path",
+    "onPage": "On this page",
+    "updated": "Updated",
+    "version": "Applies to",
+    "author": "By",
+    "sourceRevision": "Source revision",
+    "sources": "Sources and further reading",
+    "sourceNote": "This service or project introduction is based on owner-provided scope; it is not an independent product verification.",
+    "previous": "Previous",
+    "next": "Next",
+    "related": "Continue exploring",
+    "contactTitle": "Bring your system into the discussion.",
+    "contactText": "Discuss the question raised by this reading, your environment, and the evidence you need. The email opens in your mail app; you decide what to send.",
+    "email": "Discuss this topic",
+    "contact": "Contact Smartscity",
+    "copy": "Copy code",
+    "copied": "Copied",
+    "copyFailed": "Copy unavailable — select the code manually.",
+    "emailSubject": "Smartscity inquiry",
+    "emailBody": "Reading: {title}\nSource: {url}\n\nMy question:\nEnvironment and scope:\nPreferred contact:\n",
+    "sections": {
+      "overview": "Overview",
+      "getting-started": "Getting started",
+      "guides": "Guides",
+      "reference": "Reference",
+      "operations": "Operations",
+      "troubleshooting": "Troubleshooting",
+      "releases": "Releases"
+    },
+    "products": {
+      "agent-reliability": "AI Agent Reliability",
+      "hyperraft": "HyperRaft",
+      "qualitysphere": "QualitySphere",
+      "starter-id": "Smartscity Starter / ID",
+      "reconsphere": "ReconSphere"
+    },
+    "topics": {
+      "architecture-reliability": "Architecture & reliability",
+      "release-recovery": "Release & recovery",
+      "business-reliability": "Business reliability",
+      "ai-engineering": "AI engineering",
+      "product-practice": "Engineering products"
+    },
+    "productDescriptions": {
+      "agent-reliability": "Prepare an assessment, agree the scope, and read evidence-based findings.",
+      "hyperraft": "Public package information and the path to an integration discussion.",
+      "qualitysphere": "Project introduction and evaluation questions for your quality workflow.",
+      "starter-id": "A public source snapshot: select an integration, run an example, and operate it.",
+      "reconsphere": "Reconciliation and financial observability. Currently in design and architecture review."
+    },
+    "coreProducts": "Core engineering products",
+    "assessmentService": "Assessment service",
+    "otherComponents": "Other components",
+    "coreIntro": "Infrastructure, verification, and financial consistency. Explore each product at its current stage.",
+    "allDocs": "Explore all documentation"
   }
 }

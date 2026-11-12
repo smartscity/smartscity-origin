@@ -324,5 +324,81 @@
         "tags": ["决策", "约束", "上下文"]
       }
     ]
+  },
+  "library": {
+    "docs": "文档",
+    "blog": "博客",
+    "eyebrow": "SMARTSCITY 知识中心",
+    "docsTitle": "从理解，走向实践。",
+    "blogTitle": "深入工程问题。",
+    "docsIntro": "找到适合的起点，完成一条使用链路，理解证据能支持怎样的结论。",
+    "blogIntro": "围绕可靠性、恢复和跨团队系统，提供可执行的分析与验证方法。",
+    "search": "搜索知识中心",
+    "searchHint": "搜索标题和正文…",
+    "kind": "内容类型",
+    "product": "产品",
+    "topic": "主题",
+    "all": "全部",
+    "clear": "清除筛选",
+    "results": "条结果",
+    "empty": "没有匹配的内容，请更换关键词或清除筛选。",
+    "noJs": "搜索需要 JavaScript，下方仍可阅读本栏目全部内容。",
+    "catalog": "探索产品文档",
+    "read": "开始阅读",
+    "contents": "阅读路径",
+    "onPage": "本页目录",
+    "updated": "更新日期",
+    "version": "适用版本",
+    "author": "作者",
+    "sourceRevision": "来源修订",
+    "sources": "来源与延伸阅读",
+    "sourceNote": "本服务或项目介绍依据所有者提供的范围，不代表独立的产品验证。",
+    "previous": "上一篇",
+    "next": "下一篇",
+    "related": "继续探索",
+    "contactTitle": "一起讨论你的系统问题。",
+    "contactText": "说明本篇涉及的问题、你的环境与需要核对的证据。邮件将在你的邮件应用打开，由你决定发送内容。",
+    "email": "讨论这个主题",
+    "contact": "联系 Smartscity",
+    "copy": "复制代码",
+    "copied": "已复制",
+    "copyFailed": "无法复制，请手动选择代码。",
+    "emailSubject": "Smartscity 咨询",
+    "emailBody": "阅读内容：{title}\n来源：{url}\n\n我的问题：\n环境与范围：\n首选联系方式：\n",
+    "sections": {
+      "overview": "概览",
+      "getting-started": "开始使用",
+      "guides": "使用指南",
+      "reference": "参考",
+      "operations": "运行维护",
+      "troubleshooting": "故障处理",
+      "releases": "版本"
+    },
+    "products": {
+      "agent-reliability": "AI Agent Reliability",
+      "hyperraft": "HyperRaft",
+      "qualitysphere": "QualitySphere",
+      "starter-id": "Smartscity Starter / ID",
+      "reconsphere": "ReconSphere"
+    },
+    "topics": {
+      "architecture-reliability": "架构与稳定性",
+      "release-recovery": "发布与恢复",
+      "business-reliability": "业务可靠性",
+      "ai-engineering": "AI 工程实践",
+      "product-practice": "工程产品实践"
+    },
+    "productDescriptions": {
+      "agent-reliability": "准备评估、约定范围，并阅读以证据为基础的发现。",
+      "hyperraft": "公开构件信息，以及接入讨论的准备路径。",
+      "qualitysphere": "项目介绍与适用于工程质量工作流的评估问题。",
+      "starter-id": "基于公开源码快照，选择接入、运行示例并理解运行维护。",
+      "reconsphere": "对账与资金可观测，当前处于设计和架构审阅阶段。"
+    },
+    "coreProducts": "核心工程产品",
+    "assessmentService": "评估服务",
+    "otherComponents": "其他组件",
+    "coreIntro": "基础设施、验证与资金一致性。按各产品的当前阶段了解与评估。",
+    "allDocs": "查看全部文档"
   }
 }

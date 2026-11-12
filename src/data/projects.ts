@@ -429,3 +429,39 @@ export const projects: Project[] = [
     },
   },
 ];
+
+/** Public documentation spaces; a space does not imply a downloadable release. */
+export const documentationProducts = [
+  {
+    id: 'agent-reliability',
+    projectId: null,
+    availability: 'service-guide',
+    group: 'service',
+  },
+  {
+    id: 'hyperraft',
+    projectId: 'hyperraft',
+    availability: 'public-metadata',
+    group: 'core',
+  },
+  {
+    id: 'qualitysphere',
+    projectId: 'qualitysphere',
+    availability: 'introduction',
+    group: 'core',
+  },
+  { id: 'reconsphere', projectId: null, availability: 'design', group: 'core' },
+  {
+    id: 'starter-id',
+    projectId: null,
+    availability: 'public-source-snapshot',
+    group: 'other',
+  },
+] as const;
+export const starterDocumentationSource = {
+  repository: 'https://github.com/smartscity/smartscity-starter',
+  revision: '6e60f068d7f5c12e51ad77512384323e517dcb5d',
+  version: '0.1.0-SNAPSHOT',
+  publishedRelease: false,
+  verifiedOn: '2026-11-12',
+} as const;

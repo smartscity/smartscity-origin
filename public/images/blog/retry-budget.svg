@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#113e30"/><stop offset="1" stop-color="#061b17"/></linearGradient>
+<linearGradient id="mint" x2="0.5" y2="1"><stop stop-color="#d1f5cf"/><stop offset="1" stop-color="#63bc90"/></linearGradient>
+<linearGradient id="stone" x2="0.3" y2="1"><stop stop-color="#f4f2df"/><stop offset="1" stop-color="#a9bdad"/></linearGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#add9bf" stroke-opacity=".06"/></pattern>
+<filter id="shadow" x="-60%" y="-60%" width="220%" height="240%"><feGaussianBlur stdDeviation="15"/></filter>
+<marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="none" stroke="#b7e6c4" stroke-width="1.2"/></marker>
+</defs><rect width="1200" height="675" fill="url(#bg)"/><rect width="1200" height="675" fill="url(#grid)"/>
+<circle cx="1010" cy="310" r="260" fill="none" stroke="#74c298" stroke-opacity=".10"/><circle cx="1010" cy="310" r="210" fill="none" stroke="#74c298" stroke-opacity=".08"/>
+<g font-family="Arial, Helvetica, sans-serif"><rect x="50" y="48" width="8" height="8" rx="2" fill="#b6e6b8"/><text x="72" y="60" font-size="18" letter-spacing="2" fill="#c3ddcb">SMARTSCITY / FIELD NOTES</text><text x="1144" y="60" text-anchor="end" font-size="18" fill="#b9d2c2">01</text>
+<text x="50" y="190" font-size="16" letter-spacing="2" fill="#a4c7b3">ARCHITECTURE / RELIABILITY</text>
+<text x="46" y="271" font-size="62" font-weight="700" letter-spacing="-3" fill="#f5f5e9">One request.</text>
+<text x="46" y="341" font-size="62" font-weight="700" letter-spacing="-3" fill="#c1edc4">Many retries.</text>
+<g transform="translate(610 118)">
+<ellipse cx="260" cy="360" rx="230" ry="45" fill="#000" opacity=".3" filter="url(#shadow)"/>
+<g fill="none" stroke="#8cc9a5" stroke-width="2"><path d="M95 160C180 160 160 55 245 55M95 160H245M95 160C180 160 160 265 245 265"/>
+<path d="M290 55L410 15M290 55L410 57M290 55L410 99M290 160L410 141M290 160L410 183M290 160L410 225M290 265L410 267M290 265L410 309M290 265L410 351"/></g>
+<rect x="24" y="126" width="80" height="80" rx="22" fill="url(#stone)"/><text x="64" y="178" font-size="32" text-anchor="middle" fill="#174032">1</text>
+<g fill="url(#mint)"><rect x="236" y="28" width="58" height="58" rx="15"/><rect x="236" y="132" width="58" height="58" rx="15"/><rect x="236" y="236" width="58" height="58" rx="15"/></g>
+<g fill="#bee8bd"><rect x="408" y="0" width="30" height="30" rx="8"/><rect x="408" y="42" width="30" height="30" rx="8"/><rect x="408" y="84" width="30" height="30" rx="8"/><rect x="408" y="126" width="30" height="30" rx="8"/><rect x="408" y="168" width="30" height="30" rx="8"/><rect x="408" y="210" width="30" height="30" rx="8"/><rect x="408" y="252" width="30" height="30" rx="8"/><rect x="408" y="294" width="30" height="30" rx="8"/><rect x="408" y="336" width="30" height="30" rx="8"/></g>
+<path d="M257 334C230 408 67 395 50 224" fill="none" stroke="#dccea0" stroke-width="2" stroke-dasharray="6 8" marker-end="url(#arrow)"/>
+<text x="144" y="405" font-size="16" fill="#d9d9b5">RETRY × RETRY × RETRY</text></g>
+<path d="M50 584H1150" stroke="#648e76" stroke-opacity=".5"/><text x="50" y="628" font-size="19" fill="#bfd8c7">Budget the chain. Verify the business effect.</text><text x="1150" y="628" text-anchor="end" font-size="24" fill="#c1edc4">↗</text></g></svg>

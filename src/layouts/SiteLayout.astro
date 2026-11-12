@@ -8,12 +8,16 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 const {
   lang,
   title = 'Smartscity — Engineering the Foundations of Modern Software',
   description,
   noindex = false,
+  socialImage = '/images/social.png',
+  socialImageAlt,
 } = Astro.props;
 const t = dictionaries[lang];
 const path = Astro.url.pathname;
@@ -55,12 +59,12 @@ const canonical = new URL(path, Astro.site);
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta
-      property="og:image"
-      content={new URL('/images/social.png', Astro.site)}
-    />
+    <meta property="og:image" content={new URL(socialImage, Astro.site)} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content={socialImageAlt ? '675' : '630'} />
+    {socialImageAlt && (
+      <meta property="og:image:alt" content={socialImageAlt} />
+    )}
     <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_CN'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -68,10 +72,7 @@ const canonical = new URL(path, Astro.site);
       name="twitter:description"
       content={description || t.hero.description}
     />
-    <meta
-      name="twitter:image"
-      content={new URL('/images/social.png', Astro.site)}
-    />
+    <meta name="twitter:image" content={new URL(socialImage, Astro.site)} />
     <script is:inline>
       try {
         const t = localStorage.getItem('smartscity-theme');
@@ -106,6 +107,18 @@ const canonical = new URL(path, Astro.site);
           </a>
           <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
           <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
+          <a
+            href={`/${lang}/docs/`}
+            aria-current={path.includes('/docs/') ? 'page' : undefined}
+          >
+            {t.library.docs}
+          </a>
+          <a
+            href={`/${lang}/blog/`}
+            aria-current={path.includes('/blog/') ? 'page' : undefined}
+          >
+            {t.library.blog}
+          </a>
           <a
             href={`/${lang}/about/`}
             aria-current={path === `/${lang}/about/` ? 'page' : undefined}
@@ -152,6 +165,18 @@ const canonical = new URL(path, Astro.site);
         <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
         <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
         <a
+          href={`/${lang}/docs/`}
+          aria-current={path.includes('/docs/') ? 'page' : undefined}
+        >
+          {t.library.docs}
+        </a>
+        <a
+          href={`/${lang}/blog/`}
+          aria-current={path.includes('/blog/') ? 'page' : undefined}
+        >
+          {t.library.blog}
+        </a>
+        <a
           href={`/${lang}/about/`}
           aria-current={path === `/${lang}/about/` ? 'page' : undefined}
         >
@@ -193,6 +218,8 @@ const canonical = new URL(path, Astro.site);
           <a href={`/${lang}/contact/`}>{t.nav.contact}</a>
           <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
           <a href={company.githubOrganization}>GitHub ↗</a>
+          <a href={`/${lang}/docs/`}>{t.library.docs}</a>
+          <a href={`/${lang}/blog/`}>{t.library.blog}</a>
           <a href={`/${lang}/privacy/`}>{t.footer.privacy}</a>
           <a href={alternatePath(localePath, other)} lang={other}>
             {t.nav.language}

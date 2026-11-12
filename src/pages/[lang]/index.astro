@@ -1,4 +1,6 @@
 ---
+import ProductCatalog from '../../components/library/ProductCatalog.astro';
+import '../../styles/library.css';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import CityExperience from '../../components/city/CityExperience';
 import ProjectArt from '../../components/ProjectArt.astro';
@@ -28,6 +30,9 @@ const t = dictionaries[lang];
       <h2>{t.city.storyTitle}</h2>
     </div>
     <p>{t.city.storyText}</p>
+  </section>
+  <section class="container homepage-core">
+    <ProductCatalog lang={lang} coreOnly />
   </section>
   <section class="section container" id="projects">
     <div class="section-heading">

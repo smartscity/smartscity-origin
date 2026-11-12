@@ -1,0 +1,259 @@
+---
+import { render } from 'astro:content';
+import { documentationProducts } from '../../../data/projects';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ReadingContact from '../../../components/library/ReadingContact.astro';
+import { dictionaries } from '../../../i18n';
+import {
+  publishedReadings,
+  readingPath,
+  type Reading,
+} from '../../../lib/library';
+import '../../../styles/library.css';
+export async function getStaticPaths() {
+  return (await publishedReadings()).map((entry) => ({
+    params: {
+      lang: entry.data.language,
+      space: entry.data.kind,
+      slug:
+        entry.data.kind === 'docs'
+          ? `${entry.data.product}/${entry.data.contentId}`
+          : entry.data.contentId,
+    },
+    props: { entry },
+  }));
+}
+interface Props {
+  entry: Reading;
+}
+const { entry } = Astro.props;
+const d = entry.data,
+  lang = d.language,
+  t = dictionaries[lang].library;
+const { Content, headings } = await render(entry);
+const all = await publishedReadings(lang);
+const sequence = all.filter(
+  (e) =>
+    e.data.kind === d.kind &&
+    (d.kind === 'blog' || e.data.product === d.product),
+);
+const index = sequence.findIndex((e) => e.id === entry.id);
+const previous = sequence[index - 1],
+  next = sequence[index + 1];
+const sections = [...new Set(sequence.map((e) => e.data.section))];
+const projectId = documentationProducts.find(
+  (p) => p.id === d.product,
+)?.projectId;
+const related = all.filter((e) => d.related.includes(e.data.contentId));
+---
+
+<SiteLayout
+  lang={lang}
+  title={`${d.title} — Smartscity`}
+  description={d.summary}
+  socialImage={d.cover?.replace(/\.svg$/, '.png')}
+  socialImageAlt={d.coverAlt}
+>
+  <div class="reading-shell container">
+    <nav class="reading-breadcrumb" aria-label={t.contents}>
+      <a href={`/${lang}/${d.kind}/`}>{t[d.kind]}</a>
+      <span aria-hidden="true">/</span>
+      <span>
+        {d.kind === 'docs' ? t.products[d.product] : t.topics[d.topic]}
+      </span>
+      <a class="reading-search-link" href={`/${lang}/${d.kind}/#search-title`}>
+        {t.search} ↗
+      </a>
+    </nav>
+    <div class="reading-grid">
+      <aside class="reading-sidebar">
+        <details open>
+          <summary>{t.contents}</summary>
+          <nav aria-label={t.contents}>
+            {sections.map((section) => (
+              <div class="reading-group">
+                <p>{d.kind === 'blog' ? t.blog : t.sections[section]}</p>
+                <ul>
+                  {sequence
+                    .filter((e) => e.data.section === section)
+                    .map((e) => (
+                      <li>
+                        <a
+                          href={readingPath(e)}
+                          aria-current={e.id === entry.id ? 'page' : undefined}
+                        >
+                          {e.data.title}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
+            <a class="reading-back" href={`/${lang}/${d.kind}/`}>
+              ← {t[d.kind]}
+            </a>
+          </nav>
+        </details>
+      </aside>
+      <article class="reading-article">
+        <header class="reading-header">
+          <p class="eyebrow">
+            {t.products[d.product]} · {t.topics[d.topic]}
+          </p>
+          <h1>{d.title}</h1>
+          <p class="library-lead">{d.summary}</p>
+          <div class="reading-meta">
+            <span>
+              {t.author} {d.author}
+            </span>
+            <span>
+              {t.updated} <time datetime={d.updated}>{d.updated}</time>
+            </span>
+          </div>
+          <p class="reading-version">
+            {t.version}: {d.version}
+          </p>
+        </header>
+        <details class="reading-mobile-toc">
+          <summary>{t.onPage}</summary>
+          <ul>
+            {headings
+              .filter((h) => h.depth === 2)
+              .map((h) => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+          </ul>
+        </details>
+        {d.cover && (
+          <figure class="article-cover">
+            <img
+              src={d.cover}
+              alt={d.coverAlt}
+              width="1200"
+              height="675"
+              fetchpriority="high"
+            />
+          </figure>
+        )}
+        <div
+          class="reading-prose"
+          data-reading-body
+          data-copy={t.copy}
+          data-copied={t.copied}
+          data-copy-failed={t.copyFailed}
+        >
+          <Content />
+        </div>
+        <section class="reading-sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">{t.sources}</h2>
+          <p>
+            {t.sourceRevision}: <code>{d.sourceRevision}</code>
+          </p>
+          {d.sources.length ? (
+            <ul>
+              {d.sources.map((s) => (
+                <li>
+                  <a href={s.url}>{s.title} ↗</a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>{t.sourceNote}</p>
+          )}
+        </section>
+        <nav class="reading-pagination" aria-label={t.contents}>
+          {previous && (
+            <a href={readingPath(previous)}>
+              <small>← {t.previous}</small>
+              <span>{previous.data.title}</span>
+            </a>
+          )}
+          {next && (
+            <a href={readingPath(next)}>
+              <small>{t.next} →</small>
+              <span>{next.data.title}</span>
+            </a>
+          )}
+        </nav>
+        {related.length > 0 && (
+          <section class="reading-related">
+            <h2>{t.related}</h2>
+            <ul>
+              {related.map((e) => (
+                <li>
+                  <a href={readingPath(e)}>{e.data.title} ↗</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+        <div class="reading-related">
+          {projectId && (
+            <a href={`/${lang}/projects/${projectId}/`}>
+              {dictionaries[lang].nav.projects} · {t.products[d.product]} ↗
+            </a>
+          )}
+          <a class="reading-back" href={`/${lang}/docs/`}>
+            {t.docs} →
+          </a>
+        </div>
+        <ReadingContact lang={lang} title={d.title} path={readingPath(entry)} />
+      </article>
+      <aside class="reading-toc">
+        <nav aria-label={t.onPage}>
+          <p>{t.onPage}</p>
+          <ul>
+            {headings
+              .filter((h) => h.depth === 2)
+              .map((h) => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</SiteLayout>
+<script>
+  if (matchMedia('(max-width:700px)').matches) {
+    const sidebar = document.querySelector<HTMLDetailsElement>(
+      '.reading-sidebar details',
+    );
+    if (sidebar) sidebar.open = false;
+  }
+  const body = document.querySelector<HTMLElement>('[data-reading-body]');
+  body?.querySelectorAll('pre').forEach((pre) => {
+    const code = pre.querySelector('code');
+    if (!code) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'reading-copy';
+    button.textContent = body.dataset.copy!;
+    const status = document.createElement('span');
+    status.className = 'copy-status';
+    status.setAttribute('role', 'status');
+    const toolbar = document.createElement('div');
+    toolbar.className = 'code-toolbar';
+    toolbar.append(button, status);
+    pre.before(toolbar);
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(code.textContent ?? '');
+        status.textContent = body.dataset.copied!;
+      } catch {
+        status.textContent = body.dataset.copyFailed!;
+      }
+    });
+  });
+  body?.querySelectorAll('table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'reading-table';
+    wrapper.tabIndex = 0;
+    table.before(wrapper);
+    wrapper.append(table);
+  });
+</script>

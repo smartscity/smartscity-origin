@@ -56,3 +56,14 @@ Polarbear and Polarbear Vocab have verified public repositories. HyperRaft has v
 - [Contribution guide](CONTRIBUTING.md)
 
 The GitHub repository stores the source. Pushing source is distinct from deploying Cloudflare Pages or changing DNS. No Cloudflare resource or domain is created by this repository itself.
+
+## Maintaining Docs and Blog
+
+Content lives in `src/content/library/*.md`, validated by `src/content.config.ts`.
+Use the same `contentId`, `product`, and `sourceRevision` for English and Chinese counterparts. Set `kind`, `section`, `topic`, `version`, `order`, `summary`, author, update date, public sources and related IDs explicitly. Keep interface strings in `src/i18n` and product identity/evidence in `src/data/projects.ts`.
+
+Only `status: published` enters routes, lists, search and sitemap. `draft` and `review` remain repository-only; review Markdown locally before promotion. Publication status is content eligibility, not production release authorization. The build rejects missing translations, divergent translation revisions, duplicate IDs and missing public related targets. Do not publish private source links, local paths, unapproved measurements or planned API commands.
+
+Docs use `/{lang}/docs/{product}/{contentId}/`; Blog uses `/{lang}/blog/{contentId}/`. Preserve IDs when revising content. There is one documented version per entry today, so versions are labels rather than an empty version switch. The public source pin belongs in the article metadata and sources. Search is local full-text filtering with type/product/topic controls; no service, CMS or account is required. Adding a topic with no content does not create a dead-end filter.
+
+Run the normal checks above, including `tests/e2e/library.spec.ts`. Review both languages, public sources, no-JavaScript reading, copy success/failure, mailto context, narrow layouts and accessibility before publication. Product samples and production telemetry need their own validation; website tests do not validate them.

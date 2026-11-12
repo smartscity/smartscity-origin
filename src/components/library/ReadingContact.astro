@@ -1,0 +1,33 @@
+---
+import { company } from '../../data/company';
+import { dictionaries, type Locale } from '../../i18n';
+interface Props {
+  lang: Locale;
+  title: string;
+  path: string;
+}
+const { lang, title, path } = Astro.props;
+const t = dictionaries[lang].library;
+const url = new URL(path, company.website).href;
+const body = t.emailBody.replace('{title}', title).replace('{url}', url);
+const mailto = company.email
+  ? `mailto:${company.email.value}?subject=${encodeURIComponent(`${t.emailSubject}: ${title}`)}&body=${encodeURIComponent(body)}`
+  : undefined;
+---
+
+<section class="reading-contact">
+  <p class="eyebrow">SMARTSCITY</p>
+  <h2>{t.contactTitle}</h2>
+  <p>{t.contactText}</p>
+  <div>
+    {mailto && (
+      <a class="button" href={mailto}>
+        {t.email} ↗
+      </a>
+    )}
+    <a class="text-button" href={`/${lang}/contact/`}>
+      {t.contact} →
+    </a>
+  </div>
+  {company.email && <small>{company.email.value}</small>}
+</section>
