@@ -156,7 +156,7 @@
   },
   "privacy": {
     "title": "A quieter corner of the internet.",
-    "description": "This portal does not use visitor analytics, advertising cookies, or a visitor-facing GitHub API. Your color-theme preference is stored locally in your browser. Demonstration inputs are not sent to a server. Hosting providers may process standard request logs. External GitHub links follow GitHub’s privacy policy."
+    "description": "This portal uses Cloudflare Web Analytics to understand visits, page views, referral sources and page performance. It does not use advertising cookies. Your color-theme preference is stored locally in your browser. Demonstration inputs are not sent to a server. External GitHub links follow GitHub’s privacy policy."
   },
   "notFound": {
     "title": "This path leads somewhere else.",
@@ -222,11 +222,11 @@
     "sections": [
       {
         "title": "Website features and local storage",
-        "text": "The website application does not set advertising or analytics cookies and does not include visitor analytics. It stores only your selected color theme in browser local storage. You can remove that preference through your browser settings. Interactive examples keep sample inputs in page memory; they are not saved or sent to a server."
+        "text": "The website application does not set advertising or analytics cookies. It stores only your selected color theme in browser local storage. You can remove that preference through your browser settings. Interactive examples keep sample inputs in page memory; they are not saved or sent to a server."
       },
       {
         "title": "Hosting and external services",
-        "text": "The site is hosted on Cloudflare. Hosting and security services may process request information, such as IP addresses and browser information, to deliver and protect the site. The application does not embed external forms, videos, or third-party tracking scripts. Its images, scripts, styles, and fonts are served locally or supplied by your device."
+        "text": "The site is hosted on Cloudflare and uses its Web Analytics script to report page visits and performance. Reports include page paths, referring websites, country or region, browser and device categories. Cloudflare Web Analytics does not use cookies or local storage to track visitors across websites. Hosting and security services may separately process request information, such as IP addresses, to deliver and protect the site. The site has no embedded external forms or videos; apart from Cloudflare analytics, assets are served locally or supplied by your device."
       },
       {
         "title": "Email and public project links",

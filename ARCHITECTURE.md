@@ -2,7 +2,7 @@
 
 ## Rendering and ownership
 
-Astro generates the English and Simplified Chinese route trees at build time. The default root redirects to `/en/`. `SiteLayout.astro` owns document metadata, locale navigation, theme preference, the responsive menu, and observer setup. Primary content is server-rendered and remains readable without JavaScript. There is no database, backend, CMS, analytics, or visitor-facing API request.
+Astro generates the English and Simplified Chinese route trees at build time. The default root redirects to `/en/`. `SiteLayout.astro` owns document metadata, locale navigation, theme preference, the responsive menu, and observer setup. Primary content is server-rendered and remains readable without JavaScript. There is no database, application backend, CMS or runtime product API. Cloudflare Pages injects its Web Analytics beacon at deployment; aggregate traffic and performance reporting is owned by Cloudflare, not application state.
 
 `projects.ts` is the source of truth for canonical project identity and reviewed metadata. Shared language strings live in structurally matched JSON dictionaries. Each product has its own bilingual positioning and capability copy; no text is derived from a live visitor request. New projects are generated from the registry.
 
@@ -28,9 +28,9 @@ The quality flow is explicitly conceptual, not a claim that QualitySphere has im
 
 Corporate routes reuse existing project data and locale dictionaries. Contact is an external `mailto:` action, with no submission state or backend. The source provenance remains in build-time code; only intended public values are rendered. Development checklists are not Astro routes and contain no private registration documents.
 
-Components create no sockets, queues, or background network requests. The city owns a visibility-scoped render loop and bounded GSAP transitions. Browser event handlers belong to the document lifetime; the site uses normal document navigation, not a persistent SPA router. SVG text and project content are build-time trusted constants. User input is rendered as text through React, never as HTML.
+Product components create no sockets, queues, or background network requests. The hosting-injected Cloudflare analytics beacon independently sends traffic and performance measurements. The city owns a visibility-scoped render loop and bounded GSAP transitions. Browser event handlers belong to the document lifetime; the site uses normal document navigation, not a persistent SPA router. SVG text and project content are build-time trusted constants. User input is rendered as text through React, never as HTML.
 
-Cloudflare `_headers` supplies MIME, framing, referrer, capability, and CSP restrictions. CSP currently allows inline scripts and styles because Astro hydration and the initial theme script use them; it does not allow `unsafe-eval`, external scripts, frames, or objects. A future hash-based CSP must account for every generated route and Astro hydration script, rather than breaking interactive content silently.
+Cloudflare `_headers` supplies MIME, framing, referrer, capability, and CSP restrictions. CSP currently allows inline scripts and styles because Astro hydration and the initial theme script use them; it permits only the Cloudflare analytics script origin (`https://static.cloudflareinsights.com`) in addition to local scripts, and the analytics reporting origin (`https://cloudflareinsights.com`) in addition to same-origin connections. It does not allow `unsafe-eval`, frames, or objects. A future hash-based CSP must account for every generated route and Astro hydration script, rather than breaking interactive content silently.
 
 ## Final review
 

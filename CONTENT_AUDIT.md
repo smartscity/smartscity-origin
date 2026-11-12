@@ -25,14 +25,14 @@ Polarbear provides [LICENSE-MIT](https://github.com/smartscity/polarbear/blob/ma
 - `NetworkArt.astro`, `ProjectArt.astro`, and `public/images/social.svg`: original code-native SVG/CSS illustrations created for this portal. They are not screenshots of shipping applications.
 - `public/images/social.png`: raster export of the original SVG for social metadata compatibility.
 - Lucide icons are distributed under the ISC license through `lucide-react`; upstream license files remain in installed package metadata.
-- No third-party screenshots, fonts, or tracking scripts are fetched by visitors. System fonts are used.
+- No third-party screenshots or fonts are fetched by visitors. System fonts are used. Cloudflare Web Analytics is the hosting-injected external script described in the analytics update below.
 - All interactive demonstrations are labeled illustrative. Word examples are authored local sample text; no user data is sent to a server.
 
 ## Corporate identity and privacy review — 2026-10-30
 
 The owner supplied 必赢科技（北京）有限公司 as the legal entity for this brand, confirmed registration region 中国大陆 and authorized public use of liyunlong@smartscity.com in response to the request for a receiving mailbox. These facts are recorded as owner attestations, not independent registry or mail-delivery verification. The requested English translation, Biying Technology (Beijing) Co., Ltd., is labeled as a reference translation; Organization `legalName` remains Chinese. No representative name, registration number, capital, founding date, business address, telephone, D-U-N-S number or registration document is published. The unsupported registered-trademark symbol has been removed.
 
-Source inspection and the live homepage DOM showed local assets, inline/bundled site scripts, no analytics integration, no contact form, and no external iframe. The application stores only the theme preference in local storage; demos retain transient state. Privacy text distinguishes these behaviors from hosting request processing and external email/GitHub destinations. This is not an audit of Cloudflare account-wide logging, cookie challenges or the user's email service. The task does not change DNS or mailbox settings. Remaining company checks are tracked in `COMPANY_IDENTITY_TODO.md` and `docs/APPLE_DEVELOPER_READINESS.md`.
+At the 2026-10-30 review, source inspection and the live homepage DOM showed local assets, inline/bundled site scripts, no analytics integration, no contact form, and no external iframe. The application stores only the theme preference in local storage; demos retain transient state. Privacy text distinguishes these behaviors from hosting request processing and external email/GitHub destinations. This is not an audit of Cloudflare account-wide logging, cookie challenges or the user's email service. The task does not change DNS or mailbox settings. Remaining company checks are tracked in `COMPANY_IDENTITY_TODO.md` and `docs/APPLE_DEVELOPER_READINESS.md`.
 
 ## Remaining project evidence
 
@@ -76,3 +76,7 @@ The collection's search attributes contain only eligible public content in the p
 Follow-up directory decision: the owner confirmed HyperRaft, QualitySphere and ReconSphere as core engineering products. The homepage and Docs core catalog now reflect those three; existing ecosystem/project URLs remain. Agent Reliability is a separate service entry, and Starter stays under other components. ReconSphere's owner-confirmed direction is reconciliation and financial observability at design/architecture-review stage; the portal exposes no private design details, installation commands or implementation claims.
 
 The three Blog covers are original code-native SVG illustrations with English editorial headlines and localized alt text on article pages. They illustrate retry branching, code-versus-state rollback and shared failover dependencies, not customer systems or measured results. PNG exports supply social-preview metadata. The English articles remain the default experience; the full Chinese counterparts remain available through the locale switch.
+
+## Web Analytics — 2026-11-12
+
+The owner authorized enabling Cloudflare Web Analytics for daily traffic and geographic/referral reporting. Pages owns beacon injection; no duplicate application snippet or credential is committed. The bilingual privacy notice now describes the analytics behavior. CSP allows the specific Cloudflare script and reporting origins while retaining other restrictions. Source: [data collection](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/) and [dimensions](https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/). Visits are not deduplicated people; enabled settings, deployed script delivery and successful beacon requests require live verification. Earlier no-analytics observations above are historical.
