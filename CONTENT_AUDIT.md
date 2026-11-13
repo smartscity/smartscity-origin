@@ -80,3 +80,7 @@ The three Blog covers are original code-native SVG illustrations with English ed
 ## Web Analytics — 2026-11-12
 
 The owner authorized enabling Cloudflare Web Analytics for daily traffic and geographic/referral reporting. Pages owns beacon injection; no duplicate application snippet or credential is committed. The bilingual privacy notice now describes the analytics behavior. CSP allows the specific Cloudflare script and reporting origins while retaining other restrictions. Source: [data collection](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/) and [dimensions](https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/). Visits are not deduplicated people; enabled settings, deployed script delivery and successful beacon requests require live verification. Earlier no-analytics observations above are historical.
+
+## Contact composer — 2026-11-13
+
+The owner chose a local-only email draft flow: visitors enter context and review/send in their own mail application. The site does not send or store messages and does not verify the sender mailbox. The original green illustration and separated business/open-source paths are informed by [Linear contact](https://linear.app/contact). No response-time promise or spam-prevention guarantee is made. See [delivery record](docs/delivery/contact-form-2026-11-13.md).

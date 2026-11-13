@@ -1,0 +1,343 @@
+.contact-hero {
+  padding: 80px 0 60px;
+}
+.contact-hero h1 {
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  white-space: pre-line;
+  margin: 24px 0;
+  max-width: 950px;
+}
+.contact-intro {
+  max-width: 610px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.inquiry-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 80px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+.conversation-art {
+  position: relative;
+  overflow: hidden;
+  background: #103b2a;
+  color: #e9f3e5;
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: radial-gradient(
+    ellipse at 80% 0%,
+    #3c735a66,
+    transparent 70%
+  );
+}
+.conversation-art > span,
+.conversation-art small {
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.14em;
+}
+.conversation-art p {
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  white-space: pre-line;
+  position: relative;
+  margin-top: 100px;
+}
+.conversation-art small {
+  margin-top: 22px;
+  opacity: 0.8;
+}
+.conversation-orbit {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -40px;
+  top: 12px;
+}
+.conversation-orbit i {
+  position: absolute;
+  inset: 10%;
+  border: 1px solid #a8d4b570;
+  border-radius: 50%;
+  transform: rotate(-25deg) scaleY(0.6);
+}
+.conversation-orbit i:nth-child(2) {
+  transform: rotate(35deg) scaleY(0.6);
+}
+.conversation-orbit i:nth-child(3) {
+  transform: rotate(95deg) scaleY(0.6);
+}
+.conversation-orbit b {
+  position: absolute;
+  left: 47%;
+  top: 39%;
+  font-size: 34px;
+  color: #bce4bf;
+}
+.inquiry-next {
+  padding: 32px 0;
+}
+.inquiry-next h2 {
+  font-size: 18px;
+  letter-spacing: -0.025em;
+}
+.inquiry-next ol {
+  list-style: none;
+  counter-reset: steps;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.inquiry-next li {
+  counter-increment: steps;
+  display: flex;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 16px;
+}
+.inquiry-next li:before {
+  content: '0' counter(steps);
+  font:
+    11px ui-monospace,
+    monospace;
+  color: var(--accent);
+  padding-top: 4px;
+}
+.inquiry-direct {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  font-size: 14px;
+}
+.inquiry-direct p {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.inquiry-direct a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+.inquiry-form {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px;
+  background: var(--bg);
+  box-shadow: 0 16px 60px #14352505;
+  min-width: 0;
+}
+.form-heading h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin: 14px 0 10px;
+}
+.form-heading p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+.inquiry-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 550;
+  margin-top: 22px;
+}
+.form-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-pair label {
+  margin-top: 0;
+}
+.field-optional {
+  float: right;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+.inquiry-form input:not([type='checkbox']),
+.inquiry-form select,
+.inquiry-form textarea {
+  width: 100%;
+  display: block;
+  margin-top: 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px 14px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 400;
+  min-height: 46px;
+  transition: border-color 0.15s;
+}
+.inquiry-form textarea {
+  resize: vertical;
+  line-height: 1.6;
+  min-height: 155px;
+}
+.inquiry-form textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+.inquiry-form :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.field-hint {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.inquiry-submit {
+  background: var(--accent);
+  color: var(--ink);
+  border: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.inquiry-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.inquiry-submit span {
+  font-size: 20px;
+}
+.inquiry-status,
+.connection-note {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 16px;
+  color: var(--muted);
+}
+.inquiry-status:empty {
+  display: none;
+}
+.inquiry-open-source {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.inquiry-open-source h2 {
+  font-size: 23px;
+  letter-spacing: -0.03em;
+  margin: 12px 0;
+}
+.inquiry-open-source p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 600px;
+}
+.inquiry-open-source > a {
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .inquiry-layout {
+    gap: 32px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  .inquiry-form {
+    padding: 25px;
+  }
+  .form-pair {
+    grid-template-columns: 1fr;
+  }
+  .form-pair label + label {
+    margin-top: 2px;
+  }
+}
+@media (max-width: 650px) {
+  .contact-hero {
+    padding: 45px 0 35px;
+  }
+  .contact-hero h1 {
+    font-size: 42px;
+  }
+  .contact-intro {
+    font-size: 16px;
+  }
+  .inquiry-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+  .inquiry-aside {
+    display: contents;
+  }
+  .conversation-art {
+    display: none;
+  }
+  .inquiry-form {
+    order: 0;
+    width: 100%;
+    padding: 24px;
+  }
+  .inquiry-next {
+    order: 1;
+    padding: 0;
+  }
+  .inquiry-direct {
+    order: 2;
+    width: 100%;
+  }
+  .inquiry-open-source {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form-heading h2 {
+    font-size: 24px;
+  }
+}
+
+.draft-note {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 24px;
+}
+.draft-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--text);
+}
+.inquiry-copy {
+  display: block;
+  margin: 16px auto 0;
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.inquiry-copy:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

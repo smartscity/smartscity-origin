@@ -214,7 +214,7 @@
     "privacyTitle": "Privacy inquiries",
     "privacyText": "For questions about information handled through this website or a message you have sent us, use the official email below. Avoid sending passwords, identity documents, or other sensitive material in an initial inquiry.",
     "privacyCta": "Read the Privacy Policy",
-    "deliveryNote": "Email links open your email application. This site has no contact form and does not send a message on your behalf.",
+    "deliveryNote": "Prepare a draft on this page, then review and send it in your own email application. This website does not send or store messages.",
     "projectsTitle": "Find the right project."
   },
   "privacyExtra": {
@@ -230,7 +230,7 @@
       },
       {
         "title": "Email and public project links",
-        "text": "There is no contact form on this website. A mailto link opens your email application; sending a message is your separate action. If you email us, your message and the contact information you choose to provide reach the receiving mailbox. GitHub links take you to GitHub, where its own privacy policy applies. Do not post confidential information in public issues."
+        "text": "The Contact page prepares an email draft locally and can copy it to your clipboard when you choose. It does not submit or store your message. A mailto link opens your email application; sending a message is your separate action. If you email us, your message and the contact information you choose to provide reach the receiving mailbox. GitHub links take you to GitHub, where its own privacy policy applies. Do not post confidential information in public issues."
       }
     ],
     "contactTitle": "Questions about privacy",
@@ -400,5 +400,43 @@
     "otherComponents": "Other components",
     "coreIntro": "Infrastructure, verification, and financial consistency. Explore each product at its current stage.",
     "allDocs": "Explore all documentation"
+  },
+  "contactForm": {
+    "title": "Let’s build something\nthat matters.",
+    "intro": "A technical challenge. A product idea. A conversation worth having. Tell us what you have in mind.",
+    "formTitle": "Tell us what you’re working on.",
+    "formIntro": "A little context helps us start in the right place.",
+    "name": "Your name",
+    "organization": "Company or team",
+    "optional": "Optional",
+    "topic": "What can we help with?",
+    "topics": [
+      "Project & integration",
+      "Reliability assessment",
+      "Partnership",
+      "Something else"
+    ],
+    "message": "Your message",
+    "placeholder": "What are you building? What would you like help with?",
+    "hint": "10–2,000 characters. Please leave out passwords and confidential information.",
+    "privacy": "Read our privacy policy",
+    "submit": "Open email draft",
+    "nojs": "Enable JavaScript to prepare a draft here, or email us directly using the link below.",
+    "direct": "Prefer email?",
+    "next": "What happens next",
+    "steps": [
+      "Fill in the context for your inquiry.",
+      "Review and send from your own email app.",
+      "We reply to the address you send from."
+    ],
+    "side": "Ideas deserve a\ngood conversation.",
+    "tag": "ENGINEERING / COLLABORATION",
+    "foot": "Already working with an open-source project?",
+    "footText": "For reproducible bugs and public feature requests, the project’s GitHub repository is the best place to start.",
+    "copy": "Copy email content",
+    "copied": "Email content copied. Paste it into an email to liyunlong@smartscity.com.",
+    "copyFailed": "Copy unavailable. Select and copy your message, then email us directly.",
+    "draft": "Continue in your email app to review and send. If nothing opens, copy the content and use your usual email service.",
+    "delivery": "This opens your email app. Nothing is sent or stored by this website."
   }
 }

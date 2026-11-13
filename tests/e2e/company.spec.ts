@@ -58,7 +58,9 @@ for (const lang of ['en', 'zh-CN'] as const) {
       await expect(page.locator('body')).not.toContainText(
         /TODO|TBD|example\.com|\[VERIFIED|®/,
       );
-      await expect(page.locator('form')).toHaveCount(0);
+      await expect(page.locator('form')).toHaveCount(
+        slug === 'contact' ? 1 : 0,
+      );
       if (slug === 'about') {
         await expect(page.locator('.corporate-project')).toHaveCount(4);
         await expect(page.locator('main')).toContainText(
