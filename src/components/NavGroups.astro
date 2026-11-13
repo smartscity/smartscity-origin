@@ -1,0 +1,129 @@
+---
+import { company } from '../data/company';
+import { projects } from '../data/projects';
+import { dictionaries, type Locale } from '../i18n';
+interface Props {
+  lang: Locale;
+  placement: 'desktop' | 'mobile';
+}
+const { lang, placement } = Astro.props;
+const t = dictionaries[lang];
+const base = `/${lang}`;
+const project = (id: string) => ({
+  label: projects.find((p) => p.id === id)!.displayName,
+  href: `${base}/projects/${id}/`,
+});
+const groups = [
+  {
+    label: t.nav.products,
+    columns: [
+      {
+        title: t.nav.core,
+        prominent: true,
+        links: [
+          project('hyperraft'),
+          project('qualitysphere'),
+          {
+            label: t.library.products.reconsphere,
+            href: `${base}/docs/reconsphere/reconsphere-overview/`,
+          },
+        ],
+      },
+      {
+        title: t.nav.tools,
+        prominent: false,
+        links: [project('polarbear'), project('polarbear-vocab')],
+      },
+      {
+        title: t.nav.explore,
+        prominent: false,
+        links: [
+          { label: t.nav.allProjects, href: `${base}/#projects` },
+          {
+            label: t.library.products['agent-reliability'],
+            href: `${base}/docs/agent-reliability/assessment-overview/`,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: t.nav.resources,
+    columns: [
+      {
+        title: t.nav.read,
+        prominent: true,
+        links: [
+          { label: t.library.docs, href: `${base}/docs/` },
+          { label: t.library.blog, href: `${base}/blog/` },
+        ],
+      },
+      {
+        title: t.nav.connect,
+        prominent: false,
+        links: [
+          { label: 'GitHub ↗', href: company.githubOrganization },
+          { label: t.nav.principles, href: `${base}/#engineering` },
+        ],
+      },
+    ],
+  },
+  {
+    label: t.nav.company,
+    columns: [
+      {
+        title: t.nav.companyExplore,
+        prominent: true,
+        links: [
+          { label: t.nav.about, href: `${base}/about/` },
+          { label: t.nav.strategy, href: `${base}/about/#strategy-title` },
+        ],
+      },
+      {
+        title: t.nav.contact,
+        prominent: false,
+        links: [
+          { label: t.nav.contact, href: `${base}/contact/` },
+          { label: t.footer.privacy, href: `${base}/privacy/` },
+        ],
+      },
+    ],
+  },
+];
+const path = Astro.url.pathname;
+---
+
+{groups.map((group) => (
+  <details class="nav-group" name={`site-navigation-${placement}`}>
+    <summary>
+      {group.label}
+      <span class="nav-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="nav-panel">
+      <div class="nav-panel-inner">
+        {group.columns.map((column) => (
+          <div
+            class:list={[
+              'nav-column',
+              { 'nav-column-primary': column.prominent },
+            ]}
+          >
+            <p>{column.title}</p>
+            <ul>
+              {column.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    aria-current={path === link.href ? 'page' : undefined}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+))}

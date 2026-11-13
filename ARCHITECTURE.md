@@ -2,7 +2,7 @@
 
 ## Rendering and ownership
 
-Astro generates the English and Simplified Chinese route trees at build time. The default root redirects to `/en/`. `SiteLayout.astro` owns document metadata, locale navigation, theme preference, the responsive menu, and observer setup. Primary content is server-rendered and remains readable without JavaScript. There is no database, application backend, CMS or runtime product API. Cloudflare Pages injects its Web Analytics beacon at deployment; aggregate traffic and performance reporting is owned by Cloudflare, not application state.
+Astro generates the English and Simplified Chinese route trees at build time. The default root redirects to `/en/`. `SiteLayout.astro` owns document metadata, theme preference and observer setup. `SiteHeader.astro` owns responsive navigation and its dismissal behavior; `NavGroups.astro` renders the same localized grouping for desktop and mobile. Primary content is server-rendered and remains readable without JavaScript. There is no database, application backend, CMS or runtime product API. Cloudflare Pages injects its Web Analytics beacon at deployment; aggregate traffic and performance reporting is owned by Cloudflare, not application state.
 
 `projects.ts` is the source of truth for canonical project identity and reviewed metadata. Shared language strings live in structurally matched JSON dictionaries. Each product has its own bilingual positioning and capability copy; no text is derived from a live visitor request. New projects are generated from the registry.
 
@@ -90,3 +90,9 @@ The reading template owns `BlogPosting` metadata derived from the same published
 ## About strategy house — 2026-11-13
 
 `StrategyHouse.astro` composes a localized static figure with native linked enlargement and a native details text alternative. The approved Chinese SVG and translated English SVG live in `public/images/company`; accessible prose and interface labels live in the shared locale dictionaries. The component owns no client state, listeners or external dependencies and preserves no-JavaScript reading. It presents the company strategy without changing the company identity model or product registry.
+
+## Grouped global navigation — 2026-11-14
+
+The brand links home. Products, Resources and Company are native disclosure groups, with a separate Contact action. Product names reuse the project registry; shared labels stay in the bilingual dictionaries. Resources retains Docs, Blog, GitHub and the engineering section. No content route or product claim changes.
+
+Native `details` owns open state and exclusive group selection, preserving keyboard and no-JavaScript navigation. Header-scoped enhancement adds mouse hover, Escape, outside-click and focus dismissal, link selection cleanup, and viewport-change cleanup. Desktop and mobile share the same group composition without a global store or React dependency. CSS owns panel transitions and reduced-motion behavior.

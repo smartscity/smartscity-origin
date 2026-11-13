@@ -9,7 +9,21 @@
     "theme": "Change color theme",
     "language": "Chinese",
     "skip": "Skip to content",
-    "contact": "Contact"
+    "contact": "Contact",
+    "products": "Products",
+    "resources": "Resources",
+    "company": "Company",
+    "primary": "Main navigation",
+    "core": "Engineering products",
+    "tools": "Creative tools",
+    "explore": "Explore",
+    "allProjects": "All projects",
+    "read": "Read & learn",
+    "connect": "For developers",
+    "companyExplore": "Discover Smartscity",
+    "strategy": "Our strategy",
+    "principles": "Engineering principles",
+    "close": "Close navigation"
   },
   "hero": {
     "eyebrow": "SMARTSCITY / BIYING TECHNOLOGY",

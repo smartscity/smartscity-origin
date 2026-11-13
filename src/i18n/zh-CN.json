@@ -9,7 +9,21 @@
     "theme": "切换配色主题",
     "language": "English",
     "skip": "跳至正文",
-    "contact": "联系"
+    "contact": "联系",
+    "products": "产品",
+    "resources": "资源",
+    "company": "公司",
+    "primary": "主导航",
+    "core": "工程产品",
+    "tools": "创作工具",
+    "explore": "探索",
+    "allProjects": "全部项目",
+    "read": "阅读与学习",
+    "connect": "开发者资源",
+    "companyExplore": "了解 Smartscity",
+    "strategy": "公司战略",
+    "principles": "工程理念",
+    "close": "关闭导航"
   },
   "hero": {
     "eyebrow": "SMARTSCITY / 必赢科技",

@@ -1,0 +1,129 @@
+---
+import '../styles/navigation.css';
+import NavGroups from './NavGroups.astro';
+import { company } from '../data/company';
+import { dictionaries, alternatePath, type Locale } from '../i18n';
+interface Props {
+  lang: Locale;
+  localePath: string;
+}
+const { lang, localePath } = Astro.props;
+const t = dictionaries[lang];
+const other = lang === 'en' ? 'zh-CN' : 'en';
+---
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href={`/${lang}/`} aria-label="Smartscity">
+      <img src="/images/smartscity.png" width="28" height="28" alt="" />
+      <span>{company.brandName.toLowerCase()}</span>
+    </a>
+    <nav class="desktop-nav" aria-label={t.nav.primary}>
+      <NavGroups lang={lang} placement="desktop" />
+    </nav>
+    <div class="nav-actions">
+      <a class="header-contact" href={`/${lang}/contact/`}>
+        {t.nav.contact}
+      </a>
+      <a
+        class="language-switch"
+        href={alternatePath(localePath, other)}
+        lang={other}
+      >
+        {t.nav.language}
+      </a>
+      <button
+        class="theme-toggle icon-button"
+        aria-label={t.nav.theme}
+        title={t.nav.theme}
+      >
+        ◐
+      </button>
+    </div>
+    <details class="mobile-menu">
+      <summary
+        class="menu-toggle"
+        aria-label={t.nav.menu}
+        data-open-label={t.nav.menu}
+        data-close-label={t.nav.close}
+        aria-controls="mobile-nav"
+      >
+        <span></span>
+        <span></span>
+      </summary>
+      <nav id="mobile-nav" class="mobile-nav" aria-label={t.nav.primary}>
+        <NavGroups lang={lang} placement="mobile" />
+        <a class="mobile-contact" href={`/${lang}/contact/`}>
+          {t.nav.contact}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header')!;
+  const mobile = header.querySelector<HTMLDetailsElement>('.mobile-menu')!;
+  const menuToggle = mobile.querySelector<HTMLElement>(':scope > summary')!;
+  const desktopGroups = Array.from(
+    header.querySelectorAll<HTMLDetailsElement>('.desktop-nav .nav-group'),
+  );
+  const desktop = matchMedia('(min-width: 801px)');
+  const closeGroups = () =>
+    header
+      .querySelectorAll<HTMLDetailsElement>('.nav-group[open]')
+      .forEach((group) => (group.open = false));
+  const closeAll = () => {
+    closeGroups();
+    mobile.open = false;
+  };
+  mobile.addEventListener('toggle', () => {
+    menuToggle.setAttribute(
+      'aria-label',
+      (mobile.open
+        ? menuToggle.dataset.closeLabel
+        : menuToggle.dataset.openLabel)!,
+    );
+    if (!mobile.open) closeGroups();
+  });
+  // Native details owns open state; enhancement adds dismissal and hover only.
+  desktopGroups.forEach((group) => {
+    group
+      .querySelector('summary')!
+      .addEventListener('pointerenter', (event) => {
+        if ((event as PointerEvent).pointerType !== 'mouse' || !desktop.matches)
+          return;
+        desktopGroups.forEach((other) => (other.open = other === group));
+      });
+  });
+  header.addEventListener('pointerleave', (event) => {
+    if (
+      event.pointerType === 'mouse' &&
+      desktop.matches &&
+      !header.contains(document.activeElement)
+    )
+      closeGroups();
+  });
+  header.addEventListener('click', (event) => {
+    if ((event.target as Element).closest('a')) closeAll();
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (!header.contains(event.target as Node)) closeAll();
+  });
+  header.addEventListener('focusout', (event) => {
+    if (!header.contains(event.relatedTarget as Node)) closeAll();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const openGroup =
+      header.querySelector<HTMLDetailsElement>('.nav-group[open]');
+    if (openGroup) {
+      openGroup.open = false;
+      openGroup.querySelector('summary')!.focus();
+    } else if (mobile.open) {
+      mobile.open = false;
+      menuToggle.focus();
+    }
+  });
+  desktop.addEventListener('change', closeAll);
+</script>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
 import CompanyDetails from '../components/CompanyDetails.astro';
 import { company, organizationJson } from '../data/company';
 import { dictionaries, alternatePath, type Locale } from '../i18n';
@@ -95,105 +96,7 @@ const canonical = new URL(path, Astro.site);
     <a class="skip-link" href="#main">
       {t.nav.skip}
     </a>
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href={`/${lang}/`} aria-label="Smartscity">
-          <img src="/images/smartscity.png" width="32" height="32" alt="" />
-          <span>{company.brandName.toLowerCase()}</span>
-        </a>
-        <nav class="desktop-nav" aria-label={t.nav.menu}>
-          <a
-            href={`/${lang}/`}
-            aria-current={path === `/${lang}/` ? 'page' : undefined}
-          >
-            {t.nav.home}
-          </a>
-          <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
-          <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
-          <a
-            href={`/${lang}/docs/`}
-            aria-current={path.includes('/docs/') ? 'page' : undefined}
-          >
-            {t.library.docs}
-          </a>
-          <a
-            href={`/${lang}/blog/`}
-            aria-current={path.includes('/blog/') ? 'page' : undefined}
-          >
-            {t.library.blog}
-          </a>
-          <a
-            href={`/${lang}/about/`}
-            aria-current={path === `/${lang}/about/` ? 'page' : undefined}
-          >
-            {t.nav.about}
-          </a>
-          <a
-            href={`/${lang}/contact/`}
-            aria-current={path === `/${lang}/contact/` ? 'page' : undefined}
-          >
-            {t.nav.contact}
-          </a>
-        </nav>
-        <div class="nav-actions">
-          <a
-            class="language-switch"
-            href={alternatePath(localePath, other)}
-            lang={other}
-          >
-            {t.nav.language}
-          </a>
-          <button
-            class="theme-toggle icon-button"
-            aria-label={t.nav.theme}
-            title={t.nav.theme}
-          >
-            ◐
-          </button>
-          <a class="github-nav" href={company.githubOrganization}>
-            GitHub <span>↗</span>
-          </a>
-          <button
-            class="menu-toggle icon-button"
-            aria-label={t.nav.menu}
-            aria-expanded="false"
-            aria-controls="mobile-nav"
-          >
-            ☰
-          </button>
-        </div>
-      </div>
-      <nav id="mobile-nav" class="mobile-nav" aria-label={t.nav.menu} hidden>
-        <a href={`/${lang}/`}>{t.nav.home}</a>
-        <a href={`/${lang}/#projects`}>{t.nav.projects}</a>
-        <a href={`/${lang}/#engineering`}>{t.nav.engineering}</a>
-        <a
-          href={`/${lang}/docs/`}
-          aria-current={path.includes('/docs/') ? 'page' : undefined}
-        >
-          {t.library.docs}
-        </a>
-        <a
-          href={`/${lang}/blog/`}
-          aria-current={path.includes('/blog/') ? 'page' : undefined}
-        >
-          {t.library.blog}
-        </a>
-        <a
-          href={`/${lang}/about/`}
-          aria-current={path === `/${lang}/about/` ? 'page' : undefined}
-        >
-          {t.nav.about}
-        </a>
-        <a
-          href={`/${lang}/contact/`}
-          aria-current={path === `/${lang}/contact/` ? 'page' : undefined}
-        >
-          {t.nav.contact}
-        </a>
-        <a href={company.githubOrganization}>GitHub ↗</a>
-      </nav>
-    </header>
+    <SiteHeader lang={lang} localePath={localePath} />
     <main id="main">
       <slot />
     </main>
@@ -248,29 +151,6 @@ const canonical = new URL(path, Astro.site);
           localStorage.setItem('smartscity-theme', next);
         } catch {
           /* Keep the in-memory preference. */
-        }
-      });
-      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
-      const menu = document.querySelector<HTMLElement>('#mobile-nav');
-      const close = () => {
-        if (menu && toggle) {
-          menu.hidden = true;
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      };
-      toggle?.addEventListener('click', () => {
-        if (menu) {
-          menu.hidden = !menu.hidden;
-          toggle.setAttribute('aria-expanded', String(!menu.hidden));
-        }
-      });
-      menu
-        ?.querySelectorAll('a')
-        .forEach((a) => a.addEventListener('click', close));
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu && !menu.hidden) {
-          close();
-          toggle?.focus();
         }
       });
       const reduced = matchMedia('(prefers-reduced-motion: reduce)');

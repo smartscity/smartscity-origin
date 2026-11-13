@@ -153,17 +153,21 @@ test('responsive navigation works with keyboard', async ({
 }) => {
   await page.goto('/en/');
   if (isMobile) {
-    const toggle = page.getByRole('button', { name: 'Open navigation' });
+    const toggle = page.locator('.mobile-menu > summary');
     await toggle.click();
-    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('.mobile-menu')).toHaveAttribute('open', '');
     await page.keyboard.press('Escape');
-    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('.mobile-menu')).not.toHaveAttribute('open', '');
     await toggle.click();
     await page
-      .locator('#mobile-nav')
-      .getByRole('link', { name: 'Projects', exact: true })
+      .locator('#mobile-nav summary')
+      .filter({ hasText: 'Products' })
       .click();
-    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await page
+      .locator('#mobile-nav')
+      .getByRole('link', { name: 'All projects', exact: true })
+      .click();
+    await expect(page.locator('.mobile-menu')).not.toHaveAttribute('open', '');
   } else {
     await page.keyboard.press('Tab');
     await expect(

@@ -199,24 +199,6 @@ h2 {
   border-radius: 100%;
   margin-right: 8px;
 }
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(22px) saturate(160%);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
-}
-.nav-shell {
-  width: min(1360px, calc(100% - 64px));
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin: auto;
-}
 .brand {
   display: inline-flex;
   align-items: center;
@@ -234,48 +216,6 @@ h2 {
   font-size: 10px;
   margin-left: 3px;
   letter-spacing: 0;
-}
-.desktop-nav {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  font-size: 12px;
-  color: var(--muted);
-}
-.desktop-nav a:hover,
-.desktop-nav a[aria-current] {
-  color: var(--text);
-}
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 12px;
-}
-.language-switch {
-  padding: 8px 0;
-}
-.github-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 9px 16px;
-}
-.menu-toggle {
-  display: none;
-}
-.mobile-nav[hidden] {
-  display: none;
-}
-.mobile-nav {
-  padding: 16px 24px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  animation: menu-in 0.2s ease-out;
 }
 .hero {
   position: relative;
@@ -1447,15 +1387,6 @@ h2 {
   .container {
     width: calc(100% - 64px);
   }
-  .nav-shell {
-    width: calc(100% - 40px);
-  }
-  .desktop-nav {
-    gap: 18px;
-  }
-  .nav-actions {
-    gap: 12px;
-  }
   .hero-main {
     grid-template-columns: 1.15fr 1fr;
   }
@@ -1485,16 +1416,6 @@ h2 {
   }
 }
 @media (max-width: 800px) {
-  .desktop-nav,
-  .github-nav {
-    display: none;
-  }
-  .menu-toggle {
-    display: grid;
-  }
-  .nav-shell {
-    height: 70px;
-  }
   .hero {
     padding-top: 55px;
   }
@@ -1654,19 +1575,12 @@ h2 {
   .container {
     width: calc(100% - 40px);
   }
-  .nav-shell {
-    width: calc(100% - 32px);
-    gap: 10px;
-  }
   .brand {
     font-size: 22px;
   }
   .brand img {
     width: 28px;
     height: 28px;
-  }
-  .nav-actions {
-    gap: 9px;
   }
   .language-switch {
     font-size: 11px;
@@ -2157,12 +2071,6 @@ h2 {
   flex-wrap: wrap;
 }
 @media (max-width: 1100px) {
-  .desktop-nav {
-    gap: 15px;
-  }
-  .nav-actions {
-    gap: 10px;
-  }
   .corporate-split {
     gap: 30px;
   }
@@ -2357,16 +2265,5 @@ h2 {
   .project-hero .project-art {
     animation: none !important;
     transform: none !important;
-  }
-}
-
-/* Keep all original destinations plus Docs and Blog usable at tablet widths. */
-@media (max-width: 1100px) {
-  .desktop-nav,
-  .github-nav {
-    display: none;
-  }
-  .menu-toggle {
-    display: grid;
   }
 }
