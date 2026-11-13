@@ -438,5 +438,50 @@
     "copyFailed": "Copy unavailable. Select and copy your message, then email us directly.",
     "draft": "Continue in your email app to review and send. If nothing opens, copy the content and use your usual email service.",
     "delivery": "This opens your email app. Nothing is sent or stored by this website."
+  },
+  "strategyHouse": {
+    "eyebrow": "OUR DIRECTION",
+    "title": "A shared foundation. Three pillars.",
+    "intro": "Our strategy connects expert reliability engineering, independent assessment and engineering products across the software lifecycle.",
+    "alt": "Smartscity strategy house: mission and vision above three capability pillars, supported by shared methods and long-term assets.",
+    "caption": "Our strategic direction. Specific service scope and product availability are described in the corresponding guides and project pages.",
+    "expand": "View the full-size strategy house",
+    "readText": "Read the strategy in text",
+    "missionLabel": "Mission",
+    "mission": "Bring expert reliability engineering across the software lifecycle, scaled, sustained and automated through AI.",
+    "visionLabel": "Vision",
+    "vision": "Become an AI-native reliability engineering company serving enterprises worldwide: identify risks early, continuously verify reliability and close the engineering governance loop with evidence.",
+    "pillars": [
+      {
+        "code": "C1",
+        "title": "AI reliability engineering",
+        "text": "Scale analysis and engineering execution, making expert methods repeatable. Outputs include risk analysis, verification plans, runtime analysis and remediation reassessment."
+      },
+      {
+        "code": "C2",
+        "title": "Independent research and professional assessment",
+        "text": "Provide reviewable engineering judgments and actionable remediation plans through professional reports, experiments, evidence, remediation roadmaps and follow-up acceptance."
+      },
+      {
+        "code": "C3",
+        "title": "Reliability engineering products",
+        "text": "Embed effective methods in engineering systems and reduce repeated delivery and governance costs through engineering software, verification tools and reusable method assets."
+      }
+    ],
+    "methodLabel": "Shared method",
+    "method": "Architecture, business, development and operational reliability, spanning requirements, architecture, development, testing, releases, operations and incident recovery.",
+    "assetsLabel": "Long-term assets",
+    "assets": [
+      "Architecture and governance methods",
+      "Domain rules and state models",
+      "Experiments, counterexamples and evidence methods",
+      "Remediation and verification experience",
+      "AI engineering evaluation knowledge",
+      "Specialist products and integration contracts"
+    ],
+    "principlesLabel": "Principles",
+    "principles": "Independent judgment · Reviewable evidence · Verifiable remediation · Reusable methods",
+    "deliveryLabel": "Delivery and value",
+    "delivery": "Professional assessments · Specialist engineering services · Continuous verification services · Engineering software"
   }
 }

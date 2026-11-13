@@ -1,0 +1,71 @@
+---
+import { dictionaries, type Locale } from '../i18n';
+import '../styles/strategy-house.css';
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang].strategyHouse;
+const image = `/images/company/strategy-house-${lang}.svg`;
+---
+
+<section
+  class="corporate-section container strategy-house"
+  aria-labelledby="strategy-title"
+>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="strategy-title">{t.title}</h2>
+    </div>
+    <p>{t.intro}</p>
+  </div>
+  <figure>
+    <a class="strategy-visual" href={image} aria-label={t.expand}>
+      <img
+        src={image}
+        alt={t.alt}
+        width="1440"
+        height="1440"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <figcaption>
+      <p>{t.caption}</p>
+      <a class="text-button" href={image}>
+        {t.expand} ↗
+      </a>
+    </figcaption>
+  </figure>
+  <details class="strategy-text">
+    <summary>{t.readText}</summary>
+    <div class="strategy-text-content">
+      <h3>{t.missionLabel}</h3>
+      <p>{t.mission}</p>
+      <h3>{t.visionLabel}</h3>
+      <p>{t.vision}</p>
+      <div class="strategy-pillars">
+        {t.pillars.map((p) => (
+          <div>
+            <p class="eyebrow">{p.code}</p>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+      <h3>{t.methodLabel}</h3>
+      <p>{t.method}</p>
+      <h3>{t.assetsLabel}</h3>
+      <ul>
+        {t.assets.map((asset) => (
+          <li>{asset}</li>
+        ))}
+      </ul>
+      <h3>{t.principlesLabel}</h3>
+      <p>{t.principles}</p>
+      <h3>{t.deliveryLabel}</h3>
+      <p>{t.delivery}</p>
+    </div>
+  </details>
+</section>

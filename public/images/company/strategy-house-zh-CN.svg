@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1440" viewBox="0 0 1440 1440" role="img" aria-labelledby="title desc">
+<title id="title">Smartscity 公司战略屋</title>
+<desc id="desc">屋顶为使命：让专家级可靠性工程贯穿软件全生命周期，通过 AI 实现规模化、持续化和自动化。横梁为面向全球企业的 AI 原生可靠性工程公司愿景。三根支柱分别为 C1 AI Reliability Engineering、C2 Independent Reliability Research and Assessment、C3 Reliability Engineering Products。共同方法和长期专业资产构成基础，支撑专业评估、专项工程服务、持续验证服务和工程软件交付。</desc>
+<style>text{font-family:"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;fill:#183c33}.label{font-size:16px;letter-spacing:1.6px;font-weight:600}.h{font-size:27px;font-weight:600}.body{font-size:21px}.small{font-size:18px}.muted{fill:#63776d}.en{font-size:17px;fill:#60746a}</style>
+<rect x="0" y="0" width="1440" height="1440" rx="0" fill="#f7f8f3"/>
+<rect x="56" y="54" width="6" height="36" rx="3" fill="#296e54"/>
+<text x="78" y="83" font-size="36">SMARTSCITY</text>
+<text x="78" y="116" class="en">AI-Native Reliability Engineering Company</text>
+<text x="1384" y="69" class="label" text-anchor="end">COMPANY STRATEGY</text>
+<text x="1384" y="101" class="small muted" text-anchor="end">战略屋  /  r4</text>
+<path d="M80 410 L720 170 L1360 410 Z" fill="#173f32"/>
+<path d="M80 410 L720 170 L1360 410" fill="none" stroke="#3a7156" stroke-width="3" stroke-linejoin="round"/>
+<text x="720" y="260" class="label" style="fill:#b8d3bd" text-anchor="middle">使命</text>
+<text x="720" y="311" font-size="28" style="fill:#ffffff" text-anchor="middle">让专家级的可靠性工程能力贯穿软件全生命周期</text>
+<text x="720" y="353" font-size="25" style="fill:#e1ecdf" text-anchor="middle">通过 AI 实现规模化、持续化和自动化</text>
+<rect x="112" y="410" width="1216" height="112" rx="0" fill="#e1eadf"/>
+<rect x="112" y="410" width="1216" height="5" rx="0" fill="#386c50"/>
+<text x="144" y="447" class="label">愿景</text>
+<text x="720" y="455" font-size="29" text-anchor="middle">面向全球企业的 AI 原生可靠性工程公司</text>
+<text x="720" y="492" class="body muted" text-anchor="middle">主动识别风险  ·  持续验证系统可靠性  ·  推动可验证的工程治理闭环</text>
+<rect x="112" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="112" y="522" width="376" height="56" rx="0" fill="#edf2e9"/>
+<text x="136" y="558" class="label" style="fill:#4c7559">C1</text>
+<text x="136" y="620" class="h">AI 可靠性工程</text>
+<text x="136" y="652" class="en">AI Reliability Engineering</text>
+<path d="M136 699 L464 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="136" y="739" class="body">规模化分析与工程执行</text>
+<text x="136" y="770" class="body">使专家方法可重复执行</text>
+<text x="136" y="812" class="label" style="fill:#6e7d70">主要产出</text>
+<text x="136" y="845" class="body muted">风险分析 · 验证规划</text>
+<text x="136" y="873" class="body muted">运行分析 · 整改复验</text>
+<rect x="112" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="532" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="532" y="522" width="376" height="56" rx="0" fill="#e9efeb"/>
+<text x="556" y="558" class="label" style="fill:#4c7559">C2</text>
+<text x="556" y="620" class="h">独立研究与专业评估</text>
+<text x="556" y="652" class="en">Independent Reliability</text>
+<text x="556" y="676" class="en">Research &amp; Assessment</text>
+<path d="M556 699 L884 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="556" y="739" class="body">提供可复核的工程判断</text>
+<text x="556" y="770" class="body">形成可操作的整改方案</text>
+<text x="556" y="812" class="label" style="fill:#6e7d70">主要产出</text>
+<text x="556" y="845" class="body muted">专业报告 · 实验与证据</text>
+<text x="556" y="873" class="body muted">整改路线 · 后续验收</text>
+<rect x="532" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="952" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="952" y="522" width="376" height="56" rx="0" fill="#eff0e5"/>
+<text x="976" y="558" class="label" style="fill:#4c7559">C3</text>
+<text x="976" y="620" class="h">可靠性工程产品</text>
+<text x="976" y="652" class="en">Reliability Engineering Products</text>
+<path d="M976 699 L1304 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="976" y="739" class="body">将有效方法融入工程体系</text>
+<text x="976" y="770" class="body">减少重复交付与治理成本</text>
+<text x="976" y="812" class="label" style="fill:#6e7d70">主要产出</text>
+<text x="976" y="845" class="body muted">工程软件 · 验证工具</text>
+<text x="976" y="873" class="body muted">可复用方法资产</text>
+<rect x="952" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="88" y="894" width="1264" height="120" rx="0" fill="#e5eddf"/>
+<rect x="88" y="894" width="1264" height="4" rx="0" fill="#a9bea0"/>
+<text x="120" y="930" class="label">共同方法</text>
+<text x="340" y="932" font-size="24">架构稳定性</text>
+<text x="580" y="932" font-size="24">业务可靠性</text>
+<text x="820" y="932" font-size="24">研发可靠性</text>
+<text x="1060" y="932" font-size="24">运行可靠性</text>
+<text x="720" y="979" class="body muted" text-anchor="middle">贯穿需求、架构设计、研发、测试、发布、运行及故障恢复</text>
+<rect x="64" y="1014" width="1312" height="174" rx="0" fill="#eef2e8"/>
+<path d="M64 1014 L1376 1014" fill="none" stroke="#ccd8c6" stroke-width="1"/>
+<text x="96" y="1053" class="label">长期积累</text>
+<rect x="96" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="114" y="1099" class="body">架构与治理方法</text>
+<rect x="520" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="538" y="1099" class="body">领域规则与状态模型</text>
+<rect x="944" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="962" y="1099" class="body">实验、反例与证据方法</text>
+<rect x="96" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="114" y="1147" class="body">整改与验证经验</text>
+<rect x="520" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="538" y="1147" class="body">AI 工程评测知识</text>
+<rect x="944" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="962" y="1147" class="body">专项产品与接入契约</text>
+<rect x="64" y="1188" width="1312" height="52" rx="0" fill="#234b38"/>
+<text x="720" y="1221" class="body" style="fill:#edf4e8" text-anchor="middle">独立判断    /    证据可复核    /    整改可验收    /    方法可复用</text>
+<text x="64" y="1295" class="label">交付与商业价值</text>
+<text x="1376" y="1295" font-size="23" text-anchor="end">专业评估  ·  专项工程服务  ·  持续验证服务  ·  工程软件</text>
+<path d="M64 1332 L1376 1332" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="64" y="1372" class="small muted">战略内容沿用已冻结的 r4 基线；本图为战略总览。</text>
+<text x="1376" y="1372" class="label" text-anchor="end">SMARTSCITY  /  2026</text>
+</svg>

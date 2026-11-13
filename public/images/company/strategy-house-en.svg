@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1440" viewBox="0 0 1440 1440" role="img" aria-labelledby="title desc">
+<title id="title">Smartscity strategy house</title>
+<desc id="desc">Mission and vision sit above three pillars: AI reliability engineering, independent research and professional assessment, and reliability engineering products. Shared methods and long-term assets form the foundation. This diagram presents strategic direction, not a statement that every capability is available.</desc>
+<style>text{font-family:"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;fill:#183c33}.label{font-size:16px;letter-spacing:1.6px;font-weight:600}.h{font-size:27px;font-weight:600}.body{font-size:19px}.small{font-size:18px}.muted{fill:#63776d}.en{font-size:17px;fill:#60746a}</style>
+<rect x="0" y="0" width="1440" height="1440" rx="0" fill="#f7f8f3"/>
+<rect x="56" y="54" width="6" height="36" rx="3" fill="#296e54"/>
+<text x="78" y="83" font-size="36">SMARTSCITY</text>
+<text x="78" y="116" class="en">AI-Native Reliability Engineering Company</text>
+<text x="1384" y="69" class="label" text-anchor="end">COMPANY STRATEGY</text>
+<text x="1384" y="101" class="small muted" text-anchor="end">STRATEGY HOUSE / r4</text>
+<path d="M80 410 L720 170 L1360 410 Z" fill="#173f32"/>
+<path d="M80 410 L720 170 L1360 410" fill="none" stroke="#3a7156" stroke-width="3" stroke-linejoin="round"/>
+<text x="720" y="260" class="label" style="fill:#b8d3bd" text-anchor="middle">MISSION</text>
+<text x="720" y="311" font-size="22" style="fill:#ffffff" text-anchor="middle">Expert reliability engineering across the software lifecycle</text>
+<text x="720" y="353" font-size="25" style="fill:#e1ecdf" text-anchor="middle">Scaled, sustained and automated through AI</text>
+<rect x="112" y="410" width="1216" height="112" rx="0" fill="#e1eadf"/>
+<rect x="112" y="410" width="1216" height="5" rx="0" fill="#386c50"/>
+<text x="144" y="447" class="label">VISION</text>
+<text x="720" y="455" font-size="27" text-anchor="middle">An AI-native reliability engineering company for global enterprises</text>
+<text x="720" y="492" class="body muted" text-anchor="middle">Identify risks early · Continuously verify reliability · Close the loop with evidence</text>
+<rect x="112" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="112" y="522" width="376" height="56" rx="0" fill="#edf2e9"/>
+<text x="136" y="558" class="label" style="fill:#4c7559">C1</text>
+<text x="136" y="620" class="h">AI reliability</text>
+<text x="136" y="652" class="h">engineering</text>
+<path d="M136 699 L464 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="136" y="739" class="body">Scale analysis and engineering</text>
+<text x="136" y="770" class="body">Make expert methods repeatable</text>
+<text x="136" y="812" class="label" style="fill:#6e7d70">KEY OUTPUTS</text>
+<text x="136" y="845" class="body muted">Risk analysis · Verification plans</text>
+<text x="136" y="873" class="body muted">Runtime analysis · Reassessment</text>
+<rect x="112" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="532" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="532" y="522" width="376" height="56" rx="0" fill="#e9efeb"/>
+<text x="556" y="558" class="label" style="fill:#4c7559">C2</text>
+<text x="556" y="620" class="h">Independent research</text>
+<text x="556" y="652" font-size="23">&amp; professional assessment</text>
+<text x="556" y="676" class="en"></text>
+<path d="M556 699 L884 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="556" y="739" class="body">Deliver reviewable judgments</text>
+<text x="556" y="770" class="body">Develop actionable remediation</text>
+<text x="556" y="812" class="label" style="fill:#6e7d70">KEY OUTPUTS</text>
+<text x="556" y="845" class="body muted">Reports · Experiments &amp; evidence</text>
+<text x="556" y="873" class="body muted">Remediation · Acceptance criteria</text>
+<rect x="532" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="952" y="522" width="376" height="372" rx="0" fill="#ffffff" stroke="#d6dfd5"/>
+<rect x="952" y="522" width="376" height="56" rx="0" fill="#eff0e5"/>
+<text x="976" y="558" class="label" style="fill:#4c7559">C3</text>
+<text x="976" y="620" class="h">Reliability engineering</text>
+<text x="976" y="652" class="h">products</text>
+<path d="M976 699 L1304 699" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="976" y="739" class="body">Embed effective methods in systems</text>
+<text x="976" y="770" class="body">Reduce delivery &amp; governance costs</text>
+<text x="976" y="812" class="label" style="fill:#6e7d70">KEY OUTPUTS</text>
+<text x="976" y="845" class="body muted">Software · Verification tools</text>
+<text x="976" y="873" class="body muted">Reusable method assets</text>
+<rect x="952" y="884" width="376" height="10" rx="0" fill="#dce6d8"/>
+<rect x="88" y="894" width="1264" height="120" rx="0" fill="#e5eddf"/>
+<rect x="88" y="894" width="1264" height="4" rx="0" fill="#a9bea0"/>
+<text x="120" y="930" class="label">SHARED METHOD</text>
+<text x="340" y="932" font-size="20">Architecture reliability</text>
+<text x="580" y="932" font-size="20">Business reliability</text>
+<text x="820" y="932" font-size="20">Development reliability</text>
+<text x="1060" y="932" font-size="20">Operational reliability</text>
+<text x="720" y="979" class="body muted" text-anchor="middle">Across requirements, architecture, development, testing, releases, operations and recovery</text>
+<rect x="64" y="1014" width="1312" height="174" rx="0" fill="#eef2e8"/>
+<path d="M64 1014 L1376 1014" fill="none" stroke="#ccd8c6" stroke-width="1"/>
+<text x="96" y="1053" class="label">LONG-TERM ASSETS</text>
+<rect x="96" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="114" y="1099" class="body">Architecture &amp; governance methods</text>
+<rect x="520" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="538" y="1099" class="body">Domain rules &amp; state models</text>
+<rect x="944" y="1074" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="962" y="1099" class="body" style="font-size:17px">Experiments, counterexamples &amp; evidence</text>
+<rect x="96" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="114" y="1147" class="body">Remediation &amp; verification experience</text>
+<rect x="520" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="538" y="1147" class="body">AI engineering evaluation knowledge</text>
+<rect x="944" y="1122" width="400" height="36" rx="5" fill="#ffffff"/>
+<text x="962" y="1147" class="body" style="font-size:17px">Specialist products &amp; integration contracts</text>
+<rect x="64" y="1188" width="1312" height="52" rx="0" fill="#234b38"/>
+<text x="720" y="1221" class="body" style="fill:#edf4e8" text-anchor="middle">Independent judgment / Reviewable evidence / Verifiable remediation / Reusable methods</text>
+<text x="64" y="1295" class="label">DELIVERY &amp; VALUE</text>
+<text x="1376" y="1295" font-size="20" text-anchor="end">Professional assessments · Specialist engineering · Continuous verification · Software</text>
+<path d="M64 1332 L1376 1332" fill="none" stroke="#d7e1d8" stroke-width="1"/>
+<text x="64" y="1372" class="small muted">Strategic overview · Aligned with the approved r4 baseline.</text>
+<text x="1376" y="1372" class="label" text-anchor="end">SMARTSCITY  /  2026</text>
+</svg>

@@ -92,3 +92,9 @@ The owner explicitly supplied and authorized publication of `ai-agent-reliabilit
 The report overview, excerpt, logo and two English diagrams are owner-supplied assets. Original PNG/SVG files are retained intact; responsive report derivatives are uncropped. The report HTML and its CSS/logo dependencies are copied together, with `noindex` added to the fictional standalone sample. New list/social covers are original SVG illustrations and PNG exports. Entire article-preview screenshots are not shipped as article bodies.
 
 All report figures are fictional samples, not customer discoveries, retry-task results or measured product capabilities. Diagram captions preserve task-scope and verified-integration limitations. The proposed assessment method does not assert that all checks, tool connections or orchestration capabilities have shipped. The technical reference links (AWS timeout/retry guidance, Prometheus range-query API and OpenTelemetry traces) were reopened on 2026-11-13; they support the attributed mechanisms only.
+
+## About strategy house — 2026-11-13
+
+The owner requested the company strategy house from the company-planning chat for About. The source is the approved r4 visual in `biying/docs/company/01-strategy/assets/strategy-house.svg`; the Chinese copy is byte-identical (SHA-256 `73a80a20abe0998f90591b1f4ed24f4b0afd4e7e7db51a128dba5e4e6717f6dc`). The English adaptation preserves its geometry, palette and mission/vision/pillars/foundation structure with translated typography. Company planning files and the frozen baseline are unchanged.
+
+Both About pages include localized explanatory text and a native full-size SVG link. The three pillars describe strategic direction, not universal service availability or implemented automation. Specific product evidence boundaries remain on existing product and Docs pages. No private commercial plan, internal resource assumption or new product capability claim is added.

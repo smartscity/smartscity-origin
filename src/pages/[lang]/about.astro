@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import CompanyDetails from '../../components/CompanyDetails.astro';
+import StrategyHouse from '../../components/StrategyHouse.astro';
 import { company } from '../../data/company';
 import { projects } from '../../data/projects';
 import { locales, dictionaries, type Locale } from '../../i18n';
@@ -32,6 +33,7 @@ const t = dictionaries[lang];
       <CompanyDetails lang={lang} />
     </section>
   </section>
+  <StrategyHouse lang={lang} />
   <section class="corporate-section container">
     <div class="section-heading">
       <h2>{t.aboutPage.projectsTitle}</h2>
