@@ -10,6 +10,7 @@ const library = defineCollection({
     kind: z.enum(['docs', 'blog']),
     cover: z.string().startsWith('/images/blog/').optional(),
     coverAlt: z.string().optional(),
+    coverInArticle: z.boolean().default(true),
     product: z.enum([
       'agent-reliability',
       'hyperraft',

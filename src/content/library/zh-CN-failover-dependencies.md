@@ -22,7 +22,8 @@ sources:
       'url': 'https://sre.google/sre-book/handling-overload/',
     },
   ]
-related: ['assessment-start', 'assessment-evidence']
+related:
+  ['assessment-start', 'assessment-evidence', 'ai-agent-reliability-assessment']
 ---
 
 主备部署在不同位置，只证明部分资源分开了。能否真正完成切换，还取决于发现故障、发起切换、获得权限、恢复数据和承接业务这些动作是否依赖同一故障域。

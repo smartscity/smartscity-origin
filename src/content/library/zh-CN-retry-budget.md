@@ -22,7 +22,13 @@ sources:
       'url': 'https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/',
     },
   ]
-related: ['assessment-start', 'assessment-evidence']
+related:
+  [
+    'assessment-start',
+    'assessment-evidence',
+    'ai-agent-cross-system-investigation',
+    'ai-agent-reliability-assessment',
+  ]
 ---
 
 重试设计需要回答两个不同问题：一次调用是否值得再次尝试，以及系统是否承受得起所有调用同时重试。评估只看单个客户端的重试次数，很难回答第二个问题。

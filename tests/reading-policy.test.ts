@@ -25,6 +25,7 @@ function entry(
       updated: '2026-11-12',
       author: 'Smartscity',
       sources: [],
+      coverInArticle: true,
       ...overrides,
     },
   };

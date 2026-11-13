@@ -15,6 +15,8 @@ const paths = [
   'blog/retry-budget/',
   'blog/rollback-state/',
   'blog/failover-dependencies/',
+  'blog/ai-agent-reliability-assessment/',
+  'blog/ai-agent-cross-system-investigation/',
 ];
 for (const lang of ['en', 'zh-CN']) {
   test(`${lang} library routes, reading navigation and contact context`, async ({
@@ -82,7 +84,7 @@ for (const lang of ['en', 'zh-CN']) {
     await root.locator('select[name="kind"]').selectOption('');
     await root
       .locator('input')
-      .fill(lang === 'en' ? 'circuit breakers' : '熔断');
+      .fill(lang === 'en' ? 'per-attempt timeout' : '单次超时');
     await expect(root.locator('[data-reading]:visible')).toHaveCount(1);
     await expect(root.locator('[data-reading]:visible h3 a')).toHaveAttribute(
       'href',
@@ -93,7 +95,7 @@ for (const lang of ['en', 'zh-CN']) {
     await root.locator('input').fill('no-result-987654321');
     await expect(root.locator('[data-empty]')).toBeVisible();
     await root.locator('button[type="reset"]').click();
-    await expect(root.locator('[data-reading]:visible')).toHaveCount(12);
+    await expect(root.locator('[data-reading]:visible')).toHaveCount(14);
     await root.locator('select[name="product"]').selectOption('starter-id');
     await expect(root.locator('[data-reading]:visible')).toHaveCount(3);
     await root.locator('select[name="topic"]').selectOption('release-recovery');
@@ -106,6 +108,8 @@ for (const lang of ['en', 'zh-CN']) {
       for (const path of [
         'docs/',
         'blog/retry-budget/',
+        'blog/ai-agent-reliability-assessment/',
+        'blog/ai-agent-cross-system-investigation/',
         'docs/starter-id/id-start/',
       ]) {
         await page.goto(`/${lang}/${path}`);
@@ -178,7 +182,7 @@ test('English blog covers load and core catalog excludes Starter', async ({
   await page.goto('/en/blog/');
   await expect(
     page.locator('.reading-card:visible .reading-cover img'),
-  ).toHaveCount(3);
+  ).toHaveCount(5);
   for (const img of await page
     .locator('.reading-card:visible .reading-cover img')
     .all()) {

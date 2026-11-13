@@ -14,7 +14,12 @@ updated: '2026-11-12'
 author: 'Smartscity'
 sourceRevision: 'C2 editorial source · 2026-11-12'
 sources: []
-related: ['rollback-state', 'failover-dependencies']
+related:
+  [
+    'rollback-state',
+    'failover-dependencies',
+    'ai-agent-cross-system-investigation',
+  ]
 ---
 
 ## 从证据读到业务影响

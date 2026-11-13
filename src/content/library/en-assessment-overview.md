@@ -14,7 +14,7 @@ updated: '2026-11-12'
 author: 'Smartscity'
 sourceRevision: 'C2 editorial source · 2026-11-12'
 sources: []
-related: ['assessment-start', 'retry-budget']
+related: ['assessment-start', 'retry-budget', 'ai-agent-reliability-assessment']
 ---
 
 ## When to start

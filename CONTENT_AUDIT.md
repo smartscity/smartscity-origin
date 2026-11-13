@@ -84,3 +84,11 @@ The owner authorized enabling Cloudflare Web Analytics for daily traffic and geo
 ## Contact composer — 2026-11-13
 
 The owner chose a local-only email draft flow: visitors enter context and review/send in their own mail application. The site does not send or store messages and does not verify the sender mailbox. The original green illustration and separated business/open-source paths are informed by [Linear contact](https://linear.app/contact). No response-time promise or spam-prevention guarantee is made. See [delivery record](docs/delivery/contact-form-2026-11-13.md).
+
+## AI Agent article pair — 2026-11-13
+
+The owner explicitly supplied and authorized publication of `ai-agent-reliability-assessment` and `ai-agent-cross-system-investigation` from the company C2 editorial handoff. The portal retains the complete Chinese arguments and provides full English translations, shared stable IDs, localized captions/alt text, paired routes, related Docs and contact links. Source revisions contain the source Markdown hash prefix; company source files remain unchanged. Existing three articles remain published with reciprocal related links.
+
+The report overview, excerpt, logo and two English diagrams are owner-supplied assets. Original PNG/SVG files are retained intact; responsive report derivatives are uncropped. The report HTML and its CSS/logo dependencies are copied together, with `noindex` added to the fictional standalone sample. New list/social covers are original SVG illustrations and PNG exports. Entire article-preview screenshots are not shipped as article bodies.
+
+All report figures are fictional samples, not customer discoveries, retry-task results or measured product capabilities. Diagram captions preserve task-scope and verified-integration limitations. The proposed assessment method does not assert that all checks, tool connections or orchestration capabilities have shipped. The technical reference links (AWS timeout/retry guidance, Prometheus range-query API and OpenTelemetry traces) were reopened on 2026-11-13; they support the attributed mechanisms only.

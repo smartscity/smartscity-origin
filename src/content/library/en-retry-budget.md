@@ -22,7 +22,13 @@ sources:
       'url': 'https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/',
     },
   ]
-related: ['assessment-start', 'assessment-evidence']
+related:
+  [
+    'assessment-start',
+    'assessment-evidence',
+    'ai-agent-cross-system-investigation',
+    'ai-agent-reliability-assessment',
+  ]
 ---
 
 Retry design must answer two different questions: is a particular call worth trying again, and can the system afford all calls retrying at once? Reviewing the retry count of one client rarely answers the second question.

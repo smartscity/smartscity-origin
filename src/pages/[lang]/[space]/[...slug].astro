@@ -45,6 +45,30 @@ const projectId = documentationProducts.find(
   (p) => p.id === d.product,
 )?.projectId;
 const related = all.filter((e) => d.related.includes(e.data.contentId));
+const articleData =
+  d.kind === 'blog'
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: d.title,
+        description: d.summary,
+        inLanguage: lang,
+        dateModified: d.updated,
+        author: {
+          '@type': 'Organization',
+          name: d.author,
+          url: Astro.site?.href,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Smartscity',
+          url: Astro.site?.href,
+        },
+        mainEntityOfPage: new URL(readingPath(entry), Astro.site).href,
+        image: new URL(d.cover!.replace(/\.svg$/, '.png'), Astro.site).href,
+        articleSection: t.topics[d.topic],
+      }).replace(/</g, '\\u003c')
+    : undefined;
 ---
 
 <SiteLayout
@@ -53,7 +77,11 @@ const related = all.filter((e) => d.related.includes(e.data.contentId));
   description={d.summary}
   socialImage={d.cover?.replace(/\.svg$/, '.png')}
   socialImageAlt={d.coverAlt}
+  ogType={d.kind === 'blog' ? 'article' : 'website'}
 >
+  {articleData && (
+    <script slot="head" type="application/ld+json" set:html={articleData} />
+  )}
   <div class="reading-shell container">
     <nav class="reading-breadcrumb" aria-label={t.contents}>
       <a href={`/${lang}/${d.kind}/`}>{t[d.kind]}</a>
@@ -126,7 +154,7 @@ const related = all.filter((e) => d.related.includes(e.data.contentId));
               ))}
           </ul>
         </details>
-        {d.cover && (
+        {d.cover && d.coverInArticle && (
           <figure class="article-cover">
             <img
               src={d.cover}

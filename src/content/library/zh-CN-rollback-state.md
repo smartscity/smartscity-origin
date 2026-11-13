@@ -22,7 +22,12 @@ sources:
       'url': 'https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment',
     },
   ]
-related: ['assessment-start', 'assessment-evidence']
+related:
+  [
+    'assessment-start',
+    'assessment-evidence',
+    'ai-agent-cross-system-investigation',
+  ]
 ---
 
 发布系统显示回滚完成，只能说明它负责的回退动作完成。企业关心的恢复，还取决于业务状态是否能被旧版本继续解释和处理。

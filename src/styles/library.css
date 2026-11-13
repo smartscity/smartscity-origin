@@ -655,3 +655,30 @@
   display: table;
   overflow: visible;
 }
+
+/* Linked, uncropped figures remain readable and enlargeable without JavaScript. */
+.reading-figure {
+  margin: 28px 0 36px;
+}
+.reading-figure > a {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffefa;
+}
+.reading-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.reading-figure figcaption {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.reading-figure a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}

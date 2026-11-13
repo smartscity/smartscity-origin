@@ -22,7 +22,12 @@ sources:
       'url': 'https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment',
     },
   ]
-related: ['assessment-start', 'assessment-evidence']
+related:
+  [
+    'assessment-start',
+    'assessment-evidence',
+    'ai-agent-cross-system-investigation',
+  ]
 ---
 
 A deployment system reporting a completed rollback establishes that the reversal actions it owns have completed. Business recovery also depends on whether the old version can still interpret and process the resulting business state.
