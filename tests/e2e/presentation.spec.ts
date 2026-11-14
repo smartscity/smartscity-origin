@@ -34,6 +34,7 @@ test('city motion respects reduced motion and offscreen visibility', async ({
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en/');
+  await page.locator('#digital-city').scrollIntoViewIfNeeded();
   await expect(page.locator('#digital-city')).toHaveAttribute(
     'data-motion',
     'paused',

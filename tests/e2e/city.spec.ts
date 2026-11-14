@@ -8,6 +8,7 @@ for (const lang of ['en', 'zh-CN']) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(`/${lang}/`);
     const city = page.locator('#digital-city');
+    await city.scrollIntoViewIfNeeded();
     await expect(city).toHaveAttribute('data-scene', 'ready', {
       timeout: 30000,
     });
@@ -52,6 +53,7 @@ test('tour reaches the archive and returns to the overview', async ({
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en/');
+  await page.locator('#digital-city').scrollIntoViewIfNeeded();
   await page.getByRole('button', { name: 'Take a guided tour' }).click();
   for (const name of [
     'Polarbear',
@@ -86,6 +88,7 @@ test('WebGL absence retains project navigation and library interaction', async (
     } as typeof original;
   });
   await page.goto('/en/');
+  await page.locator('#digital-city').scrollIntoViewIfNeeded();
   await expect(page.locator('#digital-city')).toHaveAttribute(
     'data-scene',
     'fallback',

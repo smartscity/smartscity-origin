@@ -1,0 +1,43 @@
+---
+import { dictionaries, type Locale } from '../i18n';
+import { publishedReadings, readingPath } from '../lib/library';
+import '../styles/enterprise.css';
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang].enterprise;
+const entries = (await publishedReadings(lang)).filter(
+  (e) => e.data.kind === 'blog' && e.data.product === 'enterprise-agents',
+);
+---
+
+{entries.length > 0 && (
+  <section class="enterprise-reading container">
+    <p class="eyebrow">{t.readingEyebrow}</p>
+    <h2>{t.readingTitle}</h2>
+    <div class="enterprise-reading-grid">
+      {entries.map((entry) => (
+        <article>
+          <a href={readingPath(entry)} tabindex="-1" aria-hidden="true">
+            <img
+              src={entry.data.cover}
+              alt=""
+              width="1200"
+              height="675"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <h3>
+            <a href={readingPath(entry)}>{entry.data.title} ↗</a>
+          </h3>
+          <p>{entry.data.summary}</p>
+          <a class="text-button" href={readingPath(entry)}>
+            {t.readArticle} →
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+)}

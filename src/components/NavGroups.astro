@@ -18,8 +18,16 @@ const groups = [
     label: t.nav.products,
     columns: [
       {
-        title: t.nav.core,
+        title: t.nav.explore,
         prominent: true,
+        links: [
+          { label: t.nav.enterprise, href: `${base}/#enterprise-agents` },
+          { label: t.nav.pilot, href: `${base}/#pilot` },
+        ],
+      },
+      {
+        title: t.nav.core,
+        prominent: false,
         links: [
           project('hyperraft'),
           project('qualitysphere'),
@@ -32,17 +40,10 @@ const groups = [
       {
         title: t.nav.tools,
         prominent: false,
-        links: [project('polarbear'), project('polarbear-vocab')],
-      },
-      {
-        title: t.nav.explore,
-        prominent: false,
         links: [
+          project('polarbear'),
+          project('polarbear-vocab'),
           { label: t.nav.allProjects, href: `${base}/#projects` },
-          {
-            label: t.library.products['agent-reliability'],
-            href: `${base}/docs/agent-reliability/assessment-overview/`,
-          },
         ],
       },
     ],

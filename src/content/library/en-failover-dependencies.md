@@ -23,7 +23,12 @@ sources:
     },
   ]
 related:
-  ['assessment-start', 'assessment-evidence', 'ai-agent-reliability-assessment']
+  [
+    'enterprise-agent-teams',
+    'assessment-start',
+    'assessment-evidence',
+    'ai-agent-reliability-assessment',
+  ]
 ---
 
 Deploying primary and standby environments in different locations establishes that some resources are separated. Successful failover also depends on whether fault detection, the decision to switch, authorization, data recovery, and resumption of business operations rely on the same failure domain.

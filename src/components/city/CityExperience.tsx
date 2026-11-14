@@ -102,7 +102,9 @@ export default function CityExperience({
       id="digital-city"
       className={`digital-city ${copy ? 'has-selection' : ''}`}
       data-scene={failed ? 'fallback' : ready ? 'ready' : 'loading'}
-      data-motion={motion && !reduced && active ? 'running' : 'paused'}
+      data-motion={
+        mounted && motion && !reduced && active ? 'running' : 'paused'
+      }
       onKeyDown={(e) => {
         if (e.key === 'Escape' && state.selected !== null) home();
       }}
@@ -114,7 +116,7 @@ export default function CityExperience({
           alt=""
           width="1600"
           height="1000"
-          fetchPriority="high"
+          loading="lazy"
         />
         {mounted && !failed && (
           <SceneBoundary onError={() => setFailed(true)}>
@@ -138,11 +140,11 @@ export default function CityExperience({
           <span />
           {text.eyebrow}
         </p>
-        <h1>
+        <h2 className="city-title">
           {text.title}
           <br />
           <span>{text.titleAccent}</span>
-        </h1>
+        </h2>
         <p className="city-intro">{text.intro}</p>
         <div className="city-actions">
           <a href="#city-districts" className="city-primary">
@@ -262,7 +264,7 @@ export default function CityExperience({
           <p>{text.select}</p>
           <span>{failed ? text.fallback : text.concept}</span>
         </div>
-        <nav aria-label={text.districts}>
+        <nav aria-label={text.districts} tabIndex={0}>
           {text.districtCopy.map((item, index) => (
             <button
               ref={(el) => {

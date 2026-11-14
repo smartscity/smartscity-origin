@@ -102,7 +102,7 @@ for (const lang of ['en', 'zh-CN']) {
       await expect(page.locator('.reading-prose figure')).toHaveCount(2);
     }
     await page.goto(`/${lang}/blog/`);
-    await expect(page.locator('[data-reading]:visible')).toHaveCount(5);
+    await expect(page.locator('[data-reading]:visible')).toHaveCount(7);
     await page.locator('select[name="topic"]').selectOption('ai-engineering');
     await expect(page.locator('[data-reading]:visible')).toHaveCount(2);
     // A phrase that only occurs in the body verifies full-text indexing of the new articles.

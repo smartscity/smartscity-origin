@@ -1,0 +1,101 @@
+---
+import { dictionaries, type Locale } from '../i18n';
+import '../styles/enterprise.css';
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang].enterprise;
+---
+
+<section
+  class="enterprise-hero container"
+  id="enterprise-agents"
+  aria-labelledby="enterprise-title"
+>
+  <div class="enterprise-introduction">
+    <p class="eyebrow">{t.eyebrow}</p>
+    <h1 id="enterprise-title">
+      {t.headline}
+      <br />
+      <span>{t.headlineAccent}</span>
+    </h1>
+    <p class="enterprise-lead">{t.intro}</p>
+    <div class="enterprise-actions">
+      <a class="button" href={`/${lang}/contact/`}>
+        {t.primary} <span aria-hidden="true">↗</span>
+      </a>
+      <a class="text-button" href="#agent-approach">
+        {t.secondary} <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+  <figure class="agent-workflow">
+    <p class="workflow-label">{t.visualLabel}</p>
+    <ol>
+      {t.flow.map((step, i) => (
+        <li>
+          <span class="workflow-number" aria-hidden="true">
+            0{i + 1}
+          </span>
+          <div>
+            <h2>{step.title}</h2>
+            <p>{step.text}</p>
+          </div>
+          <span class="workflow-mark" aria-hidden="true">
+            {['↗', '⋈', '✓'][i]}
+          </span>
+        </li>
+      ))}
+    </ol>
+    <figcaption>{t.visualNote}</figcaption>
+  </figure>
+</section>
+<section
+  class="enterprise-capabilities container"
+  id="agent-approach"
+  aria-labelledby="capability-title"
+>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">{t.capabilityEyebrow}</p>
+      <h2 id="capability-title">{t.capabilityTitle}</h2>
+    </div>
+    <p>{t.capabilityIntro}</p>
+  </div>
+  <ol class="capability-list">
+    {t.capabilities.map((item, i) => (
+      <li>
+        <span aria-hidden="true">0{i + 1}</span>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+<section
+  class="enterprise-pilot container"
+  id="pilot"
+  aria-labelledby="pilot-title"
+>
+  <div class="pilot-introduction">
+    <p class="eyebrow">{t.pilotEyebrow}</p>
+    <h2 id="pilot-title">{t.pilotTitle}</h2>
+    <p>{t.pilotIntro}</p>
+  </div>
+  <div class="pilot-cards">
+    {t.pilotCards.map((card, i) => (
+      <article>
+        <span class="eyebrow">0{i + 1}</span>
+        <h3>{card.title}</h3>
+        <p>{card.text}</p>
+      </article>
+    ))}
+  </div>
+  <div class="pilot-next">
+    <a class="button" href={`/${lang}/contact/`}>
+      {t.pilotCta} ↗
+    </a>
+    <p>{t.pilotBoundary}</p>
+  </div>
+</section>

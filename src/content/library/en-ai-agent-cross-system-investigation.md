@@ -33,6 +33,7 @@ sources:
   ]
 related:
   [
+    'governable-agent-expertise',
     'ai-agent-reliability-assessment',
     'retry-budget',
     'rollback-state',

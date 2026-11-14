@@ -1,0 +1,71 @@
+---
+import { dictionaries, type Locale } from '../i18n';
+import '../styles/enterprise.css';
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang].strategyTree;
+const image = '/images/company/enterprise-agent-strategy-en.svg';
+---
+
+<section
+  class="strategy-tree corporate-section container"
+  aria-labelledby="strategy-title"
+>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="strategy-title">{t.title}</h2>
+    </div>
+    <p>{t.intro}</p>
+  </div>
+  <figure class="agent-strategy-figure">
+    <a href={image} aria-label={t.expand}>
+      <img
+        src={image}
+        alt={t.alt}
+        width="1440"
+        height="1490"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <figcaption>
+      <p>{t.caption}</p>
+      <a class="text-button" href={image}>
+        {t.expand} ↗
+      </a>
+    </figcaption>
+  </figure>
+  <div class="strategy-tree-text">
+    <h3>{t.capabilities}</h3>
+    <ol class="capability-list">
+      {dictionaries[lang].enterprise.capabilities.map((capability, i) => (
+        <li>
+          <span aria-hidden="true">0{i + 1}</span>
+          <h4>{capability.title}</h4>
+          <p>{capability.text}</p>
+        </li>
+      ))}
+    </ol>
+    <h3>{t.applications}</h3>
+    <div class="strategy-branches">
+      {t.branches.map((branch) => (
+        <div>
+          <h4>{branch.title}</h4>
+          <p>{branch.text}</p>
+        </div>
+      ))}
+    </div>
+    <h3>{t.pathsTitle}</h3>
+    <div class="strategy-branches">
+      {t.paths.map((path) => (
+        <div>
+          <h4>{path.title}</h4>
+          <p>{path.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

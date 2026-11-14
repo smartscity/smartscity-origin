@@ -96,3 +96,13 @@ The reading template owns `BlogPosting` metadata derived from the same published
 The brand links home. Products, Resources and Company are native disclosure groups, with a separate Contact action. Product names reuse the project registry; shared labels stay in the bilingual dictionaries. Resources retains Docs, Blog, GitHub and the engineering section. No content route or product claim changes.
 
 Native `details` owns open state and exclusive group selection, preserving keyboard and no-JavaScript navigation. Header-scoped enhancement adds mouse hover, Escape, outside-click and focus dismissal, link selection cleanup, and viewport-change cleanup. Desktop and mobile share the same group composition without a global store or React dependency. CSS owns panel transitions and reduced-motion behavior.
+
+## Enterprise agent direction — 2026-11-14
+
+`EnterpriseWork.astro` owns the localized, static homepage introduction, shared capability model and bounded-pilot preparation. `EnterpriseReading.astro` selects the two enterprise-agent articles through the existing publication policy; `AgentProgress.astro` keeps the development-status explanation on About. None introduces client state, external services or a new runtime dependency.
+
+`StrategyTree.astro` presents the company-owned r5 English SVG with bilingual semantic text, a design-status caption and a native full-size link. The prior reliability strategy remains available inside a clearly labeled historical disclosure; its original assets are retained. Company identity and product evidence stay in their existing registries.
+
+The digital city is a specialist exhibit below the enterprise introduction. Its heading is now level two, and its existing React island loads when visible; district interactions, illustrations and product facts retain their scope. The below-fold poster loads lazily.
+
+The content schema adds `enterprise-agents` as a focus area and topic. Library filters include that area without adding a fictitious documentation product or empty catalog card. Existing article routes remain stable, with reciprocal related links. Shared English diagrams have localized captions and alt text, while editorial covers provide list and social previews. Public pages do not import company operating plans or agent credentials.

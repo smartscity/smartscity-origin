@@ -7,6 +7,7 @@ for (const lang of ['en', 'zh-CN']) {
     for (const theme of ['light', 'dark'] as const) {
       await page.emulateMedia({ colorScheme: theme });
       await page.goto(`/${lang}/about/`);
+      await page.locator('.strategy-history > summary').click();
       const section = page.locator('.strategy-house');
       const img = section.locator('img');
       await img.scrollIntoViewIfNeeded();
@@ -107,6 +108,7 @@ test('strategy diagram and text work without JavaScript', async ({
   const page = await context.newPage();
   for (const lang of ['en', 'zh-CN']) {
     await page.goto(`${baseURL}/${lang}/about/`);
+    await page.locator('.strategy-history > summary').click();
     await page.locator('.strategy-text summary').click();
     await expect(page.locator('.strategy-pillars')).toBeVisible();
     await page.locator('.strategy-visual').click();

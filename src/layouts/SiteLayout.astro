@@ -15,14 +15,15 @@ interface Props {
 }
 const {
   lang,
-  title = 'Smartscity — Engineering the Foundations of Modern Software',
+  title = dictionaries[Astro.props.lang].enterprise.metaTitle,
   description,
   noindex = false,
-  socialImage = '/images/social.png',
+  socialImage = '/images/company/enterprise-agents-social.png',
   socialImageAlt,
   ogType = 'website',
 } = Astro.props;
 const t = dictionaries[lang];
+const socialAlt = socialImageAlt ?? t.enterprise.socialAlt;
 const path = Astro.url.pathname;
 const localePath = noindex ? '/' : path;
 const other = lang === 'en' ? 'zh-CN' : 'en';
@@ -65,10 +66,9 @@ const canonical = new URL(path, Astro.site);
     <meta property="og:image" content={new URL(socialImage, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content={socialImageAlt ? '675' : '630'} />
-    {socialImageAlt && (
-      <meta property="og:image:alt" content={socialImageAlt} />
-    )}
+    <meta property="og:image:alt" content={socialAlt} />
     <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_CN'} />
+    <meta name="twitter:image:alt" content={socialAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta

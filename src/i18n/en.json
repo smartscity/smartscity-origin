@@ -23,14 +23,16 @@
     "companyExplore": "Discover Smartscity",
     "strategy": "Our strategy",
     "principles": "Engineering principles",
-    "close": "Close navigation"
+    "close": "Close navigation",
+    "enterprise": "Enterprise agents",
+    "pilot": "Discuss a pilot"
   },
   "hero": {
     "eyebrow": "SMARTSCITY / BIYING TECHNOLOGY",
     "line1": "Engineering.",
     "line2": "For what’s ",
     "line3": "next.",
-    "description": "Software foundations. Thoughtful tools. More room for your next idea.",
+    "description": "Explore enterprise agent workflows with Smartscity: scoped tasks, role collaboration, enterprise knowledge, controlled tool use and evidence-based acceptance. Discuss a bounded pilot.",
     "primary": "Explore our projects",
     "secondary": "Meet Smartscity",
     "footnote": "Built with conviction. Shared with the world.",
@@ -77,11 +79,11 @@
   },
   "about": {
     "eyebrow": "03 / BEHIND THE CODE",
-    "title": "Serious about systems.\nThoughtful about people.",
-    "description": "We’re Smartscity — Biying Technology. We build software with a belief that robust foundations and considered tools help people do their best work.",
-    "description2": "Our open-source projects connect two worlds: the infrastructure that keeps software moving, and the everyday tools that help ideas take shape.",
+    "title": "Enterprise ambition.\nEngineering discipline.",
+    "description": "Smartscity — Biying Technology — brings enterprise knowledge, professional methods and tools together as agent workflows. We connect goal definition, role collaboration, execution and review, so a team can work toward a result with clear acceptance criteria.",
+    "description2": "Our mission is to help enterprises turn their knowledge, methods and tools into agent capabilities that deliver verifiable outcomes. We begin with a defined task, representative inputs and a responsible owner, then agree the work and its acceptance conditions.",
     "cta": "Build alongside us",
-    "note": "Explore the code. Ask a question. Make a contribution.",
+    "note": "Capabilities and pilot scope are agreed individually.",
     "fullPage": "More about Smartscity"
   },
   "activity": {
@@ -95,7 +97,7 @@
     "status": "Status"
   },
   "footer": {
-    "tagline": "Engineering the foundations of modern software.",
+    "tagline": "AI agents for enterprise work.",
     "company": "Biying Technology · Smartscity",
     "privacy": "Privacy Policy",
     "copyright": "Built in the open. Made with intention.",
@@ -198,20 +200,20 @@
   },
   "aboutPage": {
     "eyebrow": "ABOUT SMARTSCITY",
-    "title": "An AI-native reliability\nengineering company.",
-    "metaDescription": "Smartscity combines AI agents and expert reliability engineering methods, with a strategy spanning AI engineering, independent assessment and engineering products.",
-    "intro": "Smartscity — Biying Technology — combines AI agents with expert engineering methods to help enterprise teams identify risks, verify system reliability and define remediation that can be checked against clear acceptance criteria.",
-    "whoTitle": "Reliability across the software lifecycle.",
-    "whoText": "Our mission is to bring expert reliability engineering into requirements, architecture, development, testing, releases, operations and recovery. We aim to use AI to scale that expertise and make engineering methods continuous and automated.",
-    "whoText2": "Our strategy has three pillars: AI reliability engineering, independent research and professional assessment, and reliability engineering products. Engineering judgments must be supported by evidence and lead to actionable remediation and verifiable acceptance. Specific service scope and available product capabilities are described in the corresponding guides and project pages.",
-    "projectsTitle": "What we build.",
-    "projectsIntro": "Explore the existing project introductions, technical concepts, and public repositories. Availability and capabilities are described on each project page.",
+    "title": "Enterprise AI agents.\nGrounded in expertise.",
+    "metaDescription": "Explore enterprise agent workflows with Smartscity: scoped tasks, role collaboration, enterprise knowledge, controlled tool use and evidence-based acceptance. Discuss a bounded pilot.",
+    "intro": "Smartscity — Biying Technology — brings enterprise knowledge, professional methods and tools together as agent workflows. We connect goal definition, role collaboration, execution and review, so a team can work toward a result with clear acceptance criteria.",
+    "whoTitle": "More capability.\nClear responsibility.",
+    "whoText": "Our mission is to help enterprises turn their knowledge, methods and tools into agent capabilities that deliver verifiable outcomes. We begin with a defined task, representative inputs and a responsible owner, then agree the work and its acceptance conditions.",
+    "whoText2": "Our direction spans roles and responsibilities, knowledge and methods, tasks and tools, quality and evidence, and evaluation over time. Reliability engineering and engineering quality remain specialist applications, supported by our existing research and product foundations.",
+    "projectsTitle": "Specialist products.\nLasting engineering foundations.",
+    "projectsIntro": "Reliability engineering and engineering quality are specialist applications of our wider agent direction. Explore HyperRaft, QualitySphere and ReconSphere at their current stages, alongside the knowledge tools in our ecosystem.",
     "philosophyTitle": "How we approach the work.",
     "openSourceTitle": "Open source",
     "openSourceText": "Share source and documentation where projects are public, welcome specific questions, and keep claims connected to evidence.",
-    "contactTitle": "Start a conversation.",
-    "contactText": "For company information, business inquiries, or questions about our work, use our official contact page.",
-    "contactCta": "Contact Smartscity"
+    "contactTitle": "Start with a task we can define together.",
+    "contactText": "One task, an accountable owner, representative inputs, an expected output and examples of unacceptable results. Start with non-sensitive samples.",
+    "contactCta": "Discuss a pilot"
   },
   "contactPage": {
     "eyebrow": "CONTACT",
@@ -344,13 +346,13 @@
     "blog": "Blog",
     "eyebrow": "THE SMARTSCITY LIBRARY",
     "docsTitle": "From understanding to implementation.",
-    "blogTitle": "Engineering, examined.",
-    "docsIntro": "Find the right starting point, follow a complete task, and understand what the evidence supports.",
-    "blogIntro": "Practical methods for reasoning about reliability, recovery, and the systems between teams.",
+    "blogTitle": "Ideas for work that gets done.",
+    "docsIntro": "Find methods for scoped agent work and specialist reliability assessments, alongside product guides with explicit evidence and availability boundaries.",
+    "blogIntro": "Enterprise agents, expert knowledge and evidence-based delivery — with reliability engineering as a specialist practice.",
     "search": "Search the library",
     "searchHint": "Search titles and full text…",
     "kind": "Content type",
-    "product": "Product",
+    "product": "Focus area",
     "topic": "Topic",
     "all": "All",
     "clear": "Clear filters",
@@ -370,7 +372,7 @@
     "previous": "Previous",
     "next": "Next",
     "related": "Continue exploring",
-    "contactTitle": "Bring your system into the discussion.",
+    "contactTitle": "Bring your task into the discussion.",
     "contactText": "Discuss the question raised by this reading, your environment, and the evidence you need. The email opens in your mail app; you decide what to send.",
     "email": "Discuss this topic",
     "contact": "Contact Smartscity",
@@ -393,14 +395,16 @@
       "hyperraft": "HyperRaft",
       "qualitysphere": "QualitySphere",
       "starter-id": "Smartscity Starter / ID",
-      "reconsphere": "ReconSphere"
+      "reconsphere": "ReconSphere",
+      "enterprise-agents": "Enterprise agents"
     },
     "topics": {
       "architecture-reliability": "Architecture & reliability",
       "release-recovery": "Release & recovery",
       "business-reliability": "Business reliability",
-      "ai-engineering": "AI engineering",
-      "product-practice": "Engineering products"
+      "ai-engineering": "Agents for reliability",
+      "product-practice": "Engineering products",
+      "enterprise-agents": "Enterprise agents"
     },
     "productDescriptions": {
       "agent-reliability": "Prepare an assessment, agree the scope, and read evidence-based findings.",
@@ -425,13 +429,14 @@
     "optional": "Optional",
     "topic": "What can we help with?",
     "topics": [
+      "Enterprise agent pilot",
       "Project & integration",
       "Reliability assessment",
       "Partnership",
       "Something else"
     ],
     "message": "Your message",
-    "placeholder": "What are you building? What would you like help with?",
+    "placeholder": "What task should the team complete? What inputs can you share? What result and acceptance criteria matter? Please omit secrets and confidential data.",
     "hint": "10–2,000 characters. Please leave out passwords and confidential information.",
     "privacy": "Read our privacy policy",
     "submit": "Open email draft",
@@ -497,5 +502,124 @@
     "principles": "Independent judgment · Reviewable evidence · Verifiable remediation · Reusable methods",
     "deliveryLabel": "Delivery and value",
     "delivery": "Professional assessments · Specialist engineering services · Continuous verification services · Engineering software"
+  },
+  "enterprise": {
+    "metaTitle": "Smartscity — AI Agents for Enterprise Work",
+    "metaDescription": "Explore enterprise agent workflows with Smartscity: scoped tasks, role collaboration, enterprise knowledge, controlled tool use and evidence-based acceptance. Discuss a bounded pilot.",
+    "eyebrow": "SMARTSCITY / ENTERPRISE AGENTS",
+    "headline": "AI agents.",
+    "headlineAccent": "For enterprise work.",
+    "intro": "Turn expertise into enterprise agent capabilities that collaborate, execute and deliver verifiable results. Start with a defined task, agreed boundaries and a pilot you can review.",
+    "primary": "Discuss a pilot",
+    "secondary": "See the approach",
+    "visualLabel": "A task, with a path to acceptance.",
+    "visualNote": "Illustrative workflow · scope, access and acceptance are agreed before a pilot.",
+    "flow": [
+      {
+        "title": "Define the goal",
+        "text": "Task · inputs · acceptance"
+      },
+      {
+        "title": "Organize the work",
+        "text": "Roles · knowledge · tools"
+      },
+      {
+        "title": "Review the result",
+        "text": "Deliverable · evidence · limits"
+      }
+    ],
+    "capabilityEyebrow": "ONE APPROACH / SPECIALIST APPLICATIONS",
+    "capabilityTitle": "Build the team around the task.",
+    "capabilityIntro": "A useful agent workflow brings five disciplines together: clear responsibilities, relevant knowledge, purposeful execution, independent checks and continuous improvement.",
+    "capabilities": [
+      {
+        "title": "Roles & responsibilities",
+        "text": "Define the team, its handoffs and an accountable human owner."
+      },
+      {
+        "title": "Knowledge & methods",
+        "text": "Organize approved sources, examples and expert procedures."
+      },
+      {
+        "title": "Tasks & tools",
+        "text": "Plan dependencies and controlled execution with explicit access boundaries."
+      },
+      {
+        "title": "Quality & evidence",
+        "text": "Review outcomes independently and preserve evidence and limitations."
+      },
+      {
+        "title": "Evaluation & evolution",
+        "text": "Compare capability versions against representative tasks before wider adoption."
+      }
+    ],
+    "pilotEyebrow": "START WITH ONE REAL TASK",
+    "pilotTitle": "Small enough to verify.\nUseful enough to matter.",
+    "pilotIntro": "Start with a focused challenge: an engineering assessment with traceable evidence, a reviewable implementation package, or an expert procedure made repeatable. Together, we define the task and decide whether an agent workflow is a good fit.",
+    "pilotCards": [
+      {
+        "title": "Bring the context",
+        "text": "One task, an accountable owner, representative inputs, an expected output and examples of unacceptable results. Start with non-sensitive samples."
+      },
+      {
+        "title": "Agree the boundaries",
+        "text": "Define the permitted data and tools, a controlled environment, human approval points, the effort budget and stop conditions before execution."
+      },
+      {
+        "title": "Review the outcome",
+        "text": "Agree a deliverable and acceptance checks up front. Review the artifact, evidence, unresolved issues and next-step recommendation together."
+      }
+    ],
+    "pilotCta": "Tell us about your task",
+    "pilotBoundary": "Scope, data access, acceptance criteria and commercial terms are agreed before each pilot.",
+    "progressTitle": "A working foundation. A clear boundary.",
+    "progressText": "Our internal five-role workbench connects planning, implementation, independent verification and packaging, with collaboration that can be observed. It is a development foundation; enterprise deployment and end-to-end delivery are evaluated for each pilot.",
+    "progressNext": "Configurable roles, additional model-provider options, a Markdown knowledge base and capability maturity assessment are under development. We agree the available capabilities and integrations when defining a pilot.",
+    "readingEyebrow": "FROM INTENT TO PRACTICE",
+    "readingTitle": "How enterprise agent work takes shape.",
+    "readArticle": "Read the article",
+    "specialistText": "Reliability engineering and engineering quality are specialist applications of our wider agent direction. Explore HyperRaft, QualitySphere and ReconSphere at their current stages, alongside the knowledge tools in our ecosystem.",
+    "legacyTitle": "Reliability engineering: the earlier strategy foundation",
+    "legacyNote": "Our earlier reliability engineering strategy continues to inform specialist methods, assessments and products within the broader enterprise agent direction.",
+    "socialAlt": "A defined task, role collaboration and a reviewable result form the Smartscity enterprise agent approach."
+  },
+  "strategyTree": {
+    "eyebrow": "OUR DIRECTION",
+    "title": "Expertise, organized for enterprise work.",
+    "intro": "Enterprise agents bring professional methods into collaborative work. Shared capabilities support specialist applications, with delivery, independent research and reusable products as complementary paths.",
+    "alt": "Smartscity strategy tree: enterprise AI agents at the root; five shared capability areas; engineering delivery including reliability and quality, with business operations and other domains as exploration areas; supported by delivery, research and reusable products.",
+    "caption": "Enterprise agents are the confirmed company direction. The capability and application branches are design proposals under review.",
+    "expand": "View the full-size strategy tree",
+    "capabilities": "Shared capabilities",
+    "applications": "Specialist applications",
+    "branches": [
+      {
+        "title": "Engineering delivery",
+        "text": "A proposed initial focus: engineering work, reliability assessment, and quality and delivery governance."
+      },
+      {
+        "title": "Business operations",
+        "text": "An exploration direction for scoped reconciliation, discrepancy investigation and coordination, informed by the ReconSphere design."
+      },
+      {
+        "title": "Other professional fields",
+        "text": "A longer-term direction, developed around domain knowledge, task feasibility and a meaningful way to verify outcomes."
+      }
+    ],
+    "pathsTitle": "Ways to create value",
+    "paths": [
+      {
+        "title": "Solutions & professional delivery",
+        "text": "Define a task, agree the work and review its deliverables."
+      },
+      {
+        "title": "Independent research & assessment",
+        "text": "Investigate methods, evaluate evidence and make findings that stand on their own."
+      },
+      {
+        "title": "Reusable capabilities & products",
+        "text": "Carry validated methods and engineering assets into future work."
+      }
+    ]
   }
 }

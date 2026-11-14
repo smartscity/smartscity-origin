@@ -1,0 +1,17 @@
+---
+import { dictionaries, type Locale } from '../i18n';
+import '../styles/enterprise.css';
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang].enterprise;
+---
+
+<aside class="agent-progress container">
+  <h2>{t.progressTitle}</h2>
+  <div>
+    <p>{t.progressText}</p>
+    <p>{t.progressNext}</p>
+  </div>
+</aside>

@@ -24,6 +24,7 @@ sources:
   ]
 related:
   [
+    'enterprise-agent-teams',
     'assessment-start',
     'assessment-evidence',
     'ai-agent-cross-system-investigation',

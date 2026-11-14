@@ -1,6 +1,8 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import CompanyDetails from '../../components/CompanyDetails.astro';
+import AgentProgress from '../../components/AgentProgress.astro';
+import StrategyTree from '../../components/StrategyTree.astro';
 import StrategyHouse from '../../components/StrategyHouse.astro';
 import { company } from '../../data/company';
 import { projects } from '../../data/projects';
@@ -33,7 +35,13 @@ const t = dictionaries[lang];
       <CompanyDetails lang={lang} />
     </section>
   </section>
-  <StrategyHouse lang={lang} />
+  <StrategyTree lang={lang} />
+  <AgentProgress lang={lang} />
+  <details class="strategy-history container">
+    <summary>{t.enterprise.legacyTitle}</summary>
+    <p>{t.enterprise.legacyNote}</p>
+    <StrategyHouse lang={lang} />
+  </details>
   <section class="corporate-section container">
     <div class="section-heading">
       <h2>{t.aboutPage.projectsTitle}</h2>

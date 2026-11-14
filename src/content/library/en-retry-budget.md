@@ -24,6 +24,7 @@ sources:
   ]
 related:
   [
+    'governable-agent-expertise',
     'assessment-start',
     'assessment-evidence',
     'ai-agent-cross-system-investigation',

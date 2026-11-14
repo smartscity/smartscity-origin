@@ -12,6 +12,7 @@ const library = defineCollection({
     coverAlt: z.string().optional(),
     coverInArticle: z.boolean().default(true),
     product: z.enum([
+      'enterprise-agents',
       'agent-reliability',
       'hyperraft',
       'qualitysphere',
@@ -28,6 +29,7 @@ const library = defineCollection({
       'releases',
     ]),
     topic: z.enum([
+      'enterprise-agents',
       'architecture-reliability',
       'release-recovery',
       'business-reliability',

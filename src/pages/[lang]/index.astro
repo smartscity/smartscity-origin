@@ -1,4 +1,6 @@
 ---
+import EnterpriseWork from '../../components/EnterpriseWork.astro';
+import EnterpriseReading from '../../components/EnterpriseReading.astro';
 import ProductCatalog from '../../components/library/ProductCatalog.astro';
 import '../../styles/library.css';
 import SiteLayout from '../../layouts/SiteLayout.astro';
@@ -17,13 +19,12 @@ const t = dictionaries[lang];
 
 <SiteLayout
   lang={lang}
-  title={
-    lang === 'en'
-      ? 'Smartscity — Engineering the City of Tomorrow'
-      : 'Smartscity 必赢科技 — 以代码构筑未来城市'
-  }
+  title={t.enterprise.metaTitle}
+  description={t.enterprise.metaDescription}
 >
-  <CityExperience lang={lang} text={t.city} client:load />
+  <EnterpriseWork lang={lang} />
+  <EnterpriseReading lang={lang} />
+  <CityExperience lang={lang} text={t.city} client:visible />
   <section class="city-story container">
     <div>
       <p class="eyebrow">SMARTSCITY / 01 — 05</p>

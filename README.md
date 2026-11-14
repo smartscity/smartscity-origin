@@ -1,6 +1,6 @@
 # Smartscity / 必赢科技
 
-The English-first, bilingual company and project portal for Smartscity. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. The homepage adds a five-district WebGL city with building selection, guided camera transitions and an expandable library. Neutral dark and white themes, reduced motion, and mobile navigation are included.
+The English-first, bilingual Smartscity portal for enterprise agent work, specialist engineering methods and products. Astro renders static HTML; small React islands explain consensus, writing, quality workflows, and vocabulary practice. Below the enterprise introduction, the homepage retains a five-district WebGL city with building selection, guided camera transitions and an expandable library. Green brand accents, dark and white themes, reduced motion, and mobile navigation are included.
 
 Official website: [www.smartscity.com](https://www.smartscity.com/en/) · [简体中文](https://www.smartscity.com/zh-CN/). Cloudflare preview: [smartscity-origin.pages.dev](https://smartscity-origin.pages.dev/en/).
 

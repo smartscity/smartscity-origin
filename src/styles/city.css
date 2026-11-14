@@ -76,7 +76,7 @@
   border-radius: 50%;
   box-shadow: 0 0 12px #a8dcb9;
 }
-.city-copy h1 {
+.city-copy .city-title {
   font-size: clamp(48px, 5.3vw, 80px);
   line-height: 1.01;
   letter-spacing: -0.065em;
@@ -84,7 +84,7 @@
   margin: 19px 0 16px;
   white-space: normal;
 }
-.city-copy h1 > span {
+.city-copy .city-title > span {
   color: #b4dcc6;
 }
 .city-intro {
@@ -522,7 +522,7 @@
     inset: 170px 5% 100px;
     width: 90%;
   }
-  .city-copy h1 {
+  .city-copy .city-title {
     font-size: 84px;
   }
 }
@@ -561,7 +561,7 @@
   .city-copy {
     padding-top: 45px;
   }
-  .city-copy h1 {
+  .city-copy .city-title {
     font-size: 45px;
     letter-spacing: -0.06em;
     margin-top: 20px;
@@ -693,4 +693,9 @@
   .digital-city {
     scroll-behavior: auto;
   }
+}
+
+.city-dock nav:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }

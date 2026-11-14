@@ -9,7 +9,7 @@ test('English is the default and core content works without JavaScript', async (
   await page.goto('http://127.0.0.1:4321/');
   await expect(page).toHaveURL(/\/en\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Engineering',
+    'AI agents',
   );
   await expect(
     page
@@ -137,6 +137,7 @@ test('reduced motion disables continuous animation and unknown routes return 404
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en/');
+  await page.locator('#digital-city').scrollIntoViewIfNeeded();
   await expect(page.locator('#digital-city')).toHaveAttribute(
     'data-motion',
     'paused',
