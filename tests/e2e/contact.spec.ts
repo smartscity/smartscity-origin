@@ -88,7 +88,9 @@ for (const lang of ['en', 'zh-CN']) {
     await page.locator('.reading-contact a.button').click();
     expect(new URL(page.url()).pathname).toBe(`/${lang}/contact/`);
     const form = page.locator('[data-contact-form]');
-    expect(await form.locator('[name=message]').inputValue()).toContain(title);
+    await expect
+      .poll(() => form.locator('[name=message]').inputValue())
+      .toContain(title);
     expect(await form.locator('[name=message]').inputValue()).toContain(
       `https://www.smartscity.com${path}`,
     );
