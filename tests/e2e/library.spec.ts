@@ -51,15 +51,12 @@ for (const lang of ['en', 'zh-CN']) {
         (suffix.startsWith('blog/') && suffix !== 'blog/')
       ) {
         const href = await page
-          .locator('.reading-contact a[href^="mailto:"]')
+          .locator('.reading-contact a.button')
           .getAttribute('href');
-        expect(href).toContain('mailto:liyunlong@smartscity.com?');
-        expect(decodeURIComponent(href!)).toContain(
-          `https://www.smartscity.com${path}`,
-        );
-        expect(decodeURIComponent(href!)).toContain(
-          await page.locator('h1').innerText(),
-        );
+        expect(href).toContain(`/${lang}/contact/?`);
+        const query = new URL(href!, 'https://www.smartscity.com').searchParams;
+        expect(query.get('source')).toBe(path);
+        expect(query.get('title')).toBe(await page.locator('h1').innerText());
       }
       const brokenAnchors = await page
         .locator('.reading-mobile-toc a,.reading-toc a')

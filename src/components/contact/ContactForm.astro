@@ -9,9 +9,12 @@ const t = dictionaries[lang].contactForm;
 ---
 
 <form
+  id="inquiry"
   class="inquiry-form"
   data-contact-form
   data-recipient={company.email?.value}
+  data-reading-template={dictionaries[lang].library.emailBody}
+  data-source-origin={company.website}
   data-copy={JSON.stringify({
     draft: t.draft,
     copied: t.copied,
@@ -74,6 +77,10 @@ const t = dictionaries[lang].contactForm;
   <button class="inquiry-copy" type="button" data-copy-draft disabled>
     {t.copy}
   </button>
+  <label data-draft-preview hidden>
+    {t.copy}
+    <textarea data-draft-text readonly rows="9"></textarea>
+  </label>
   <p
     class="inquiry-status"
     role="status"

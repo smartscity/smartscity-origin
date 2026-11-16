@@ -77,3 +77,35 @@ test('contact retains an email path without JavaScript', async ({
   );
   await context.close();
 });
+
+for (const lang of ['en', 'zh-CN']) {
+  test(`${lang} article discussion opens an on-site inquiry with reading context`, async ({
+    page,
+  }) => {
+    const path = `/${lang}/blog/enterprise-agent-teams/`;
+    await page.goto(path);
+    const title = await page.locator('h1').innerText();
+    await page.locator('.reading-contact a.button').click();
+    expect(new URL(page.url()).pathname).toBe(`/${lang}/contact/`);
+    const form = page.locator('[data-contact-form]');
+    expect(await form.locator('[name=message]').inputValue()).toContain(title);
+    expect(await form.locator('[name=message]').inputValue()).toContain(
+      `https://www.smartscity.com${path}`,
+    );
+    await form.locator('[name=name]').fill('Reader');
+    await page.evaluate(() =>
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: () => Promise.reject(new Error('denied')) },
+        configurable: true,
+      }),
+    );
+    await form.locator('[data-copy-draft]').click();
+    await expect(form.locator('[data-draft-preview]')).toBeVisible();
+    expect(await form.locator('[data-draft-text]').inputValue()).toContain(
+      title,
+    );
+    await expect(form.locator('[data-status]')).toContainText(
+      lang === 'en' ? 'Copy unavailable' : '无法自动复制',
+    );
+  });
+}

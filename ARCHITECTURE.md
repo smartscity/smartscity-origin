@@ -106,3 +106,9 @@ Native `details` owns open state and exclusive group selection, preserving keybo
 The digital city is a specialist exhibit below the enterprise introduction. Its heading is now level two, and its existing React island loads when visible; district interactions, illustrations and product facts retain their scope. The below-fold poster loads lazily.
 
 The content schema adds `enterprise-agents` as a focus area and topic. Library filters include that area without adding a fictitious documentation product or empty catalog card. Existing article routes remain stable, with reciprocal related links. Shared English diagrams have localized captions and alt text, while editorial covers provide list and social previews. Public pages do not import company operating plans or agent credentials.
+
+## Reading inquiry continuity — 2026-11-14
+
+`ReadingContact.astro` now links to the same-locale Contact route with a public article title and source path. `contact-form.ts` accepts only same-site Docs/Blog path shapes, bounds the title, and fills the existing message textarea as text when it is empty. The contact page owns the draft; no global state, persistence, API or third-party submission is introduced.
+
+Both email-app handoff and clipboard actions reveal the full recipient, subject and body in a read-only textarea. A visitor without a mail handler, or with denied clipboard access, can still select the draft manually. The existing local-only email composition policy is retained; no sent-success state is asserted. Full-page navigation continues to own listener lifetime.

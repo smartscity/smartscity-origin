@@ -168,9 +168,7 @@ test('new articles and full-size figures remain available without JavaScript', a
     for (const slug of slugs) {
       await page.goto(`${baseURL}/${lang}/blog/${slug}/`);
       await expect(page.locator('.reading-prose figure')).toHaveCount(2);
-      await expect(
-        page.locator('.reading-contact a[href^="mailto:"]'),
-      ).toBeVisible();
+      await expect(page.locator('.reading-contact a.button')).toBeVisible();
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth + 1,

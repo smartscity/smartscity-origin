@@ -8,11 +8,7 @@ interface Props {
 }
 const { lang, title, path } = Astro.props;
 const t = dictionaries[lang].library;
-const url = new URL(path, company.website).href;
-const body = t.emailBody.replace('{title}', title).replace('{url}', url);
-const mailto = company.email
-  ? `mailto:${company.email.value}?subject=${encodeURIComponent(`${t.emailSubject}: ${title}`)}&body=${encodeURIComponent(body)}`
-  : undefined;
+const inquiry = `/${lang}/contact/?${new URLSearchParams({ title, source: path })}#inquiry`;
 ---
 
 <section class="reading-contact">
@@ -20,8 +16,8 @@ const mailto = company.email
   <h2>{t.contactTitle}</h2>
   <p>{t.contactText}</p>
   <div>
-    {mailto && (
-      <a class="button" href={mailto}>
+    {company.email && (
+      <a class="button" href={inquiry}>
         {t.email} ↗
       </a>
     )}
