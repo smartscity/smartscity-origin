@@ -1,0 +1,3599 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Smartscity Agent Team — 数字员工、技能卡与协作交付。可离线查看的交互式产品概念演示。"
+    />
+    <title>Agent Team · Interactive Overview — Smartscity</title>
+    <style>
+      /* Brand tokens follow the user-supplied Agent Team HTML and SVG: forest green and mint.
+   Design references: Polsia's presentation rhythm; Kestra slides 6–8's narrative.
+   All illustrations are original inline SVG. No external dependencies. */
+      :root {
+        color-scheme: dark;
+        --bg: #081d16;
+        --surface: #102b21;
+        --surface2: #193a2c;
+        --text: #f2f5ed;
+        --muted: #afc2b3;
+        --line: #365447;
+        --accent: #99d7aa;
+        --accent-hover: #b0e0b7;
+        --ink: #102e1d;
+        --subtle: #789786;
+        --faint: #193a2c;
+        --warm: #cdd7a8;
+        --mint: #acd2be;
+        --overlay: #03110bb3;
+        --shadow: 0 20px 60px #0003;
+        --glow: #99d7aa10;
+        --font:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK SC',
+          Arial, sans-serif;
+        --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      }
+      :root[data-theme='light'] {
+        color-scheme: light;
+        --bg: #fff;
+        --surface: #f2f5ed;
+        --surface2: #e6ede0;
+        --text: #193728;
+        --muted: #56675b;
+        --line: #cbd8c8;
+        --accent: #21653f;
+        --accent-hover: #35634e;
+        --ink: #fff;
+        --subtle: #647c6c;
+        --faint: #e6ede0;
+        --warm: #4d603d;
+        --mint: #35634e;
+        --overlay: #19372850;
+        --shadow: 0 20px 60px #0000000d;
+        --glow: #21653f08;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font);
+        -webkit-font-smoothing: antialiased;
+        font-synthesis: none;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      button {
+        color: inherit;
+        border: 0;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 5px;
+      }
+      button:disabled {
+        opacity: 0.25;
+        cursor: default;
+      }
+      button svg {
+        width: 18px;
+        height: 18px;
+      }
+      button:active:not(:disabled) {
+        transform: translateY(1px);
+      }
+      ::selection {
+        background: var(--accent);
+        color: var(--ink);
+      }
+      .header {
+        position: fixed;
+        z-index: 30;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+        transition: color 0.45s;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        white-space: nowrap;
+      }
+      .wordmark {
+        font-size: 21px;
+        font-weight: 650;
+        letter-spacing: -0.8px;
+      }
+      .wordmark i {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .brand-divider {
+        height: 18px;
+        width: 1px;
+        background: var(--line);
+      }
+      .brand-product {
+        font-size: 13px;
+        font-weight: 450;
+        letter-spacing: -0.1px;
+        color: var(--muted);
+      }
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .tool {
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 12px;
+        background: transparent;
+        border-radius: 9px;
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .tool:hover {
+        background: var(--surface2);
+        color: var(--accent);
+      }
+      .tool svg {
+        display: block;
+      }
+      .export-menu {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .export-menu summary {
+        list-style: none;
+        cursor: pointer;
+      }
+      .export-menu summary::-webkit-details-marker {
+        display: none;
+      }
+      .menu-panel {
+        position: absolute;
+        right: 0;
+        top: 48px;
+        padding: 7px;
+        min-width: 165px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .menu-panel button {
+        display: block;
+        padding: 11px 12px;
+        width: 100%;
+        border-radius: 7px;
+        text-align: left;
+        font-size: 12px;
+        background: none;
+        color: var(--text);
+      }
+      .menu-panel button:hover {
+        background: var(--surface2);
+        color: var(--accent);
+      }
+      .deck {
+        height: 100svh;
+        position: relative;
+      }
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 112px 90px 105px;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(24px);
+        transition:
+          opacity 0.45s,
+          transform 0.55s cubic-bezier(0.22, 0.8, 0.2, 1),
+          visibility 0.55s;
+        background: var(--bg);
+        overflow: hidden;
+      }
+      .slide.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .slide-inner {
+        width: 100%;
+        max-width: 1190px;
+        margin: auto;
+        position: relative;
+        z-index: 2;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        align-items: center;
+        gap: 35px;
+      }
+      .copy {
+        position: relative;
+        z-index: 3;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font: 10px/1.4 var(--mono);
+        letter-spacing: 2.3px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 27px;
+      }
+      .eyebrow .number {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .eyebrow .rule {
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+      }
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+      h1,
+      h2 {
+        font-weight: 550;
+        letter-spacing: -0.045em;
+      }
+      h1 {
+        font-size: clamp(60px, 7.3vw, 112px);
+        line-height: 1.13;
+      }
+      h2 {
+        font-size: clamp(42px, 4.65vw, 72px);
+        line-height: 1.19;
+      }
+      .accent {
+        color: var(--accent);
+      }
+      .description {
+        text-wrap: pretty;
+        font-size: 16px;
+        line-height: 1.95;
+        color: var(--muted);
+        max-width: 385px;
+        margin-top: 27px;
+        letter-spacing: 0.03em;
+      }
+      .caption {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-top: 11px;
+        line-height: 1.7;
+        text-align: center;
+      }
+      .figure {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+      }
+      .figure svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        overflow: visible;
+      }
+      .center {
+        text-align: center;
+      }
+      .center .eyebrow {
+        justify-content: center;
+      }
+      .center .description {
+        margin: 24px auto 0;
+        max-width: 650px;
+      }
+      .center h2 {
+        font-size: clamp(38px, 4.3vw, 64px);
+      }
+      .center .figure {
+        max-width: 900px;
+        margin: 20px auto 0;
+      }
+      .hero .slide-inner {
+        max-width: 1100px;
+      }
+      .hero .eyebrow {
+        margin-bottom: 21px;
+      }
+      .hero .description {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-top: 21px;
+      }
+      .hero .figure {
+        max-width: 700px;
+        margin: 17px auto 0;
+      }
+      .hero .figure svg {
+        max-height: 245px;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 5% 15%;
+        background: radial-gradient(
+          ellipse at 50% 70%,
+          var(--glow) 0%,
+          transparent 61%
+        );
+        opacity: 1;
+        pointer-events: none;
+      }
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+      }
+      .tagline::before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+      }
+      .option {
+        font-size: 12px;
+        line-height: 1.3;
+        padding: 11px 16px;
+        background: transparent;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        color: var(--muted);
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .option:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .option[aria-pressed='true'] {
+        color: var(--accent);
+        background: var(--surface2);
+        border-color: var(--line);
+      }
+      .option small {
+        font-size: 9px;
+        margin-left: 5px;
+        opacity: 0.8;
+      }
+      .example {
+        margin-top: 21px;
+        font-size: 12px;
+        line-height: 1.8;
+        color: var(--muted);
+        min-height: 44px;
+        max-width: 380px;
+      }
+      .example strong {
+        font-weight: 550;
+        color: var(--text);
+      }
+      .context-label {
+        font: 9px var(--mono);
+        letter-spacing: 1.5px;
+        color: var(--muted);
+        margin-top: 24px;
+      }
+      .slide--wide .figure {
+        max-width: 1030px;
+        margin-top: 25px;
+      }
+      .slide--wide .figure svg {
+        max-height: 380px;
+      }
+      .slide--wide .description {
+        font-size: 15px;
+        margin-top: 18px;
+      }
+      .slide--night::after {
+        content: '';
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        right: -100px;
+        top: -100px;
+        background: radial-gradient(circle, var(--glow), transparent 70%);
+        pointer-events: none;
+      }
+      .primary {
+        border-radius: 99px;
+        background: var(--accent);
+        color: var(--ink);
+        padding: 13px 22px;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        display: inline-flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .primary:hover {
+        background: var(--accent-hover);
+      }
+      .secondary {
+        background: transparent;
+        color: var(--muted);
+        padding: 13px 0;
+        font-size: 12px;
+      }
+      .closing .description {
+        font-size: 17px;
+      }
+      .closing h2 {
+        font-size: clamp(55px, 6.7vw, 96px);
+      }
+      .closing .figure {
+        max-width: 700px;
+        margin-top: 10px;
+      }
+      .closing .figure svg {
+        max-height: 210px;
+      }
+      .closing .actions {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 20px;
+      }
+      .footer {
+        position: fixed;
+        z-index: 30;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+        color: var(--muted);
+      }
+      .footer-left {
+        font: 10px var(--mono);
+        letter-spacing: 1.2px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .footer-left .preview {
+        font: 10px var(--font);
+        letter-spacing: 0.07em;
+        padding-left: 22px;
+        border-left: 1px solid var(--line);
+      }
+      .footer-mid {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        letter-spacing: 0.07em;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--muted);
+      }
+      .keycap {
+        font: 10px var(--mono);
+        padding: 2px 4px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+      }
+      .nav-arrows {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .nav-arrow {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        background: transparent;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--muted);
+      }
+      .nav-arrow:hover:not(:disabled) {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .count {
+        font: 11px var(--mono);
+        font-variant-numeric: tabular-nums;
+        min-width: 59px;
+        text-align: center;
+      }
+      .count strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .rail {
+        position: fixed;
+        z-index: 31;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .rail button {
+        width: 20px;
+        height: 20px;
+        display: grid;
+        place-items: center;
+        background: none;
+      }
+      .rail button::after {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background: var(--muted);
+        opacity: 0.35;
+        border-radius: 99px;
+        transition:
+          height 0.35s,
+          background 0.35s,
+          opacity 0.35s;
+      }
+      .rail button[aria-current='true']::after {
+        height: 16px;
+        background: var(--accent);
+        opacity: 1;
+      }
+      .rail button:hover::after {
+        opacity: 1;
+      }
+      .progress-track {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 32;
+        height: 2px;
+        background: var(--line);
+      }
+      .progress-bar {
+        height: 100%;
+        width: 10%;
+        background: var(--accent);
+        transition: width 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .toast {
+        position: fixed;
+        bottom: 95px;
+        left: 50%;
+        transform: translate(-50%, 10px);
+        background: var(--text);
+        color: var(--bg);
+        font-size: 12px;
+        padding: 12px 20px;
+        border-radius: 40px;
+        z-index: 70;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        max-width: 90vw;
+        text-align: center;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      dialog {
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--bg);
+        color: var(--text);
+        width: min(940px, calc(100vw - 32px));
+        max-height: calc(100svh - 60px);
+        box-shadow: var(--shadow);
+      }
+      dialog::backdrop {
+        background: var(--overlay);
+        backdrop-filter: blur(12px);
+      }
+      .overview-head {
+        padding: 26px 30px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .overview-head h2 {
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+      .overview-head p {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 5px;
+      }
+      .overview-close {
+        background: none;
+        padding: 8px;
+        font-size: 20px;
+        color: var(--muted);
+      }
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        padding: 5px 30px 30px;
+      }
+      .chapter {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 20px 15px;
+        min-height: 137px;
+        text-align: left;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .chapter:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .chapter.current {
+        border-color: var(--accent);
+        background: var(--surface2);
+      }
+      .chapter .chapter-no {
+        font: 10px var(--mono);
+        color: var(--accent);
+        display: block;
+        margin-bottom: 24px;
+      }
+      .chapter strong {
+        font-size: 12px;
+        font-weight: 550;
+        line-height: 1.6;
+        display: block;
+      }
+      .chapter small {
+        font-size: 9px;
+        color: var(--muted);
+        display: block;
+        margin-top: 8px;
+        letter-spacing: 0.05em;
+      }
+      svg .ink {
+        fill: var(--text);
+      }
+      svg .muted {
+        fill: var(--muted);
+      }
+      svg .blue {
+        fill: var(--accent);
+      }
+      svg .panel {
+        fill: var(--surface);
+      }
+      svg .soft {
+        fill: var(--surface2);
+      }
+      svg .line {
+        stroke: var(--line);
+        fill: none;
+      }
+      svg .wire {
+        stroke: var(--line);
+        stroke-width: 1.5;
+        fill: none;
+      }
+      svg .wire-blue {
+        stroke: var(--accent);
+        stroke-width: 1.5;
+        fill: none;
+      }
+      svg text {
+        font-family: var(--font);
+      }
+      svg .mono {
+        font-family: var(--mono);
+      }
+      svg .float-a {
+        animation: float 6s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      svg .float-b {
+        animation: float 7s ease-in-out -3s infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      svg .orbit {
+        animation: orbit 55s linear infinite;
+        transform-origin: 50% 50%;
+        transform-box: fill-box;
+      }
+      svg .flow {
+        stroke-dasharray: 5 12;
+        animation: flow 9s linear infinite;
+      }
+      svg .pulse {
+        animation: pulse 3.5s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      svg .soft-pulse {
+        animation: fade 4s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-9px);
+        }
+      }
+      @keyframes flow {
+        to {
+          stroke-dashoffset: -170;
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.4;
+          transform: scale(0.95);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.07);
+        }
+      }
+      @keyframes fade {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes orbit {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (min-width: 1500px) {
+        .slide-inner {
+          max-width: 1260px;
+        }
+        .split {
+          gap: 65px;
+        }
+        .description {
+          font-size: 18px;
+        }
+        .center .figure {
+          max-width: 960px;
+        }
+        .hero .figure {
+          max-width: 780px;
+        }
+        .hero .figure svg {
+          max-height: 280px;
+        }
+      }
+      @media (max-height: 790px) and (min-width: 801px) {
+        .header {
+          height: 70px;
+        }
+        .footer {
+          height: 65px;
+        }
+        .slide {
+          padding-top: 86px;
+          padding-bottom: 80px;
+        }
+        .hero h1 {
+          font-size: 77px;
+        }
+        .hero .figure svg {
+          max-height: 175px;
+        }
+        .hero .figure {
+          margin-top: 5px;
+        }
+        .description {
+          font-size: 14px;
+          margin-top: 20px;
+        }
+        .eyebrow {
+          margin-bottom: 19px;
+        }
+        h2 {
+          font-size: 53px;
+        }
+        .split .figure svg {
+          max-height: 390px;
+        }
+        .slide--wide .figure svg {
+          max-height: 300px;
+        }
+        .slide--wide .figure {
+          margin-top: 16px;
+        }
+        .slide--wide h2 {
+          font-size: 49px;
+        }
+        .closing h2 {
+          font-size: 73px;
+        }
+        .closing .figure svg {
+          max-height: 160px;
+        }
+        .options {
+          margin-top: 20px;
+        }
+        .example {
+          margin-top: 15px;
+        }
+      }
+      @media (max-width: 1000px) {
+        .header,
+        .footer {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+        .slide {
+          padding-left: 48px;
+          padding-right: 58px;
+        }
+        .split {
+          gap: 10px;
+        }
+        .rail {
+          right: 14px;
+        }
+        .footer-mid {
+          display: none;
+        }
+        .brand-product {
+          font-size: 9px;
+        }
+        .overview-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        h2 {
+          font-size: clamp(37px, 5.1vw, 58px);
+        }
+      }
+      @media (max-width: 800px) {
+        .header {
+          height: 66px;
+          padding: 0 21px;
+        }
+        .wordmark {
+          font-size: 21px;
+        }
+        .brand-product {
+          display: none;
+        }
+        .brand-divider {
+          display: none;
+        }
+        .tool {
+          padding: 9px;
+          font-size: 11px;
+        }
+        .tool .tool-label {
+          display: none;
+        }
+        .tool svg {
+          width: 18px;
+          height: 18px;
+        }
+        .slide {
+          padding: 85px 28px 78px;
+        }
+        .slide-inner {
+          max-width: 620px;
+        }
+        .split {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          align-items: stretch;
+        }
+        .copy {
+          text-align: center;
+        }
+        .eyebrow {
+          font-size: 8px;
+          letter-spacing: 1.6px;
+          margin-bottom: 16px;
+          justify-content: center;
+        }
+        .description {
+          max-width: 480px;
+          font-size: 13px;
+          line-height: 1.85;
+          margin: 16px auto 0;
+        }
+        .split h2 {
+          font-size: clamp(33px, 6.1vw, 46px);
+          line-height: 1.22;
+        }
+        .split h2 br {
+          display: none;
+        }
+        .options {
+          justify-content: center;
+          gap: 6px;
+          margin-top: 17px;
+        }
+        .option {
+          font-size: 11px;
+          padding: 9px 13px;
+        }
+        .example {
+          font-size: 11px;
+          min-height: 0;
+          max-width: 100%;
+          margin: 12px auto 0;
+        }
+        .context-label {
+          font-size: 8px;
+          margin-top: 12px;
+        }
+        .split .figure {
+          max-width: 490px;
+          margin: auto;
+        }
+        .split .figure svg {
+          max-height: 38svh;
+        }
+        .caption {
+          font-size: 8px;
+          margin-top: 1px;
+        }
+        .center h2 {
+          font-size: clamp(32px, 6.8vw, 51px);
+          line-height: 1.2;
+        }
+        .hero h1 {
+          font-size: clamp(47px, 9.2vw, 73px);
+        }
+        .hero .description {
+          font-size: 14px;
+        }
+        .hero .figure {
+          margin-top: 25px;
+        }
+        .hero .figure svg {
+          max-height: 250px;
+        }
+        .slide--wide .figure {
+          margin-top: 30px;
+        }
+        .slide--wide .figure svg {
+          max-height: 44svh;
+        }
+        .slide--wide .description {
+          font-size: 13px;
+        }
+        .footer {
+          height: 65px;
+          padding: 0 20px;
+        }
+        .footer-left {
+          font-size: 8px;
+          gap: 0;
+        }
+        .footer-left .preview {
+          padding-left: 0;
+          border: 0;
+        }
+        .footer-left .edition {
+          display: none;
+        }
+        .nav-arrow {
+          width: 30px;
+          height: 30px;
+        }
+        .nav-arrows {
+          gap: 8px;
+        }
+        .count {
+          font-size: 9px;
+          min-width: 47px;
+        }
+        .rail {
+          display: none;
+        }
+        .closing h2 {
+          font-size: clamp(42px, 8.2vw, 67px);
+        }
+        .closing .description {
+          font-size: 13px;
+        }
+        .closing .figure {
+          margin-top: 30px;
+        }
+        .closing .figure svg {
+          max-height: 190px;
+        }
+        .closing .actions {
+          gap: 18px;
+        }
+        .primary,
+        .secondary {
+          font-size: 11px;
+        }
+        .overview-grid {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 0 20px 20px;
+        }
+        .overview-head {
+          padding: 22px 22px 18px;
+        }
+        .chapter {
+          min-height: 110px;
+          padding: 15px;
+        }
+        .chapter .chapter-no {
+          margin-bottom: 16px;
+        }
+      }
+      @media (max-height: 650px) and (max-width: 800px) {
+        .slide {
+          padding-top: 73px;
+          padding-bottom: 65px;
+        }
+        .split {
+          gap: 4px;
+        }
+        .eyebrow {
+          margin-bottom: 10px;
+        }
+        .split h2 {
+          font-size: 30px;
+        }
+        .description {
+          font-size: 12px;
+          margin-top: 10px;
+        }
+        .options {
+          margin-top: 11px;
+        }
+        .example {
+          display: none;
+        }
+        .split .figure svg {
+          max-height: 34svh;
+        }
+        .hero h1 {
+          font-size: 48px;
+        }
+        .hero .figure {
+          margin-top: 8px;
+        }
+        .hero .figure svg {
+          max-height: 170px;
+        }
+        .center h2 {
+          font-size: 32px;
+        }
+        .slide--wide .figure {
+          margin-top: 15px;
+        }
+        .closing .figure {
+          margin-top: 8px;
+        }
+        .closing .figure svg {
+          max-height: 135px;
+        }
+        .closing h2 {
+          font-size: 45px;
+        }
+        .closing .actions {
+          margin-top: 5px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      @page {
+        size: 297mm 167mm;
+        margin: 0;
+      }
+      @media print {
+        html,
+        body {
+          width: 297mm;
+          height: auto;
+          overflow: visible;
+          background: var(--bg);
+        }
+        .header,
+        .footer,
+        .rail,
+        .progress-track,
+        dialog,
+        .toast,
+        .options,
+        .actions,
+        .context-label {
+          display: none !important;
+        }
+        .deck {
+          height: auto;
+        }
+        .slide {
+          position: relative;
+          visibility: visible !important;
+          opacity: 1 !important;
+          transform: none !important;
+          pointer-events: auto;
+          height: 167mm;
+          width: 297mm;
+          padding: 18mm 20mm;
+          break-after: page;
+          page-break-after: always;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .slide:last-child {
+          break-after: auto;
+          page-break-after: auto;
+        }
+        .slide::before,
+        .slide::after {
+          display: none;
+        }
+        .slide-inner {
+          max-width: 100%;
+        }
+        .split {
+          display: grid;
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 8mm;
+        }
+        .copy {
+          text-align: left;
+        }
+        .eyebrow {
+          justify-content: flex-start;
+          font-size: 8px;
+          margin-bottom: 15px;
+        }
+        .center .eyebrow {
+          justify-content: center;
+        }
+        h1 {
+          font-size: 68px;
+        }
+        .split h2 {
+          font-size: 47px;
+        }
+        .split h2 br {
+          display: block;
+        }
+        .description {
+          font-size: 13px;
+          margin-top: 20px;
+          line-height: 1.8;
+        }
+        .hero .description {
+          font-size: 15px;
+        }
+        .hero .figure svg {
+          max-height: 190px;
+        }
+        .center h2 {
+          font-size: 44px;
+        }
+        .slide--wide .figure svg {
+          max-height: 310px;
+        }
+        .closing h2 {
+          font-size: 65px;
+        }
+        .closing .figure svg {
+          max-height: 180px;
+        }
+        .split .figure svg {
+          max-height: 380px;
+        }
+        .caption {
+          font-size: 8px;
+        }
+        .example {
+          font-size: 10px;
+        }
+        .slide::after {
+          display: block;
+          position: absolute;
+          bottom: 7mm;
+          right: 13mm;
+          content: attr(data-print-no) '  /  10';
+          font: 9px var(--mono);
+          color: var(--muted);
+          width: auto;
+          height: auto;
+          inset: auto 13mm 7mm auto;
+          background: none;
+        }
+        .slide::before {
+          display: block;
+          position: absolute;
+          bottom: 7mm;
+          left: 13mm;
+          content: 'SMARTSCITY  /  AGENT TEAM';
+          font: 8px var(--mono);
+          letter-spacing: 1px;
+          color: var(--muted);
+          inset: auto auto 7mm 13mm;
+          background: none;
+        }
+        svg * {
+          animation: none !important;
+        }
+      }
+
+      .header {
+        height: 78px;
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--line) 34%, transparent);
+        background: color-mix(in srgb, var(--bg) 93%, transparent);
+        backdrop-filter: blur(18px);
+      }
+      .eyebrow {
+        color: var(--muted);
+      }
+      .caption {
+        color: var(--subtle);
+      }
+      .footer-left,
+      .footer-mid {
+        color: var(--subtle);
+      }
+      .lang-tool {
+        font-family: var(--font);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        min-width: 36px;
+        justify-content: center;
+      }
+      .theme-tool {
+        justify-content: center;
+      }
+      html[lang='en'] h1 {
+        font-size: clamp(56px, 6.6vw, 94px);
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+      }
+      html[lang='en'] h2 {
+        font-size: clamp(38px, 4.3vw, 62px);
+        line-height: 1.13;
+        letter-spacing: -0.045em;
+      }
+      html[lang='en'] .center h2 {
+        font-size: clamp(39px, 4.1vw, 59px);
+      }
+      html[lang='en'] .closing h2 {
+        font-size: clamp(55px, 6.3vw, 90px);
+      }
+      html[lang='en'] .description {
+        font-size: 16px;
+        line-height: 1.7;
+        letter-spacing: 0;
+      }
+      html[lang='en'] .example {
+        line-height: 1.7;
+      }
+      html[lang='en'] .chapter strong {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+      @media (max-height: 790px) and (min-width: 801px) {
+        html[lang='en'] h1 {
+          font-size: 74px;
+        }
+        html[lang='en'] h2 {
+          font-size: 48px;
+        }
+        html[lang='en'] .center h2 {
+          font-size: 46px;
+        }
+        html[lang='en'] .closing h2 {
+          font-size: 69px;
+        }
+        html[lang='en'] .description {
+          font-size: 14px;
+        }
+        html[lang='en'] .slide--wide .figure svg {
+          max-height: 280px;
+        }
+      }
+      @media (max-width: 800px) {
+        .header {
+          height: 66px;
+        }
+        html[lang='en'] .split h2 {
+          font-size: clamp(30px, 5.8vw, 44px);
+        }
+        html[lang='en'] .split h2 br {
+          display: block;
+        }
+        html[lang='en'] .center h2 {
+          font-size: clamp(30px, 6vw, 43px);
+        }
+        html[lang='en'] .hero h1 {
+          font-size: clamp(43px, 8.8vw, 68px);
+        }
+        html[lang='en'] .closing h2 {
+          font-size: clamp(39px, 7.6vw, 59px);
+        }
+        html[lang='en'] .description {
+          font-size: 12px;
+          line-height: 1.7;
+        }
+        html[lang='en'] .split .figure svg {
+          max-height: 33svh;
+        }
+      }
+      @media (max-width: 600px) {
+        .toolbar {
+          gap: 3px;
+        }
+        .tool {
+          width: 33px;
+          height: 33px;
+          padding: 7px;
+          justify-content: center;
+        }
+        .wordmark {
+          font-size: 20px;
+        }
+        #fullscreenButton {
+          display: none;
+        }
+        .export-menu summary {
+          width: 33px;
+        }
+        .brand-product {
+          display: none;
+        }
+      }
+      @media print {
+        html[lang='en'] h1 {
+          font-size: 64px;
+        }
+        html[lang='en'] .split h2 {
+          font-size: 44px;
+        }
+        html[lang='en'] .center h2 {
+          font-size: 40px;
+        }
+        html[lang='en'] .closing h2 {
+          font-size: 59px;
+        }
+        html[lang='en'] .description {
+          font-size: 12px;
+        }
+      }
+
+      @media (max-width: 800px) and (max-height: 650px) {
+        html[lang='en'] .split h2 {
+          font-size: 29px;
+          line-height: 1.12;
+        }
+        html[lang='en'] .description {
+          font-size: 11px;
+          margin-top: 10px;
+        }
+        html[lang='en'] .hero h1 {
+          font-size: clamp(35px, 8vw, 46px);
+        }
+        html[lang='en'] .closing h2 {
+          font-size: clamp(33px, 7.6vw, 44px);
+        }
+        html[lang='en'] .center h2 {
+          font-size: 29px;
+        }
+        html[lang='en'] .hero .figure svg {
+          max-height: 145px;
+        }
+        html[lang='en'] .split .figure svg {
+          max-height: 30svh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <a
+          class="wordmark"
+          id="portalHome"
+          href="/en/"
+          aria-label="Smartscity home"
+          style="color: inherit; text-decoration: none"
+          >smartscity</a
+        ><span class="brand-divider"></span
+        ><span class="brand-product">Agent Team</span>
+      </div>
+      <div class="toolbar">
+        <button
+          class="tool lang-tool"
+          id="languageButton"
+          aria-label="Switch to English"
+          title="Switch to English"
+        >
+          EN
+        </button>
+        <button
+          class="tool theme-tool"
+          id="themeButton"
+          aria-label="切换明暗主题"
+          title="切换明暗主题"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor" stroke="none" />
+          </svg>
+        </button>
+        <button
+          class="tool"
+          id="overviewButton"
+          aria-label="打开章节概览"
+          title="章节概览 · O"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="3.5" y="3.5" width="6" height="6" rx="1" />
+            <rect x="14.5" y="3.5" width="6" height="6" rx="1" />
+            <rect x="3.5" y="14.5" width="6" height="6" rx="1" />
+            <rect x="14.5" y="14.5" width="6" height="6" rx="1" /></svg
+          ><span class="tool-label">概览</span>
+        </button>
+        <button
+          class="tool"
+          id="fullscreenButton"
+          aria-label="切换全屏"
+          title="全屏 · F"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></svg
+          ><span class="tool-label">全屏</span>
+        </button>
+        <details class="export-menu" id="exportMenu">
+          <summary class="tool" aria-label="导出演示">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5" /></svg
+            ><span class="tool-label">导出</span>
+          </summary>
+          <div class="menu-panel">
+            <button id="svgExport">当前页 · SVG</button
+            ><button id="printExport">全部页面 · 打印 / PDF</button>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="deck" id="deck" aria-label="Agent Team 产品演示，共十页">
+      <section
+        class="slide hero active"
+        data-title="把目标交给数字员工"
+        data-short="一个目标，一支团队"
+        data-print-no="01"
+        aria-label="第 1 页，把目标交给数字员工"
+      >
+        <div class="slide-inner center">
+          <div class="eyebrow">
+            <span class="number">01</span><span class="rule"></span>YOUR NEXT
+            TEAM
+          </div>
+          <h1>把目标交给<br /><span class="accent">数字员工。</span></h1>
+          <p class="description">员工 × 技能 × 工具，组成你的 AI 团队。</p>
+          <div class="figure" id="figure-1"></div>
+          <span class="tagline">让每一个想法，向交付再近一步</span>
+        </div>
+      </section>
+      <section
+        class="slide slide--wide"
+        data-title="让工作从分散走向协同"
+        data-short="问题 → 机制 → 结果"
+        data-print-no="02"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner center">
+          <div class="eyebrow">
+            <span class="number">02</span><span class="rule"></span>LESS
+            FRICTION. MORE PROGRESS.
+          </div>
+          <h2>让工作，从分散走向<span class="accent">协同。</span></h2>
+          <p class="description">围绕同一个目标，把人、能力和工具连接起来。</p>
+          <div class="figure" id="figure-2"></div>
+        </div>
+      </section>
+      <section
+        class="slide"
+        data-title="员工由能力定义"
+        data-short="选择或定义你的员工"
+        data-print-no="03"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">03</span><span class="rule"></span>DIGITAL
+              EMPLOYEES
+            </div>
+            <h2>员工，<br />由<span class="accent">能力</span>定义。</h2>
+            <p class="description">
+              选择现成的员工，或围绕一项工作，组合属于你的角色。
+            </p>
+            <div class="options" role="group" aria-label="选择员工示例">
+              <button
+                class="option role-option"
+                data-role="research"
+                aria-pressed="true"
+              >
+                研究员
+              </button>
+              <button
+                class="option role-option"
+                data-role="engineer"
+                aria-pressed="false"
+              >
+                开发者
+              </button>
+              <button
+                class="option role-option"
+                data-role="operator"
+                aria-pressed="false"
+              >
+                运营助手
+              </button>
+            </div>
+            <p class="example" id="roleDescription">
+              <strong>研究员</strong> · 收集证据，比较方案，形成清晰结论。
+            </p>
+          </div>
+          <div class="figure">
+            <div id="figure-3"></div>
+            <p class="caption">角色与技能组合示意 · 点击角色查看</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide"
+        data-title="需要什么就装什么"
+        data-short="能力可以组合"
+        data-print-no="04"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">04</span><span class="rule"></span>SKILL
+              CARDS
+            </div>
+            <h2>需要什么，<br />就<span class="accent">装什么。</span></h2>
+            <p class="description">
+              把经过审核的工作方法封装成技能。按任务组合，让经验可以复用。
+            </p>
+            <div class="options" role="group" aria-label="切换技能组合">
+              <button
+                class="option skill-option"
+                data-skill="0"
+                aria-pressed="true"
+              >
+                清晰表达 <small>✓</small>
+              </button>
+              <button
+                class="option skill-option"
+                data-skill="1"
+                aria-pressed="true"
+              >
+                领域知识 <small>✓</small>
+              </button>
+              <button
+                class="option skill-option"
+                data-skill="2"
+                aria-pressed="true"
+              >
+                工程验证 <small>✓</small>
+              </button>
+            </div>
+            <div class="context-label" id="skillCount">
+              3 SKILLS · ONE EMPLOYEE
+            </div>
+          </div>
+          <div class="figure">
+            <div id="figure-4"></div>
+            <p class="caption">交互示意 · 点击技能卡，查看组合变化</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide"
+        data-title="熟悉的工具新的执行者"
+        data-short="围绕场景连接工具"
+        data-print-no="05"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">05</span><span class="rule"></span>CONNECTED
+              TO YOUR WORK
+            </div>
+            <h2>熟悉的工具。<br />新的<span class="accent">执行者。</span></h2>
+            <p class="description">
+              围绕一个场景连接一组插件，让数字员工在获准的系统中推进工作。
+            </p>
+            <div class="options" role="group" aria-label="切换插件场景">
+              <button
+                class="option plugin-option"
+                data-scenario="engineering"
+                aria-pressed="true"
+              >
+                软件交付
+              </button>
+              <button
+                class="option plugin-option"
+                data-scenario="content"
+                aria-pressed="false"
+              >
+                内容运营
+              </button>
+            </div>
+            <p class="example" id="pluginDescription">
+              代码、文档、工单与构建工具，围绕同一项交付协作。
+            </p>
+          </div>
+          <div class="figure">
+            <div id="figure-5"></div>
+            <p class="caption">场景连接示意 · 接入范围以实际支持与授权为准</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide"
+        data-title="从目标到结果在一个地方发生"
+        data-short="统一工作台"
+        data-print-no="06"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">06</span><span class="rule"></span>ONE SHARED
+              WORKSPACE
+            </div>
+            <h2>
+              从目标到结果，<br />在<span class="accent">一个地方</span
+              ><br />发生。
+            </h2>
+            <p class="description">
+              分工、进展、交付物和待确认事项，都围绕同一个任务展开。
+            </p>
+            <p class="example">让协作围绕产物推进，让关键决定回到你手中。</p>
+          </div>
+          <div class="figure">
+            <div id="figure-6"></div>
+            <p class="caption">
+              工作台概念界面 · 示例任务与状态，不代表实际运行记录
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide slide--wide"
+        data-title="同一套能力不同的工作"
+        data-short="从具体场景开始"
+        data-print-no="07"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner center">
+          <div class="eyebrow">
+            <span class="number">07</span><span class="rule"></span>BUILT AROUND
+            REAL WORK
+          </div>
+          <h2>同一套能力。<span class="accent">不同的工作。</span></h2>
+          <p class="description">
+            先打通一个场景，再把可复用的能力带进下一个。
+          </p>
+          <div class="figure" id="figure-7"></div>
+          <p class="caption">场景探索示意 · 以真实任务验证需求与交付边界</p>
+        </div>
+      </section>
+      <section
+        class="slide slide--night"
+        data-title="结果可查决定权在你"
+        data-short="交付需要依据"
+        data-print-no="08"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">08</span><span class="rule"></span>BUILT FOR
+              TRUST
+            </div>
+            <h2>结果可查。<br /><span class="accent">决定权在你。</span></h2>
+            <p class="description">
+              把产物、过程和验证放在一起，让每一次交付都有据可查。
+            </p>
+            <p class="example">
+              技术验证与业务确认分别记录。关键动作，保留人工确认。
+            </p>
+          </div>
+          <div class="figure">
+            <div id="figure-8"></div>
+            <p class="caption">交付与确认机制示意</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide"
+        data-title="让经验成为下一次的能力"
+        data-short="评测、审核、升级"
+        data-print-no="09"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner split">
+          <div class="copy">
+            <div class="eyebrow">
+              <span class="number">09</span><span class="rule"></span>EXPERIENCE
+              BECOMES CAPABILITY
+            </div>
+            <h2>
+              让经验，<br />成为下一次的<br /><span class="accent">能力。</span>
+            </h2>
+            <p class="description">
+              把反馈转为改进候选。经过评测与审核，再成为可复用的技能版本。
+            </p>
+            <div class="options" role="group" aria-label="查看技能版本示例">
+              <button
+                class="option version-option"
+                data-version="1.0"
+                aria-pressed="true"
+              >
+                v1.0
+              </button>
+              <button
+                class="option version-option"
+                data-version="1.1"
+                aria-pressed="false"
+              >
+                v1.1
+              </button>
+            </div>
+            <p class="example" id="versionDescription">
+              v1.0 · 基础表达方法：说明问题，再给出结论。
+            </p>
+          </div>
+          <div class="figure">
+            <div id="figure-9"></div>
+            <p class="caption">
+              版本切换示意 · 升级需评测与审核，并保留回退路径
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="slide closing"
+        data-title="你的判断团队的行动"
+        data-short="从下一项工作开始"
+        data-print-no="10"
+        aria-hidden="true"
+        inert
+      >
+        <div class="slide-inner center">
+          <div class="eyebrow">
+            <span class="number">10</span><span class="rule"></span>HUMAN
+            INTENT. AGENT EXECUTION.
+          </div>
+          <h2>你的判断。<br /><span class="accent">团队的行动。</span></h2>
+          <p class="description">从一项真实工作开始，让能力在交付中生长。</p>
+          <div class="figure" id="figure-10"></div>
+          <div class="actions">
+            <button class="primary" id="restartButton">
+              重新观看 <span aria-hidden="true">↗</span></button
+            ><button class="secondary" id="closingOverview">
+              查看全部章节
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="rail" id="rail" aria-label="按页跳转"></nav>
+    <footer class="footer">
+      <div class="footer-left">
+        <span class="edition">SMARTSCITY / 2026</span
+        ><span class="preview">产品概念预览</span>
+      </div>
+      <div class="footer-mid">
+        <span class="keycap">←</span><span class="keycap">→</span
+        ><span>或滚动翻页</span>
+      </div>
+      <div class="nav-arrows">
+        <button class="nav-arrow" id="prev" aria-label="上一页" disabled>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="m14 6-6 6 6 6" />
+          </svg>
+        </button>
+        <span class="count" aria-live="polite"
+          ><strong id="current">01</strong> / 10</span
+        >
+        <button class="nav-arrow" id="next" aria-label="下一页">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="m10 6 6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+    <dialog id="overview" aria-labelledby="overviewTitle">
+      <div class="overview-head">
+        <div>
+          <h2 id="overviewTitle">一个目标，十个切面。</h2>
+          <p>选择章节，直接开始。</p>
+        </div>
+        <button class="overview-close" id="closeOverview" aria-label="关闭概览">
+          ×
+        </button>
+      </div>
+      <div class="overview-grid" id="overviewGrid"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <noscript
+      ><style>
+        html,
+        body {
+          height: auto;
+          overflow: auto;
+        }
+        .header,
+        .deck,
+        .footer,
+        .rail,
+        .progress-track {
+          display: none;
+        }
+        .deck-reading {
+          max-width: 900px;
+          margin: auto;
+          padding: 32px;
+        }
+        .deck-reading section {
+          padding: 24px 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .deck-reading h1 {
+          font-size: 36px;
+        }
+        .deck-reading h2 {
+          font-size: 24px;
+          margin: 18px 0;
+        }
+        .deck-reading p {
+          line-height: 1.8;
+        }
+      </style>
+      <main class="deck-reading">
+        <a href="/en/">Smartscity home</a> · <a href="/zh-CN/">返回官网</a>
+        <h1>Agent Team · Interactive Overview / 数字员工协作演示</h1>
+        <p>Product concept preview / 产品概念预览</p>
+        <section>
+          <h2>
+            Set the goal.<br /><span class="accent">Meet your AI team.</span>
+          </h2>
+          <p>Employees × skills × tools. Your AI team.</p>
+          <h2 lang="zh-CN">
+            把目标交给<br /><span class="accent">数字员工。</span>
+          </h2>
+          <p lang="zh-CN">员工 × 技能 × 工具，组成你的 AI 团队。</p>
+        </section>
+        <section>
+          <h2>Bring work <span class="accent">together.</span></h2>
+          <p>Connect people, skills, and tools around one goal.</p>
+          <h2 lang="zh-CN">
+            让工作，从分散走向<span class="accent">协同。</span>
+          </h2>
+          <p lang="zh-CN">围绕同一个目标，把人、能力和工具连接起来。</p>
+        </section>
+        <section>
+          <h2>Defined by<br /><span class="accent">capability.</span></h2>
+          <p>Choose a ready-made employee, or shape a role around the job.</p>
+          <h2 lang="zh-CN">
+            员工，<br />由<span class="accent">能力</span>定义。
+          </h2>
+          <p lang="zh-CN">选择现成的员工，或围绕一项工作，组合属于你的角色。</p>
+        </section>
+        <section>
+          <h2>Add a skill.<br /><span class="accent">Do more.</span></h2>
+          <p>
+            Turn reviewed methods into reusable skills. Combine them for each
+            task.
+          </p>
+          <h2 lang="zh-CN">
+            需要什么，<br />就<span class="accent">装什么。</span>
+          </h2>
+          <p lang="zh-CN">
+            把经过审核的工作方法封装成技能。按任务组合，让经验可以复用。
+          </p>
+        </section>
+        <section>
+          <h2>Your tools.<br /><span class="accent">AI at work.</span></h2>
+          <p>
+            Connect plugins for a workflow. Let AI employees act within your
+            permissions.
+          </p>
+          <h2 lang="zh-CN">
+            熟悉的工具。<br />新的<span class="accent">执行者。</span>
+          </h2>
+          <p lang="zh-CN">
+            围绕一个场景连接一组插件，让数字员工在获准的系统中推进工作。
+          </p>
+        </section>
+        <section>
+          <h2>
+            From goal<br />to outcome.<br /><span class="accent"
+              >In one place.</span
+            >
+          </h2>
+          <p>Roles, progress, outputs, and decisions, all tied to one task.</p>
+          <h2 lang="zh-CN">
+            从目标到结果，<br />在<span class="accent">一个地方</span
+            ><br />发生。
+          </h2>
+          <p lang="zh-CN">
+            分工、进展、交付物和待确认事项，都围绕同一个任务展开。
+          </p>
+        </section>
+        <section>
+          <h2>Shared skills. <span class="accent">Different jobs.</span></h2>
+          <p>Make one workflow work. Carry proven skills into the next.</p>
+          <h2 lang="zh-CN">
+            同一套能力。<span class="accent">不同的工作。</span>
+          </h2>
+          <p lang="zh-CN">先打通一个场景，再把可复用的能力带进下一个。</p>
+        </section>
+        <section>
+          <h2>See results.<br /><span class="accent">Make the call.</span></h2>
+          <p>
+            Bring outputs, run history, and tests together, so every delivery is
+            reviewable.
+          </p>
+          <h2 lang="zh-CN">
+            结果可查。<br /><span class="accent">决定权在你。</span>
+          </h2>
+          <p lang="zh-CN">
+            把产物、过程和验证放在一起，让每一次交付都有据可查。
+          </p>
+        </section>
+        <section>
+          <h2>
+            Experience<br />becomes<br /><span class="accent">capability.</span>
+          </h2>
+          <p>
+            Turn feedback into proposed improvements. Evaluate and review them
+            before releasing a skill update.
+          </p>
+          <h2 lang="zh-CN">
+            让经验，<br />成为下一次的<br /><span class="accent">能力。</span>
+          </h2>
+          <p lang="zh-CN">
+            把反馈转为改进候选。经过评测与审核，再成为可复用的技能版本。
+          </p>
+        </section>
+        <section>
+          <h2>
+            Your direction.<br /><span class="accent"
+              >Your team in action.</span
+            >
+          </h2>
+          <p>Start with a real task. Build capability through delivery.</p>
+          <h2 lang="zh-CN">
+            你的判断。<br /><span class="accent">团队的行动。</span>
+          </h2>
+          <p lang="zh-CN">从一项真实工作开始，让能力在交付中生长。</p>
+        </section>
+      </main></noscript
+    >
+    <script>
+      'use strict';
+      const EN = {
+        'Smartscity Agent Team — 数字员工、技能卡与协作交付。可离线查看的交互式产品概念演示。':
+          'Smartscity Agent Team — AI employees, skills, and shared delivery. An interactive product concept you can view offline.',
+        打开章节概览: 'Open chapter overview',
+        '章节概览 · O': 'Chapter overview · O',
+        概览: 'Overview',
+        切换全屏: 'Toggle fullscreen',
+        '全屏 · F': 'Fullscreen · F',
+        全屏: 'Fullscreen',
+        导出演示: 'Export presentation',
+        导出: 'Export',
+        '当前页 · SVG': 'Current slide · SVG',
+        '全部页面 · 打印 / PDF': 'All slides · Print / PDF',
+        'Agent Team 产品演示，共十页':
+          'Agent Team product presentation, 10 slides',
+        把目标交给数字员工: 'Give your goal to an AI team',
+        '一个目标，一支团队': 'One goal. One team.',
+        '第 1 页，把目标交给数字员工': 'Slide 1: Give your goal to an AI team',
+        把目标交给: 'Set the goal.',
+        '数字员工。': 'Meet your AI team.',
+        '把目标交给\n数字员工。': 'Set the goal.\nMeet your AI team.',
+        '员工 × 技能 × 工具，组成你的 AI 团队。':
+          'Employees × skills × tools. Your AI team.',
+        '让每一个想法，向交付再近一步': 'Bring every idea closer to delivery',
+        让工作从分散走向协同: 'Bring work together',
+        '问题 → 机制 → 结果': 'Problem → Approach → Outcome',
+        '让工作，从分散走向': 'Bring work ',
+        '协同。': 'together.',
+        '让工作，从分散走向协同。': 'Bring work together.',
+        '围绕同一个目标，把人、能力和工具连接起来。':
+          'Connect people, skills, and tools around one goal.',
+        员工由能力定义: 'Defined by capability',
+        选择或定义你的员工: 'Choose or shape your employee',
+        '员工，': 'AI employees.',
+        由: ' combines ',
+        能力: 'Capability',
+        '定义。': ' defines them.',
+        '员工，\n由能力定义。': 'Defined by\ncapability.',
+        '员工，由能力定义。': 'AI employees. Defined by skills.',
+        '选择现成的员工，或围绕一项工作，组合属于你的角色。':
+          'Choose a ready-made employee, or shape a role around the job.',
+        选择员工示例: 'Choose an example employee',
+        研究员: 'Researcher',
+        开发者: 'Developer',
+        运营助手: 'Ops assistant',
+        '收集证据，比较方案，形成清晰结论。':
+          'Gather evidence, compare options, and reach a clear conclusion.',
+        '理解需求，推进实现，把验证记录一起交付。':
+          'Understand the task, build the solution, and deliver test records.',
+        '围绕内容目标，组织素材、发布准备与复盘。':
+          'Plan content, prepare assets, and review results.',
+        '角色与技能组合示意 · 点击角色查看':
+          'Example skill sets · Select a role',
+        需要什么就装什么: 'Add the skills you need',
+        能力可以组合: 'Skills work together',
+        '需要什么，': 'What you need.',
+        就: 'Just ',
+        '装什么。': 'add the skill.',
+        '需要什么，\n就装什么。': 'Add a skill.\nDo more.',
+        '需要什么，就装什么。': 'Add the skills you need.',
+        '把经过审核的工作方法封装成技能。按任务组合，让经验可以复用。':
+          'Turn reviewed methods into reusable skills. Combine them for each task.',
+        切换技能组合: 'Choose a skill set',
+        清晰表达: 'Clear writing',
+        领域知识: 'Expertise',
+        工程验证: 'Validation',
+        '交互示意 · 点击技能卡，查看组合变化':
+          'Interactive example · Select skills to change the set',
+        熟悉的工具新的执行者: 'Familiar tools. A new teammate.',
+        围绕场景连接工具: 'Connect tools for the task',
+        '熟悉的工具。': 'Familiar tools.',
+        新的: 'A new ',
+        '执行者。': 'teammate.',
+        '熟悉的工具。\n新的执行者。': 'Your tools.\nAI at work.',
+        '熟悉的工具。新的执行者。': 'Familiar tools. A new teammate.',
+        '围绕一个场景连接一组插件，让数字员工在获准的系统中推进工作。':
+          'Connect plugins for a workflow. Let AI employees act within your permissions.',
+        切换插件场景: 'Choose a plugin workflow',
+        软件交付: 'Software delivery',
+        内容运营: 'Content operations',
+        '代码、文档、工单与构建工具，围绕同一项交付协作。':
+          'Code, docs, issues, and builds, working toward one delivery.',
+        '素材、视频、内容平台与效果数据，围绕一个内容目标协作。':
+          'Assets, video, channels, and metrics, working toward one content goal.',
+        '场景连接示意 · 接入范围以实际支持与授权为准':
+          'Illustrative connections · Availability and permissions apply',
+        从目标到结果在一个地方发生: 'From goal to outcome, in one place',
+        统一工作台: 'One shared workspace',
+        '从目标到结果，': 'Goal to outcome.',
+        在: 'In ',
+        一个地方: 'one place.',
+        '发生。': '',
+        '从目标到结果，\n在一个地方\n发生。':
+          'From goal\nto outcome.\nIn one place.',
+        '从目标到结果，在一个地方发生。': 'From goal to outcome, in one place.',
+        '分工、进展、交付物和待确认事项，都围绕同一个任务展开。':
+          'Roles, progress, outputs, and decisions, all tied to one task.',
+        '让协作围绕产物推进，让关键决定回到你手中。':
+          'Keep the team focused on delivery, with key decisions in your hands.',
+        '工作台概念界面 · 示例任务与状态，不代表实际运行记录':
+          'Concept workspace · Sample tasks and statuses',
+        同一套能力不同的工作: 'Shared skills. Different jobs.',
+        从具体场景开始: 'Start with one workflow',
+        '同一套能力。': 'Shared skills.',
+        '不同的工作。': 'Different jobs.',
+        '同一套能力。不同的工作。': 'Shared skills. Different jobs.',
+        '先打通一个场景，再把可复用的能力带进下一个。':
+          'Make one workflow work. Carry proven skills into the next.',
+        '场景探索示意 · 以真实任务验证需求与交付边界':
+          'Example workflows · Validate scope with real tasks',
+        结果可查决定权在你: 'Review the result. Make the call.',
+        交付需要依据: 'Delivery backed by evidence',
+        '结果可查。': 'Review the result.',
+        '决定权在你。': 'Make the call.',
+        '结果可查。\n决定权在你。': 'See results.\nMake the call.',
+        '结果可查。决定权在你。': 'Review the result. Make the call.',
+        '把产物、过程和验证放在一起，让每一次交付都有据可查。':
+          'Bring outputs, run history, and tests together, so every delivery is reviewable.',
+        '技术验证与业务确认分别记录。关键动作，保留人工确认。':
+          'Track tests and business acceptance separately. Keep human approval for key actions.',
+        交付与确认机制示意: 'Delivery and approval concept',
+        让经验成为下一次的能力: 'Turn experience into capability',
+        '评测、审核、升级': 'Evaluate. Review. Upgrade.',
+        '让经验，': 'Let experience',
+        成为下一次的: 'shape your next',
+        '能力。': 'capability.',
+        '让经验，\n成为下一次的\n能力。': 'Experience\nbecomes\ncapability.',
+        '让经验，成为下一次的能力。': 'Turn experience into capability.',
+        '把反馈转为改进候选。经过评测与审核，再成为可复用的技能版本。':
+          'Turn feedback into proposed improvements. Evaluate and review them before releasing a skill update.',
+        查看技能版本示例: 'View example skill versions',
+        'v1.0 · 基础表达方法：说明问题，再给出结论。':
+          'v1.0 · Explain the problem, then the conclusion.',
+        'v1.1 · 增加证据标注：结论可追溯，假设单独说明。':
+          'v1.1 · Cite evidence and label assumptions.',
+        '版本切换示意 · 升级需评测与审核，并保留回退路径':
+          'Version example · Evaluate, review, and keep rollback available',
+        你的判断团队的行动: 'Your direction. Your team in action.',
+        从下一项工作开始: 'Start with the next task',
+        '你的判断。': 'Your direction.',
+        '团队的行动。': 'Your team in action.',
+        '你的判断。\n团队的行动。': 'Your direction.\nYour team in action.',
+        '你的判断。团队的行动。': 'Your direction. Your team in action.',
+        '从一项真实工作开始，让能力在交付中生长。':
+          'Start with a real task. Build capability through delivery.',
+        重新观看: 'Play again',
+        查看全部章节: 'View all chapters',
+        按页跳转: 'Jump to a slide',
+        产品概念预览: 'Product concept',
+        或滚动翻页: 'or scroll to navigate',
+        上一页: 'Previous slide',
+        下一页: 'Next slide',
+        '一个目标，十个切面。': 'One goal. Ten perspectives.',
+        '选择章节，直接开始。': 'Pick a chapter to begin.',
+        关闭概览: 'Close overview',
+        '请在浏览器中启用 JavaScript，以查看图形、翻页和交互。文件无需联网。':
+          'Enable JavaScript to view diagrams and use slide controls. No internet connection is needed.',
+        产品机制示意: 'Product concept diagram',
+        工作目标: 'Goal',
+        交付结果: 'Outcome',
+        技能: 'Skills',
+        工具: 'Tools',
+        '工作目标通过数字员工、技能与工具，走向交付结果':
+          'AI employees, skills, and tools turn a goal into an outcome',
+        反复说明需求: 'Repeating requirements',
+        保留任务上下文: 'Keep task context',
+        逐个交接进度: 'Repeated handoffs',
+        围绕同一目标协作: 'Work toward one goal',
+        手动串联工具: 'Manual tool switching',
+        在授权范围内执行: 'Act within permissions',
+        结果难以复用: 'Hard to reuse results',
+        沉淀为技能与方法: 'Reuse proven methods',
+        工作中的摩擦: 'WORK FRICTION',
+        希望带来的改变: 'INTENDED IMPROVEMENT',
+        '员工 · 技能 · 工具': 'Team · Skills · Tools',
+        '四组工作问题，经员工、技能和工具组合，对应协作与复用的目标':
+          'Four work challenges addressed through employees, skills, and tools',
+        信息检索: 'Research',
+        证据判断: 'Evidence',
+        结构化表达: 'Clear writing',
+        需求澄清: 'Scope',
+        程序实现: 'Build',
+        内容策划: 'Plan',
+        渠道适配: 'Channels',
+        效果复盘: 'Review',
+        '、': ', ',
+        三类示例技能组合: ' in this example',
+        '{role}由{skills}三类示例技能组合':
+          '{role} combines {skills} in this example',
+        '先给结论，再展开依据': 'Lead with the answer',
+        将领域方法带入任务: 'Apply domain knowledge',
+        让实现接受独立检查: 'Check work independently',
+        ' 项技能组合': ' selected',
+        '{count} 项技能组合': 'Skills selected: {count}',
+        能力随工作而组合: 'Skills for the task',
+        三张可切换技能卡连接至同一个数字员工:
+          'Three selectable skills connected to one AI employee',
+        代码仓库: 'Code repo',
+        工作文档: 'Docs',
+        需求与设计: 'Scope & design',
+        工单系统: 'Issues',
+        任务与反馈: 'Tasks & feedback',
+        构建工具: 'Build tools',
+        测试与交付: 'Test & deliver',
+        内容素材: 'Assets',
+        文案与图片: 'Copy & images',
+        视频工具: 'Video tools',
+        剪辑与成片: 'Edit & export',
+        内容平台: 'Channels',
+        发布准备: 'Publish prep',
+        效果数据: 'Metrics',
+        指标与复盘: 'Metrics & review',
+        '一 个 场 景  /  一 组 插 件': 'ONE WORKFLOW / CONNECTED TOOLS',
+        '数字员工在授权范围内，连接':
+          'Within your permissions, the AI employee connects ',
+        '数字员工在授权范围内，连接{tools}':
+          'Within your permissions, the AI employee connects {tools}',
+        概念界面: 'CONCEPT UI',
+        任务: 'Tasks',
+        员工: 'Team',
+        '任务 / 工程交付': 'TASK / SOFTWARE DELIVERY',
+        '构建一个 SFTP 服务': 'Build an SFTP service',
+        示例任务: 'EXAMPLE',
+        '当前重点：审阅方案与验收范围': 'Now: review scope and acceptance',
+        需求与方案: 'Scope & design',
+        待审阅: 'To review',
+        实现与联调: 'Build & integrate',
+        计划中: 'Planned',
+        设计说明: 'Design notes',
+        项目代码: 'Source code',
+        验证记录: 'Test records',
+        交付物: 'Outputs',
+        '工作台概念界面，展示SFTP示例任务的方案审阅、计划和交付物':
+          'Concept workspace showing design review, plans, and outputs for an example SFTP task',
+        工程交付: 'Engineering',
+        把需求推进到可检查的实现: 'From scope to tested software',
+        澄清需求: 'Scope',
+        实现: 'Build',
+        验证: 'Test',
+        '示例  /  SFTP 服务交付': 'EXAMPLE / SFTP SERVICE',
+        业务运营: 'Operations',
+        让一个内容目标连接完整流程: 'One content goal. A full workflow.',
+        制作: 'Create',
+        复盘: 'Review',
+        '示例  /  产品内容准备': 'EXAMPLE / PRODUCT CONTENT',
+        '员工  ×  技能  ×  工具': 'Team × Skills × Tools',
+        '工程交付和业务运营两个探索场景，共用员工、技能、工具的产品能力':
+          'Engineering and operations workflows share employees, skills, and tools',
+        执行轨迹: 'Run history',
+        有据可查的结果: 'Evidence you can review',
+        业务确认: 'Your sign-off',
+        由你决定: 'You decide',
+        '交付物、执行轨迹和验证记录汇聚成可审阅结果，业务确认由人决定':
+          'Outputs, run history, and tests form a reviewable result for human acceptance',
+        反馈: 'Feedback',
+        评测: 'Evaluate',
+        审核: 'Review',
+        技能版本: 'Skill version',
+        经审核的新方法: 'Approved update',
+        当前工作方法: 'Current method',
+        '评测与审核之后，再升级。': 'Evaluate and review before upgrading.',
+        '反馈经过评测、审核形成技能版本，当前查看v':
+          'Feedback becomes a skill version after evaluation and review. Viewing v',
+        '反馈经过评测、审核形成技能版本，当前查看v{version}':
+          'Feedback becomes a skill version after evaluation and review. Viewing v{version}',
+        目标: 'Goal',
+        结果: 'Outcome',
+        '人的目标连接数字员工团队，走向交付结果':
+          'A human goal connects to an AI team and a delivery outcome',
+        '第 ': 'Slide ',
+        ' 页：': ': ',
+        '第 {number} 页：{title}': 'Slide {number}: {title}',
+        '此浏览器不支持全屏，可使用浏览器的全屏模式。':
+          "Fullscreen is unavailable here. Try your browser's fullscreen mode.",
+        '产品概念演示。所示任务、状态、场景与能力组合为设计示意。':
+          'Product concept. Tasks, statuses, workflows, and skill sets are illustrative.',
+        '已导出当前页 SVG': 'Current slide exported as SVG',
+        '· 收集证据，比较方案，形成清晰结论。':
+          '· Gather evidence, compare options, and reach a clear conclusion.',
+        '把目标交给<br><span class="accent">数字员工。</span>':
+          'Set the goal.<br><span class="accent">Meet your AI team.</span>',
+        '让工作，从分散走向<span class="accent">协同。</span>':
+          'Bring work <span class="accent">together.</span>',
+        '员工，<br>由<span class="accent">能力</span>定义。':
+          'Defined by<br><span class="accent">capability.</span>',
+        '需要什么，<br>就<span class="accent">装什么。</span>':
+          'Add a skill.<br><span class="accent">Do more.</span>',
+        '熟悉的工具。<br>新的<span class="accent">执行者。</span>':
+          'Your tools.<br><span class="accent">AI at work.</span>',
+        '从目标到结果，<br>在<span class="accent">一个地方</span><br>发生。':
+          'From goal<br>to outcome.<br><span class="accent">In one place.</span>',
+        '同一套能力。<span class="accent">不同的工作。</span>':
+          'Shared skills. <span class="accent">Different jobs.</span>',
+        '结果可查。<br><span class="accent">决定权在你。</span>':
+          'See results.<br><span class="accent">Make the call.</span>',
+        '让经验，<br>成为下一次的<br><span class="accent">能力。</span>':
+          'Experience<br>becomes<br><span class="accent">capability.</span>',
+        '你的判断。<br><span class="accent">团队的行动。</span>':
+          'Your direction.<br><span class="accent">Your team in action.</span>',
+        切换浅色主题: 'Switch to light theme',
+        切换深色主题: 'Switch to dark theme',
+        切换明暗主题: 'Toggle theme',
+      };
+      let currentLang = 'zh';
+      function tr(text) {
+        return currentLang === 'en' ? (EN[text] ?? text) : text;
+      }
+      const NS = 'http://www.w3.org/2000/svg';
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&apos;',
+            })[c],
+        );
+      const t = (
+        x,
+        y,
+        text,
+        size = 14,
+        fill = 'var(--text)',
+        weight = 500,
+        anchor = 'start',
+        cls = '',
+      ) =>
+        `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="${size}" font-weight="${weight}" fill="${fill}" class="${cls}">${esc(tr(text))}</text>`;
+      const line = (d, blue = false, extra = '') =>
+        `<path d="${d}" class="${blue ? 'wire-blue' : 'wire'} ${extra}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const box = (
+        x,
+        y,
+        w,
+        h,
+        r = 12,
+        fill = 'var(--surface)',
+        stroke = 'var(--line)',
+      ) =>
+        `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="1"/>`;
+      const dot = (x, y, r = 3, fill = 'var(--accent)') =>
+        `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>`;
+      const icon = (name, x, y, size = 24, color = 'var(--accent)') => {
+        const paths = {
+          spark:
+            '<path d="m12 2 2.7 7.3L22 12l-7.3 2.7L12 22l-2.7-7.3L2 12l7.3-2.7Z"/>',
+          code: '<path d="m8 5-6 7 6 7m8-14 6 7-6 7M14 3l-4 18"/>',
+          doc: '<path d="M6 2h9l4 4v16H6Z"/><path d="M14 2v5h5M9 11h7m-7 4h7m-7 4h4"/>',
+          search: '<circle cx="10" cy="10" r="7"/><path d="m15.5 15.5 6 6"/>',
+          chart: '<path d="M3 3v18h18M7 16v-5m5 5V7m5 9V3"/>',
+          check: '<path d="m5 12 5 5L20 6"/>',
+          shield:
+            '<path d="m12 2 9 4v6c0 5-5 8-9 10-4-2-9-5-9-10V6Z"/><path d="m7 12 3 3 7-7"/>',
+          flow: '<rect x="2" y="8" width="6" height="8" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M8 12h4V5h4m-4 7v7h4"/>',
+          link: '<path d="m9 15 6-6m-5-3 2-2a5 5 0 0 1 7 7l-2 2M7 11l-2 2a5 5 0 0 0 7 7l2-2"/>',
+          cloud:
+            '<path d="M6 19a5 5 0 1 1 0-10 7 7 0 0 1 13-1 5.5 5.5 0 0 1 0 11Z"/>',
+          flag: '<path d="M5 22V3m0 0c5-5 9 5 15 0v11c-6 5-10-5-15 0"/>',
+          arrow: '<path d="M3 12h18m-7-7 7 7-7 7"/>',
+          user: '<circle cx="12" cy="7" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/>',
+          layers:
+            '<path d="m12 3 10 5-10 5L2 8Zm-10 9 10 5 10-5M2 17l10 5 10-5"/>',
+          play: '<path d="m8 3 13 9-13 9Z"/>',
+          clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v7l4 2"/>',
+          history: '<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-5v7l4 2"/>',
+          mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/>',
+          globe:
+            '<circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/>',
+          test: '<path d="M8 2h8m-6 0v7L4 19q-1 3 3 3h10q4 0 3-3L14 9V2M7 16h10"/>',
+          settings:
+            '<path d="M3 6h18M3 18h18"/><circle cx="8" cy="6" r="3" fill="var(--surface)"/><circle cx="16" cy="18" r="3" fill="var(--surface)"/>',
+        };
+        return `<g transform="translate(${x} ${y}) scale(${size / 24})" fill="none" stroke="${color}" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.spark}</g>`;
+      };
+      function svg(id, body, viewBox = '0 0 640 460', label = '产品机制示意') {
+        return `<svg xmlns="${NS}" viewBox="${viewBox}" role="img" aria-label="${esc(diagramLabel(id, label))}" data-diagram="${id}">
+ <defs><linearGradient id="${id}-g" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="var(--accent)" stop-opacity=".34"/><stop offset="1" stop-color="var(--mint)" stop-opacity=".045"/></linearGradient></defs>
+ ${body}</svg>`;
+      }
+      function diagramLabel(id, label) {
+        if (currentLang !== 'en') return label;
+        if (id === 'employee') {
+          const r = roles[currentRole];
+          return (
+            tr(r.name) +
+            ' combines ' +
+            r.skills.map(tr).join(', ') +
+            ' in this example'
+          );
+        }
+        if (id === 'plugins')
+          return 'AI employees connect authorized tools for the selected workflow';
+        if (id === 'growth')
+          return (
+            'Feedback becomes a skill version after evaluation and review. Viewing v' +
+            version
+          );
+        return tr(label);
+      }
+      function core(id, cx, cy, s = 1, label = 'AGENT', floating = true) {
+        return `<g${floating ? ' class="float-a"' : ''}><g transform="translate(${cx} ${cy}) scale(${s})">
+ <ellipse cx="0" cy="47" rx="90" ry="28" fill="none" stroke="var(--accent)" stroke-opacity=".13"/>
+ <ellipse cx="0" cy="47" rx="65" ry="20" fill="none" stroke="var(--accent)" stroke-opacity=".2"/>
+ <path d="M-112 47h23m178 0h23" stroke="var(--accent)" stroke-opacity=".22"/>
+ <circle cx="-112" cy="47" r="2.4" fill="var(--accent)" opacity=".4"/>
+ <path d="m0-67 54 31v63L0 58-54 27v-63Z" fill="url(#${id}-g)" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1"/>
+ <path d="m-54-36 54 31 54-31M0-5v63" fill="none" stroke="var(--accent)" stroke-opacity=".7"/>
+ <path d="m0-48 35 20L0-8l-35-20Z" fill="var(--accent)" fill-opacity=".17"/>
+ <path d="m-29-24 29-17 29 17M0-5v41" fill="none" stroke="var(--accent)" stroke-opacity=".6"/>
+ <path d="m-35-57 35-20 35 20M0-91v9M-69-15l-8-5m154 0-8 5" fill="none" stroke="var(--accent)" stroke-opacity=".3"/>
+ <circle cx="0" cy="-96" r="2" fill="var(--accent)" opacity=".55"/>
+ ${t(0, 82, label, 8.2, 'var(--muted)', 500, 'middle', 'mono')}
+ </g></g>`;
+      }
+      function drawHero() {
+        let b = line('M80 154H260Q300 154 325 143M720 154H540Q500 154 475 143');
+        b += `<ellipse cx="400" cy="155" rx="240" ry="75" stroke="var(--line)" fill="none" stroke-dasharray="2 8"/>`;
+        b += line(
+          'M160 196Q260 242 337 188M640 196Q540 242 463 188',
+          true,
+          'flow',
+        );
+        b += core('hero', 400, 132, 1.17, 'AGENT TEAM');
+        [
+          [160, 140, 'doc', '工作目标'],
+          [640, 140, 'flag', '交付结果'],
+          [270, 61, 'spark', '技能'],
+          [530, 61, 'link', '工具'],
+        ].forEach(([x, y, n, l]) => {
+          b +=
+            box(x - 24, y - 24, 48, 48, 16, 'var(--surface)', 'var(--line)') +
+            icon(n, x - 11, y - 11, 22) +
+            t(x, y + 46, l, 11, 'var(--muted)', 400, 'middle');
+        });
+        b += dot(214, 154, 3) + dot(586, 154, 3);
+        $('figure-1').innerHTML = svg(
+          'hero',
+          b,
+          '0 0 800 280',
+          '工作目标通过数字员工、技能与工具，走向交付结果',
+        );
+      }
+      function drawValue() {
+        const rows = [
+          ['反复说明需求', '保留任务上下文'],
+          ['逐个交接进度', '围绕同一目标协作'],
+          ['手动串联工具', '在授权范围内执行'],
+          ['结果难以复用', '沉淀为技能与方法'],
+        ];
+        let b =
+          t(156, 27, '工作中的摩擦', 11, 'var(--muted)', 500, 'middle') +
+          t(764, 27, '希望带来的改变', 11, 'var(--muted)', 500, 'middle');
+        rows.forEach(([l, r], i) => {
+          const y = 60 + i * 70;
+          b +=
+            box(40, y, 232, 47, 9, 'var(--bg)') +
+            dot(61, y + 24, 2.4, 'var(--subtle)') +
+            t(78, y + 29, l, 14, 'var(--muted)', 400);
+          b +=
+            box(648, y, 232, 47, 9, 'var(--surface)') +
+            icon('arrow', 665, y + 14, 18) +
+            t(695, y + 29, r, 14);
+          b += line(
+            `M272 ${y + 23.5}H311Q328 ${y + 23.5} 328 ${y + 23.5 < 190 ? y + 38 : y + 9}V190H382`,
+          );
+          b += line(
+            `M538 190H592V${y + 23.5 < 190 ? y + 38 : y + 9}Q592 ${y + 23.5} 608 ${y + 23.5}H648`,
+          );
+        });
+        b += core('value', 460, 165, 1.05, 'AGENT TEAM');
+        b += t(
+          460,
+          290,
+          '员工 · 技能 · 工具',
+          12,
+          'var(--accent)',
+          500,
+          'middle',
+        );
+        $('figure-2').innerHTML = svg(
+          'value',
+          b,
+          '0 0 920 355',
+          '四组工作问题，经员工、技能和工具组合，对应协作与复用的目标',
+        );
+      }
+      const roles = {
+        research: {
+          name: '研究员',
+          en: 'RESEARCH',
+          skills: ['信息检索', '证据判断', '结构化表达'],
+          icons: ['search', 'shield', 'doc'],
+          desc: '收集证据，比较方案，形成清晰结论。',
+        },
+        engineer: {
+          name: '开发者',
+          en: 'ENGINEERING',
+          skills: ['需求澄清', '程序实现', '工程验证'],
+          icons: ['doc', 'code', 'test'],
+          desc: '理解需求，推进实现，把验证记录一起交付。',
+        },
+        operator: {
+          name: '运营助手',
+          en: 'OPERATIONS',
+          skills: ['内容策划', '渠道适配', '效果复盘'],
+          icons: ['spark', 'globe', 'chart'],
+          desc: '围绕内容目标，组织素材、发布准备与复盘。',
+        },
+      };
+      let currentRole = 'research';
+      function drawEmployee() {
+        const r = roles[currentRole];
+        let b = `<circle cx="320" cy="236" r="165" fill="none" stroke="var(--line)" stroke-dasharray="3 8"/><circle cx="320" cy="236" r="110" fill="var(--surface2)" opacity=".5"/>`;
+        const nodes = [
+          [178, 132],
+          [462, 132],
+          [320, 389],
+        ];
+        nodes.forEach(([x, y], i) => {
+          b += line(`M${x} ${y}L320 236`, true, 'flow');
+          b +=
+            box(x - 69, y - 31, 138, 62, 13) +
+            icon(r.icons[i], x - 48, y - 11, 22) +
+            t(x - 14, y + 5, r.skills[i], 13);
+        });
+        b += core('employee', 320, 222, 1.1, r.en);
+        b += t(320, 336, r.name, 21, 'var(--text)', 550, 'middle');
+        b += t(
+          320,
+          42,
+          'ONE EMPLOYEE · MANY POSSIBILITIES',
+          9,
+          'var(--muted)',
+          400,
+          'middle',
+          'mono',
+        );
+        $('figure-3').innerHTML = svg(
+          'employee',
+          b,
+          '0 0 640 460',
+          r.name + '由' + r.skills.join('、') + '三类示例技能组合',
+        );
+        $('roleDescription').innerHTML =
+          '<strong>' + esc(tr(r.name)) + '</strong> · ' + esc(tr(r.desc));
+      }
+      let skills = [true, true, true];
+      function drawSkills() {
+        let b = '';
+        ['清晰表达', '领域知识', '工程验证'].forEach((l, i) => {
+          const y = 63 + i * 111,
+            on = skills[i],
+            color = on ? 'var(--accent)' : 'var(--line)';
+          b += `<g opacity="${on ? 1 : 0.35}">`;
+          b += line(
+            `M260 ${y + 39}H300Q320 ${y + 39} 320 ${y + 39 < 227 ? y + 59 : y + 19}V227H388`,
+            on,
+            on ? 'flow' : '',
+          );
+          b += box(55, y, 205, 78, 13, on ? 'var(--surface)' : 'var(--bg)');
+          b +=
+            box(72, y + 19, 39, 39, 11, 'var(--surface2)', 'transparent') +
+            icon(['doc', 'layers', 'test'][i], 82, y + 29, 19);
+          b +=
+            t(124, y + 34, l, 15) +
+            t(
+              124,
+              y + 55,
+              [
+                '先给结论，再展开依据',
+                '将领域方法带入任务',
+                '让实现接受独立检查',
+              ][i],
+              9.5,
+              'var(--muted)',
+              400,
+            );
+          b +=
+            dot(241, y + 15, 3, on ? 'var(--accent)' : 'var(--muted)') + '</g>';
+        });
+        b += `<circle cx="455" cy="228" r="104" fill="var(--surface2)" opacity=".45"/>`;
+        b += core('skills', 455, 217, 1.05, 'YOUR EMPLOYEE');
+        b += t(
+          455,
+          330,
+          currentLang === 'en'
+            ? 'Skills selected: ' + skills.filter(Boolean).length
+            : skills.filter(Boolean).length + ' 项技能组合',
+          15,
+          'var(--accent)',
+          550,
+          'middle',
+        );
+        b += t(455, 356, '能力随工作而组合', 11, 'var(--muted)', 400, 'middle');
+        $('figure-4').innerHTML = svg(
+          'skills',
+          b,
+          '0 0 640 460',
+          '三张可切换技能卡连接至同一个数字员工',
+        );
+        const count = skills.filter(Boolean).length;
+        $('skillCount').textContent =
+          currentLang === 'en'
+            ? count + ' SKILL' + (count === 1 ? '' : 'S') + ' · ONE EMPLOYEE'
+            : count + ' 项技能 · 一位员工';
+      }
+      let pluginScenario = 'engineering';
+      function drawPlugins() {
+        const list =
+          pluginScenario === 'engineering'
+            ? [
+                ['代码仓库', 'GitHub / GitLab', 'code'],
+                ['工作文档', '需求与设计', 'doc'],
+                ['工单系统', '任务与反馈', 'flow'],
+                ['构建工具', '测试与交付', 'settings'],
+              ]
+            : [
+                ['内容素材', '文案与图片', 'layers'],
+                ['视频工具', '剪辑与成片', 'play'],
+                ['内容平台', '发布准备', 'globe'],
+                ['效果数据', '指标与复盘', 'chart'],
+              ];
+        const pts = [
+          [88, 78],
+          [400, 78],
+          [88, 315],
+          [400, 315],
+        ];
+        let b = `<circle cx="320" cy="230" r="158" fill="none" stroke="var(--line)" stroke-dasharray="2 9"/>`;
+        pts.forEach(([x, y], i) => {
+          b += line(
+            `M${x + 76} ${y + 33}Q${x < 320 ? 230 : 410} ${y + 33} 320 230`,
+            true,
+            'flow',
+          );
+          b +=
+            box(x, y, 152, 69, 12) +
+            icon(list[i][2], x + 17, y + 19, 23) +
+            t(x + 53, y + 29, list[i][0], 13) +
+            t(x + 53, y + 48, list[i][1], 9, 'var(--muted)', 400);
+        });
+        b += core('plugins', 320, 218, 0.93, 'AUTHORIZED');
+        b += t(
+          320,
+          423,
+          '一 个 场 景  /  一 组 插 件',
+          10,
+          'var(--muted)',
+          400,
+          'middle',
+        );
+        $('figure-5').innerHTML = svg(
+          'plugins',
+          b,
+          '0 0 640 460',
+          '数字员工在授权范围内，连接' + list.map((x) => x[0]).join('、'),
+        );
+        $('pluginDescription').textContent = tr(
+          pluginScenario === 'engineering'
+            ? '代码、文档、工单与构建工具，围绕同一项交付协作。'
+            : '素材、视频、内容平台与效果数据，围绕一个内容目标协作。',
+        );
+      }
+      function drawWorkspace() {
+        let b =
+          box(22, 45, 600, 368, 15) +
+          `<path d="M22 87H622M117 87V413" class="wire"/>`;
+        b +=
+          dot(41, 67, 3, 'var(--line)') +
+          dot(53, 67, 3, 'var(--line)') +
+          dot(65, 67, 3, 'var(--line)');
+        b +=
+          t(321, 71, 'Agent Team', 11, 'var(--muted)', 500, 'middle') +
+          t(577, 71, '概念界面', 8, 'var(--muted)', 400, 'middle');
+        b +=
+          box(33, 109, 73, 32, 7, 'var(--surface2)', 'transparent') +
+          icon('flow', 44, 118, 14) +
+          t(67, 131, '任务', 10, 'var(--accent)');
+        b +=
+          icon('user', 44, 166, 14, 'var(--muted)') +
+          t(67, 179, '员工', 10, 'var(--muted)') +
+          icon('layers', 44, 214, 14, 'var(--muted)') +
+          t(67, 227, '技能', 10, 'var(--muted)');
+        b +=
+          t(140, 121, '任务 / 工程交付', 9, 'var(--muted)', 400) +
+          t(140, 156, '构建一个 SFTP 服务', 23, 'var(--text)', 550);
+        b +=
+          box(140, 174, 64, 22, 11, 'var(--surface2)', 'transparent') +
+          t(172, 189, '示例任务', 8, 'var(--accent)', 500, 'middle');
+        b += t(
+          214,
+          189,
+          '当前重点：审阅方案与验收范围',
+          9,
+          'var(--muted)',
+          400,
+        );
+        const stages = [
+          ['01', '需求与方案', '待审阅', true],
+          ['02', '实现与联调', '计划中', false],
+          ['03', '工程验证', '计划中', false],
+        ];
+        stages.forEach(([n, l, s, a], i) => {
+          const y = 223 + i * 47;
+          b += line(`M140 ${y + 35}H599`);
+          b +=
+            t(
+              143,
+              y + 15,
+              n,
+              9,
+              a ? 'var(--accent)' : 'var(--muted)',
+              400,
+              'start',
+              'mono',
+            ) +
+            t(175, y + 15, l, 12) +
+            dot(532, y + 11, 2, a ? 'var(--accent)' : 'var(--subtle)') +
+            t(543, y + 15, s, 9, a ? 'var(--accent)' : 'var(--muted)', 400);
+        });
+        b +=
+          box(140, 370, 460, 28, 7, 'var(--faint)', 'transparent') +
+          icon('doc', 151, 377, 12, 'var(--muted)') +
+          t(173, 388, '设计说明', 9, 'var(--muted)', 400) +
+          t(270, 388, '项目代码', 9, 'var(--muted)', 400) +
+          t(367, 388, '验证记录', 9, 'var(--muted)', 400) +
+          t(554, 388, '交付物', 8, 'var(--muted)', 400, 'middle');
+        $('figure-6').innerHTML = svg(
+          'workspace',
+          b,
+          '0 0 640 460',
+          '工作台概念界面，展示SFTP示例任务的方案审阅、计划和交付物',
+        );
+      }
+      function drawScenarios() {
+        let b = box(30, 39, 285, 243, 17) + box(605, 39, 285, 243, 17);
+        b +=
+          icon('code', 58, 69, 31) +
+          t(57, 138, '工程交付', 25, 'var(--text)', 550) +
+          t(57, 166, '把需求推进到可检查的实现', 13, 'var(--muted)', 400);
+        b +=
+          line('M57 192H287') +
+          t(57, 218, '澄清需求', 12) +
+          t(153, 218, '实现', 12) +
+          t(224, 218, '验证', 12) +
+          icon('arrow', 124, 207, 14, 'var(--muted)') +
+          icon('arrow', 196, 207, 14, 'var(--muted)');
+        b += t(57, 257, '示例  /  SFTP 服务交付', 10, 'var(--muted)', 400);
+        b +=
+          icon('doc', 632, 69, 31) +
+          t(632, 138, '业务运营', 25, 'var(--text)', 550) +
+          t(632, 166, '让一个内容目标连接完整流程', 13, 'var(--muted)', 400);
+        b +=
+          line('M632 192H862') +
+          t(632, 218, '内容策划', 12) +
+          t(728, 218, '制作', 12) +
+          t(799, 218, '复盘', 12) +
+          icon('arrow', 699, 207, 14, 'var(--muted)') +
+          icon('arrow', 771, 207, 14, 'var(--muted)');
+        b += t(632, 257, '示例  /  产品内容准备', 10, 'var(--muted)', 400);
+        b +=
+          line('M315 160H385', true, 'flow') +
+          line('M535 160H605', true, 'flow');
+        b += core('scenarios', 460, 142, 1.05, 'AGENT TEAM');
+        b +=
+          line('M460 234V305') +
+          dot(460, 305, 3) +
+          t(
+            460,
+            335,
+            '员工  ×  技能  ×  工具',
+            14,
+            'var(--accent)',
+            500,
+            'middle',
+          );
+        $('figure-7').innerHTML = svg(
+          'scenarios',
+          b,
+          '0 0 920 370',
+          '工程交付和业务运营两个探索场景，共用员工、技能、工具的产品能力',
+        );
+      }
+      function drawTrust() {
+        let b = `<circle cx="324" cy="217" r="143" fill="none" stroke="var(--line)" stroke-dasharray="2 9"/>`;
+        [
+          [124, 105, 'doc', '交付物'],
+          [449, 105, 'history', '执行轨迹'],
+          [286, 29, 'test', '验证记录'],
+        ].forEach(([x, y, n, l]) => {
+          b += line(`M${x + 36} ${y + 35}L324 223`, true, 'flow');
+          b +=
+            box(x, y, 76, 65, 12, 'var(--surface)', 'var(--line)') +
+            icon(n, x + 26, y + 13, 24) +
+            t(x + 38, y + 54, l, 10, 'var(--muted)', 400, 'middle');
+        });
+        b +=
+          box(221, 175, 206, 104, 16, 'var(--surface)', 'var(--line)') +
+          icon('shield', 306, 191, 30) +
+          t(324, 247, '有据可查的结果', 15, 'var(--text)', 500, 'middle') +
+          t(
+            324,
+            267,
+            'REVIEWABLE DELIVERY',
+            7.7,
+            'var(--muted)',
+            400,
+            'middle',
+            'mono',
+          );
+        b +=
+          line('M324 279V334', true, 'flow') + line('M318 323l6 6 6-6', true);
+        b +=
+          box(218, 344, 212, 60, 30, 'var(--surface2)', 'var(--line)') +
+          icon('user', 240, 362, 22) +
+          t(279, 369, '业务确认', 13, 'var(--text)', 500) +
+          t(279, 387, '由你决定', 10, 'var(--muted)', 400);
+        $('figure-8').innerHTML = svg(
+          'trust',
+          b,
+          '0 0 640 460',
+          '交付物、执行轨迹和验证记录汇聚成可审阅结果，业务确认由人决定',
+        );
+      }
+      let version = '1.0';
+      function drawGrowth() {
+        const upgraded = version === '1.1';
+        let b = `<ellipse cx="320" cy="224" rx="208" ry="142" fill="none" stroke="var(--line)" stroke-width="1.2"/><path d="M112 224A208 142 0 0 1 528 224" class="wire-blue flow"/>`;
+        const nodes = [
+          [151, 117, '反馈', 'doc'],
+          [489, 117, '评测', 'test'],
+          [489, 332, '审核', 'shield'],
+          [151, 332, '技能版本', 'layers'],
+        ];
+        nodes.forEach(([x, y, l, n]) => {
+          b +=
+            box(x - 49, y - 35, 98, 70, 13) +
+            icon(n, x - 11, y - 20, 22) +
+            t(x, y + 22, l, 11, 'var(--text)', 450, 'middle');
+        });
+        b += core(
+          'growth',
+          320,
+          210,
+          1,
+          upgraded ? 'VERSION 1.1' : 'VERSION 1.0',
+        );
+        b += t(
+          320,
+          313,
+          upgraded ? '经审核的新方法' : '当前工作方法',
+          14,
+          'var(--accent)',
+          500,
+          'middle',
+        );
+        b += t(
+          320,
+          421,
+          '评测与审核之后，再升级。',
+          11,
+          'var(--muted)',
+          400,
+          'middle',
+        );
+        $('figure-9').innerHTML = svg(
+          'growth',
+          b,
+          '0 0 640 460',
+          '反馈经过评测、审核形成技能版本，当前查看v' + version,
+        );
+        $('versionDescription').textContent = tr(
+          upgraded
+            ? 'v1.1 · 增加证据标注：结论可追溯，假设单独说明。'
+            : 'v1.0 · 基础表达方法：说明问题，再给出结论。',
+        );
+      }
+      function drawClosing() {
+        let b = line('M90 148H710') + line('M90 148H710', true, 'flow');
+        b += dot(90, 148, 4) + dot(710, 148, 4);
+        b += core('closing', 400, 121, 1.1, 'AGENT TEAM');
+        b +=
+          t(130, 127, '目标', 12, 'var(--muted)', 400, 'middle') +
+          t(670, 127, '结果', 12, 'var(--muted)', 400, 'middle');
+        b += t(
+          400,
+          247,
+          'S M A R T S C I T Y',
+          11,
+          'var(--muted)',
+          400,
+          'middle',
+        );
+        $('figure-10').innerHTML = svg(
+          'closing',
+          b,
+          '0 0 800 280',
+          '人的目标连接数字员工团队，走向交付结果',
+        );
+      }
+      drawHero();
+      drawValue();
+      drawEmployee();
+      drawSkills();
+      drawPlugins();
+      drawWorkspace();
+      drawScenarios();
+      drawTrust();
+      drawGrowth();
+      drawClosing();
+      const slides = [...document.querySelectorAll('.slide')];
+      let index = 0,
+        toastTimer;
+      slides.forEach((s, i) => {
+        const n = String(i + 1).padStart(2, '0');
+        const btn = document.createElement('button');
+        btn.setAttribute(
+          'aria-label',
+          '第 ' + (i + 1) + ' 页：' + s.dataset.title,
+        );
+        btn.setAttribute('title', n + ' · ' + s.dataset.title);
+        btn.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+        btn.addEventListener('click', () => go(i));
+        $('rail').append(btn);
+        const c = document.createElement('button');
+        c.className = 'chapter' + (i === 0 ? ' current' : '');
+        c.innerHTML =
+          '<span class="chapter-no">' +
+          n +
+          '</span><strong>' +
+          esc(s.dataset.title) +
+          '</strong><small>' +
+          esc(s.dataset.short) +
+          '</small>';
+        c.addEventListener('click', () => {
+          $('overview').close();
+          go(i);
+        });
+        $('overviewGrid').append(c);
+      });
+      function notify(msg) {
+        $('toast').textContent = tr(msg);
+        $('toast').classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(
+          () => $('toast').classList.remove('show'),
+          2300,
+        );
+      }
+      function go(n, replace = false) {
+        n = Math.max(0, Math.min(slides.length - 1, n));
+        if (n === index && !replace) return;
+        index = n;
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === index);
+          s.setAttribute('aria-hidden', String(i !== index));
+          s.inert = i !== index;
+        });
+
+        [...$('rail').children].forEach((b, i) =>
+          b.setAttribute('aria-current', String(i === index)),
+        );
+        [...$('overviewGrid').children].forEach((b, i) =>
+          b.classList.toggle('current', i === index),
+        );
+        $('current').textContent = String(index + 1).padStart(2, '0');
+        $('prev').disabled = index === 0;
+        $('next').disabled = index === slides.length - 1;
+        $('progress').style.width = ((index + 1) / slides.length) * 100 + '%';
+        $('exportMenu').open = false;
+        try {
+          history.replaceState(null, '', '#' + (index + 1));
+        } catch (e) {}
+        document.title =
+          index +
+          1 +
+          '/10 · ' +
+          tr(slides[index].dataset.title) +
+          ' — Agent Team';
+      }
+      $('prev').addEventListener('click', () => go(index - 1));
+      $('next').addEventListener('click', () => go(index + 1));
+      $('overviewButton').addEventListener('click', () =>
+        $('overview').showModal(),
+      );
+      $('closingOverview').addEventListener('click', () =>
+        $('overview').showModal(),
+      );
+      $('closeOverview').addEventListener('click', () => $('overview').close());
+      $('overview').addEventListener('click', (e) => {
+        if (e.target === $('overview')) {
+          const r = $('overview').getBoundingClientRect();
+          if (
+            e.clientX < r.left ||
+            e.clientX > r.right ||
+            e.clientY < r.top ||
+            e.clientY > r.bottom
+          )
+            $('overview').close();
+        }
+      });
+      $('restartButton').addEventListener('click', () => go(0));
+      async function fullscreen() {
+        try {
+          if (document.fullscreenElement) await document.exitFullscreen();
+          else await document.documentElement.requestFullscreen();
+        } catch (e) {
+          notify('此浏览器不支持全屏，可使用浏览器的全屏模式。');
+        }
+      }
+      $('fullscreenButton').addEventListener('click', fullscreen);
+      document.querySelectorAll('.role-option').forEach((b) =>
+        b.addEventListener('click', () => {
+          currentRole = b.dataset.role;
+          document
+            .querySelectorAll('.role-option')
+            .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+          drawEmployee();
+        }),
+      );
+      document.querySelectorAll('.skill-option').forEach((b) =>
+        b.addEventListener('click', () => {
+          const n = Number(b.dataset.skill);
+          skills[n] = !skills[n];
+          b.setAttribute('aria-pressed', String(skills[n]));
+          b.querySelector('small').textContent = skills[n] ? '✓' : '+';
+          drawSkills();
+        }),
+      );
+      document.querySelectorAll('.plugin-option').forEach((b) =>
+        b.addEventListener('click', () => {
+          pluginScenario = b.dataset.scenario;
+          document
+            .querySelectorAll('.plugin-option')
+            .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+          drawPlugins();
+        }),
+      );
+      document.querySelectorAll('.version-option').forEach((b) =>
+        b.addEventListener('click', () => {
+          version = b.dataset.version;
+          document
+            .querySelectorAll('.version-option')
+            .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+          drawGrowth();
+        }),
+      );
+      document.addEventListener('keydown', (e) => {
+        if ($('overview').open) return;
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        const tag = document.activeElement?.tagName;
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
+        if (
+          ['ArrowRight', 'ArrowDown', 'PageDown'].includes(e.key) ||
+          (e.code === 'Space' && tag !== 'BUTTON' && tag !== 'SUMMARY')
+        ) {
+          e.preventDefault();
+          go(index + 1);
+        } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+          e.preventDefault();
+          go(index - 1);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          go(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          go(slides.length - 1);
+        } else if (e.key.toLowerCase() === 'f') {
+          e.preventDefault();
+          fullscreen();
+        } else if (e.key.toLowerCase() === 'o') {
+          e.preventDefault();
+          $('overview').showModal();
+        }
+      });
+      let wheelTotal = 0,
+        lastWheelAt = 0,
+        lastFlipAt = 0;
+      document.addEventListener(
+        'wheel',
+        (e) => {
+          if ($('overview').open || $('exportMenu').open || e.ctrlKey) return;
+          e.preventDefault();
+          const now = Date.now();
+          if (now - lastFlipAt < 650) return;
+          if (now - lastWheelAt > 150) wheelTotal = 0;
+          wheelTotal += e.deltaY;
+          lastWheelAt = now;
+          if (Math.abs(wheelTotal) > 55) {
+            go(index + (wheelTotal > 0 ? 1 : -1));
+            wheelTotal = 0;
+            lastFlipAt = now;
+          }
+        },
+        { passive: false },
+      );
+      let touchStart = null;
+      $('deck').addEventListener(
+        'touchstart',
+        (e) => {
+          if (e.touches.length === 1)
+            touchStart = {
+              x: e.touches[0].clientX,
+              y: e.touches[0].clientY,
+              target: e.target,
+            };
+        },
+        { passive: true },
+      );
+      $('deck').addEventListener(
+        'touchend',
+        (e) => {
+          if (!touchStart || !e.changedTouches.length) return;
+          const dx = e.changedTouches[0].clientX - touchStart.x,
+            dy = e.changedTouches[0].clientY - touchStart.y;
+          if (
+            !touchStart.target.closest('button') &&
+            Math.max(Math.abs(dx), Math.abs(dy)) > 55
+          ) {
+            if (Math.abs(dx) > Math.abs(dy)) go(index + (dx < 0 ? 1 : -1));
+            else go(index + (dy < 0 ? 1 : -1));
+          }
+          touchStart = null;
+        },
+        { passive: true },
+      );
+      window.addEventListener('hashchange', () => {
+        const n = parseInt(location.hash.slice(1), 10);
+        if (n >= 1 && n <= 10) go(n - 1, true);
+      });
+      function download(name, content, type) {
+        const blob = new Blob([content], { type }),
+          url = URL.createObjectURL(blob),
+          a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+      }
+      function wrapText(text, max) {
+        const out = [];
+        let line = '';
+        if (currentLang === 'en') {
+          for (const word of text.split(/\s+/)) {
+            const next = line ? line + ' ' + word : word;
+            if (line && next.length > max) {
+              out.push(line);
+              line = word;
+            } else line = next;
+          }
+        } else {
+          for (const c of text) {
+            line += c;
+            if (line.length >= max) {
+              out.push(line);
+              line = '';
+            }
+          }
+        }
+        if (line) out.push(line);
+        return out;
+      }
+      const svgCss = `text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC',Arial,sans-serif}.mono{font-family:Consolas,monospace}.ink{fill:var(--text)}.muted{fill:var(--muted)}.blue{fill:var(--accent)}.panel{fill:var(--surface)}.soft{fill:var(--surface2)}.line{stroke:var(--line);fill:none}.wire{stroke:var(--line);stroke-width:1.5;fill:none}.wire-blue{stroke:var(--accent);stroke-width:1.5;fill:none}.flow{stroke-dasharray:5 12}`;
+      function buildSlideSVG(n) {
+        const s = slides[n],
+          css = getComputedStyle(s);
+        const keys = [
+          '--bg',
+          '--surface',
+          '--surface2',
+          '--text',
+          '--muted',
+          '--line',
+          '--accent',
+          '--accent-hover',
+          '--ink',
+          '--subtle',
+          '--faint',
+          '--warm',
+          '--mint',
+          '--overlay',
+          '--glow',
+        ];
+        const vars = keys
+          .map((k) => k + ':' + css.getPropertyValue(k).trim())
+          .join(';');
+        let b = `<rect width="1600" height="900" fill="${css.getPropertyValue('--bg').trim()}"/>`;
+        b +=
+          t(
+            64,
+            62,
+            'smartscity',
+            25,
+            css.getPropertyValue('--text').trim(),
+            650,
+          ) +
+          t(
+            250,
+            59,
+            'AGENT TEAM',
+            11,
+            css.getPropertyValue('--muted').trim(),
+            500,
+            'start',
+            'mono',
+          );
+        b += t(
+          1536,
+          60,
+          'PRODUCT CONCEPT',
+          10,
+          css.getPropertyValue('--muted').trim(),
+          400,
+          'end',
+          'mono',
+        );
+        b +=
+          t(
+            64,
+            851,
+            'SMARTSCITY / 2026',
+            11,
+            css.getPropertyValue('--muted').trim(),
+            400,
+            'start',
+            'mono',
+          ) +
+          t(
+            1536,
+            851,
+            String(n + 1).padStart(2, '0') + ' / 10',
+            12,
+            css.getPropertyValue('--muted').trim(),
+            400,
+            'end',
+            'mono',
+          );
+        const heading = s.querySelector('h1,h2');
+        const plainHeading = heading.cloneNode(true);
+        plainHeading
+          .querySelectorAll('br')
+          .forEach((br) => br.replaceWith('\n'));
+        const lines = plainHeading.textContent.split('\n');
+        const wide = s.classList.contains('slide--wide'),
+          center = s.querySelector('.slide-inner').classList.contains('center');
+        if (center) {
+          const baseY = n === 0 ? 169 : 174,
+            font = n === 0 ? 83 : wide ? 62 : 77;
+          lines.forEach((l, i) => {
+            b += t(
+              800,
+              baseY + i * (font * 1.19),
+              l,
+              font,
+              i === lines.length - 1 && !wide ? 'var(--accent)' : 'var(--text)',
+              550,
+              'middle',
+            );
+          });
+          const dY = baseY + lines.length * font * 1.19 + 14;
+          b += t(
+            800,
+            dY,
+            s.querySelector('.description').textContent,
+            21,
+            'var(--muted)',
+            400,
+            'middle',
+          );
+          const source = s.querySelector('.figure svg').cloneNode(true),
+            vb = source.getAttribute('viewBox').split(' ').map(Number);
+          const y = dY + 30,
+            availableH = 795 - y,
+            w = Math.min(wide ? 1300 : 980, (availableH * vb[2]) / vb[3]),
+            h = (w * vb[3]) / vb[2];
+          source.setAttribute('x', String((1600 - w) / 2));
+          source.setAttribute('y', String(y));
+          source.setAttribute('width', String(w));
+          source.setAttribute('height', String(h));
+          b += source.outerHTML;
+        } else {
+          const hFont = 61,
+            baseY = 280 - (lines.length > 2 ? 30 : 0);
+          b += t(
+            90,
+            baseY - 67,
+            s.querySelector('.eyebrow').textContent.replace(/\s+/g, ' ').trim(),
+            11,
+            'var(--muted)',
+            400,
+            'start',
+            'mono',
+          );
+          lines.forEach((l, i) => {
+            b += t(
+              90,
+              baseY + i * 83,
+              l,
+              hFont,
+              i === lines.length - 1 ? 'var(--accent)' : 'var(--text)',
+              550,
+            );
+          });
+          const dY = baseY + lines.length * 83 + 28;
+          wrapText(
+            s.querySelector('.description').textContent,
+            currentLang === 'en' ? 43 : 20,
+          ).forEach((l, i) => {
+            b += t(93, dY + i * 36, l, 19, 'var(--muted)', 400);
+          });
+          const source = s.querySelector('.figure svg').cloneNode(true);
+          source.setAttribute('x', '680');
+          source.setAttribute('y', '190');
+          source.setAttribute('width', '850');
+          source.setAttribute('height', '610');
+          b += source.outerHTML;
+        }
+        const output = `<svg xmlns="${NS}" width="1600" height="900" viewBox="0 0 1600 900" style="${vars}"><title>${esc(tr(s.dataset.title))} — Smartscity Agent Team</title><desc>${esc(tr('产品概念演示。所示任务、状态、场景与能力组合为设计示意。'))}</desc><style>${svgCss}</style>${b}</svg>`;
+        return output.replace(/var\((--[a-z0-9-]+)\)/g, (_, key) =>
+          css.getPropertyValue(key).trim(),
+        );
+      }
+      $('svgExport').addEventListener('click', () => {
+        download(
+          'Agent_Team_' +
+            String(index + 1).padStart(2, '0') +
+            '_' +
+            currentLang +
+            '_' +
+            document.documentElement.dataset.theme +
+            '.svg',
+          buildSlideSVG(index),
+          'image/svg+xml;charset=utf-8',
+        );
+        $('exportMenu').open = false;
+        notify('已导出当前页 SVG');
+      });
+      $('printExport').addEventListener('click', () => {
+        $('exportMenu').open = false;
+        window.print();
+      });
+      document.addEventListener('click', (e) => {
+        if (!$('exportMenu').contains(e.target)) $('exportMenu').open = false;
+      });
+      // A single language state drives content, diagrams, accessibility labels and exports.
+      // Only presentation preferences are stored; this offline file makes no network requests.
+      const originalHeadings = slides.map((s) => ({
+        node: s.querySelector('h1,h2'),
+        html: s.querySelector('h1,h2').innerHTML,
+      }));
+      const staticText = [];
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+      );
+      while (walker.nextNode()) {
+        const node = walker.currentNode,
+          parent = node.parentElement;
+        if (
+          !parent ||
+          parent.closest(
+            'script,style,svg,noscript,#languageButton,.slide h1,.slide h2',
+          )
+        )
+          continue;
+        const original = node.nodeValue,
+          key = original.trim();
+        if (Object.prototype.hasOwnProperty.call(EN, key))
+          staticText.push({ node, original, key });
+      }
+      const staticAttributes = [];
+      document.querySelectorAll('[aria-label],[title]').forEach((node) => {
+        if (
+          node.closest('svg') ||
+          node.id === 'languageButton' ||
+          node.id === 'themeButton'
+        )
+          return;
+        for (const attr of ['aria-label', 'title']) {
+          const original = node.getAttribute(attr);
+          if (original && Object.prototype.hasOwnProperty.call(EN, original))
+            staticAttributes.push({ node, attr, original });
+        }
+      });
+      const preferenceKey = 'smartscity.agent-team.deck.preferences.v2';
+      function savePreferences() {
+        try {
+          localStorage.setItem(
+            preferenceKey,
+            JSON.stringify({
+              lang: currentLang,
+              theme: document.documentElement.dataset.theme,
+            }),
+          );
+        } catch (e) {}
+      }
+      function updateThemeButton() {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        const label = tr(dark ? '切换浅色主题' : '切换深色主题');
+        $('themeButton').setAttribute('aria-label', label);
+        $('themeButton').title = label;
+      }
+      function setTheme(theme, save = true) {
+        document.documentElement.dataset.theme =
+          theme === 'light' ? 'light' : 'dark';
+        updateThemeButton();
+        if (save) savePreferences();
+      }
+      function applyLanguage(lang, save = true) {
+        currentLang = lang === 'en' ? 'en' : 'zh';
+        document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+        $('portalHome').href = currentLang === 'en' ? '/en/' : '/zh-CN/';
+        $('portalHome').setAttribute(
+          'aria-label',
+          currentLang === 'en'
+            ? 'Return to Smartscity'
+            : '返回 Smartscity 官网',
+        );
+        staticText.forEach(({ node, original, key }) => {
+          node.nodeValue =
+            currentLang === 'en' ? original.replace(key, tr(key)) : original;
+        });
+        staticAttributes.forEach(({ node, attr, original }) =>
+          node.setAttribute(attr, tr(original)),
+        );
+        originalHeadings.forEach(({ node, html }) => {
+          node.innerHTML = currentLang === 'en' ? (EN[html] ?? html) : html;
+        });
+        slides.forEach((s, i) => {
+          const label =
+            currentLang === 'en'
+              ? 'Slide ' + (i + 1) + ': ' + tr(s.dataset.title)
+              : '第 ' + (i + 1) + ' 页：' + s.dataset.title;
+          s.setAttribute('aria-label', label);
+          $('rail').children[i].setAttribute('aria-label', label);
+          $('rail').children[i].title =
+            String(i + 1).padStart(2, '0') + ' · ' + tr(s.dataset.title);
+        });
+        $('languageButton').textContent = currentLang === 'en' ? '中' : 'EN';
+        const switchLabel =
+          currentLang === 'en' ? '切换为中文' : 'Switch to English';
+        $('languageButton').setAttribute('aria-label', switchLabel);
+        $('languageButton').title = switchLabel;
+        const meta =
+          'Smartscity Agent Team — 数字员工、技能卡与协作交付。可离线查看的交互式产品概念演示。';
+        document.querySelector('meta[name="description"]').content = tr(meta);
+        drawHero();
+        drawValue();
+        drawEmployee();
+        drawSkills();
+        drawPlugins();
+        drawWorkspace();
+        drawScenarios();
+        drawTrust();
+        drawGrowth();
+        drawClosing();
+        updateThemeButton();
+        go(index, true);
+        if (save) savePreferences();
+      }
+      $('languageButton').addEventListener('click', () =>
+        applyLanguage(currentLang === 'en' ? 'zh' : 'en'),
+      );
+      $('themeButton').addEventListener('click', () =>
+        setTheme(
+          document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark',
+        ),
+      );
+      const initial = parseInt(location.hash.slice(1), 10);
+      let preferences = {};
+      try {
+        preferences =
+          JSON.parse(localStorage.getItem(preferenceKey) || '{}') || {};
+      } catch (e) {}
+      setTheme(preferences.theme, false);
+      applyLanguage(
+        new URLSearchParams(location.search).get('lang') ||
+          preferences.lang ||
+          'en',
+        false,
+      );
+      go(initial >= 1 && initial <= 10 ? initial - 1 : 0, true);
+    </script>
+  </body>
+</html>

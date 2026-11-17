@@ -22,6 +22,9 @@ const t = dictionaries[lang].enterprise;
     </h1>
     <p class="enterprise-lead">{t.intro}</p>
     <div class="enterprise-actions">
+      <a class="text-button" href={`/presentations/agent-team/?lang=${lang}`}>
+        {dictionaries[lang].nav.agentTeamDeck} <span aria-hidden="true">↗</span>
+      </a>
       <a class="button" href={`/${lang}/contact/`}>
         {t.primary} <span aria-hidden="true">↗</span>
       </a>
